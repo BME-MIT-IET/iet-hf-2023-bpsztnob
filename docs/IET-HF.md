@@ -1,0 +1,3 @@
+# Vak virológusok földje
+
+A projekt amiben dolgozni fogunk egy játékot valósít meg, amit a Szoftver Projekt Laboratórium nevű tárgyon készítettünk el. Ez egy többjátékos játék, amiben a játékosok egymás ellen játszanak. A pályán különböző ágensek helyeznek el, amelyeknek az elkészítését meg lehet tanulni. A játék célja az, hogy az meg kell tanulni az összes ágens elkészítésének a módját. Az ágenseket el is lehet készíteni és ezekkel szabotálni lehet a másik játékost. Az ágensek mellett felszerelések találhatóak, amik bizonyos előnyöket nyújtanak, és anyagokat, amikkel el lehet készíteni az ágenseket.
