@@ -2,7 +2,6 @@
     "[java]": {
         "editor.suggest.snippetsPreventQuickSuggestions": false,
         "editor.detectIndentation": false,
-        "editor.insertSpaces": false,
         "editor.tabSize": 4,
     },
     "java.configuration.updateBuildConfiguration": "interactive"
