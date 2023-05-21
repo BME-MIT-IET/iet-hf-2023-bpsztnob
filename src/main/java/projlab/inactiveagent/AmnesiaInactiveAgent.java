@@ -6,6 +6,7 @@ import projlab.Timer;
 import projlab.Virologist;
 import projlab.agent.Agent;
 import projlab.agent.AmnesiaAgent;
+import projlab.util.Constants;
 
 import java.io.Serializable;
 
@@ -26,7 +27,8 @@ public class AmnesiaInactiveAgent extends InactiveAgent implements Serializable 
     }
 
     /**
-     * Létrehoz egy aktív amnesia ágenst, amelyet ráken a paraméterként kapott célpont virológusra.
+     * Létrehoz egy aktív amnesia ágenst, amelyet ráken a paraméterként kapott
+     * célpont virológusra.
      *
      * @param target a megtámadott virológus
      * @param from   a támadó virológus.
@@ -36,14 +38,13 @@ public class AmnesiaInactiveAgent extends InactiveAgent implements Serializable 
         Skeleton.printWithTabs("AmnesiaInactiveAgent.infect(target, from)");
         Skeleton.increaseTabs();
 
-
         Skeleton.printWithTabs("newAgent = new AmnesiaAgent()");
         Agent newAgent = new AmnesiaAgent();
 
         Timer.instance().addSteppable(newAgent);
         target.getInfected(newAgent, from);
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 }
