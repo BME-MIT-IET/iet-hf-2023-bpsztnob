@@ -18,7 +18,7 @@ class ButtonFunctions {
      * A lopást megvalósító gomb funkció
      * A jelenlegi virológust lopásra bírja
      */
-    final static Function<ViewButton.ViewButtonArgs, String> StealEquipment = (viewButtonArgs) -> {
+    final static Function<ViewButton.ViewButtonArgs, String> StealEquipment = viewButtonArgs -> {
         Virologist virologist = viewButtonArgs.getVirologist();
         ArrayList<Virologist> virologists = viewButtonArgs.getVirologist().getTile().getVirologists();
 
@@ -48,7 +48,7 @@ class ButtonFunctions {
      * A genetikai kód megtanulásáért felelő gomb funkciója
      * A jelenlegi virológusnak megtanítja a mezőjén lévő genetikai kódot
      */
-    final static Function<ViewButton.ViewButtonArgs, String> LearnGeneticCode = (viewButtonArgs) -> {
+    final static Function<ViewButton.ViewButtonArgs, String> LearnGeneticCode = viewButtonArgs -> {
         switch (Game.instance().learnGeneticCode()) {
             case FAILED:
                 return "Nem sikerült megtanulni a genetikai kódot.";
@@ -63,7 +63,7 @@ class ButtonFunctions {
      * A felszerelés felvételéért felelő gomb funkciója
      * A jelenlegi virológussal felvetet egy felszerelést
      */
-    final static Function<ViewButton.ViewButtonArgs, String> PickupEquipment = (viewButtonArgs) -> {
+    final static Function<ViewButton.ViewButtonArgs, String> PickupEquipment = viewButtonArgs -> {
         switch (Game.instance().pickupEquipment()) {
             case FAILED:
                 return "Nem sikerult felvenni a felszerelést.";
@@ -80,7 +80,7 @@ class ButtonFunctions {
      * Az anyagfelvételért felelő gomb funkciója
      * A jelenlegi virológussal felvetet anyagot
      */
-    final static Function<ViewButton.ViewButtonArgs, String> PickupMaterials = (viewButtonArgs) -> {
+    final static Function<ViewButton.ViewButtonArgs, String> PickupMaterials = viewButtonArgs -> {
         ArrayList<Material> materials = viewButtonArgs.getVirologist().getTile().getMaterials();
         SelectDialog<Material> vDialog = new SelectDialog<>(materials, false, "Select materials");
         vDialog.setVisible(true);
@@ -184,7 +184,7 @@ class ButtonFunctions {
      * Az inaktív ágens gyártásért felelő gomb funkciója
      * A jelenlegi virológussal elkészíttet egy inaktív ágenst
      */
-    final static Function<ViewButton.ViewButtonArgs, String> MakeInactiveAgent = (viewButtonArgs) -> {
+    final static Function<ViewButton.ViewButtonArgs, String> MakeInactiveAgent = viewButtonArgs -> {
         Virologist virologist = viewButtonArgs.getVirologist();
         ArrayList<GeneticCode> geneticCodes = viewButtonArgs.getVirologist().getGeneticCodes();
 
@@ -206,7 +206,7 @@ class ButtonFunctions {
      * A felszerelés használatáért felelő gomb funkciója
      * A jelenlegi virológussal használtat egy felszerelést.
      */
-    final static Function<ViewButton.ViewButtonArgs, String> UseEquipment = (viewButtonArgs) -> {
+    final static Function<ViewButton.ViewButtonArgs, String> UseEquipment = viewButtonArgs -> {
         Virologist virologist = viewButtonArgs.getVirologist();
         ArrayList<Virologist> virologists = viewButtonArgs.getVirologist().getTile().getVirologists();
 
@@ -233,7 +233,7 @@ class ButtonFunctions {
      * Az anyageldobásért felelő gomb funkciója
      * A jelenlegi virológussal eldobat anyagot
      */
-    final static Function<ViewButton.ViewButtonArgs, String> DumpMaterials = (viewButtonArgs) -> {
+    final static Function<ViewButton.ViewButtonArgs, String> DumpMaterials = viewButtonArgs -> {
         Virologist virologist = viewButtonArgs.getVirologist();
         ArrayList<Material> materials = viewButtonArgs.getVirologist().getMaterials();
 
@@ -254,7 +254,7 @@ class ButtonFunctions {
      * A felszerelés eldobásért felelő gomb funkciója
      * A jelenlegi virológussal eldobat felszerelést
      */
-    final static Function<ViewButton.ViewButtonArgs, String> DumpEquipment = (viewButtonArgs) -> {
+    final static Function<ViewButton.ViewButtonArgs, String> DumpEquipment = viewButtonArgs -> {
         Virologist virologist = viewButtonArgs.getVirologist();
         ArrayList<Equipment> equipment = viewButtonArgs.getVirologist().getEquipment();
 
@@ -272,7 +272,7 @@ class ButtonFunctions {
      * A virlógusnál lévő inaktív ágensek kilistázásáért felelő gomb funkciója
      * A jelenlegi virológussal kilistáztatja a nála lévő inaktív ágenseket
      */
-    final static Function<ViewButton.ViewButtonArgs, String> InactiveAgentInventory = (viewButtonArgs) -> {
+    final static Function<ViewButton.ViewButtonArgs, String> InactiveAgentInventory = viewButtonArgs -> {
         ArrayList<InactiveAgent> inactiveAgents = viewButtonArgs.getVirologist().getInactiveAgents();
         ListDialog<InactiveAgent> vDialog = new ListDialog<>(inactiveAgents, "InactiveAgentInventory");
         vDialog.setVisible(true);
@@ -283,7 +283,7 @@ class ButtonFunctions {
      * A virológusnál lévő anyagok kilistázásáért felelő gomb funkciója
      * A jelenlegi virológussal kilistáztatja a nála lévő anyagokat
      */
-    final static Function<ViewButton.ViewButtonArgs, String> MaterialInventory = (viewButtonArgs) -> {
+    final static Function<ViewButton.ViewButtonArgs, String> MaterialInventory = viewButtonArgs -> {
         ArrayList<Material> materials = viewButtonArgs.getVirologist().getMaterials();
         ListDialog<Material> vDialog = new ListDialog<>(materials, "MaterialInventory");
         vDialog.setVisible(true);
@@ -294,7 +294,7 @@ class ButtonFunctions {
      * A virológusnál lévő felszerelések kilistázásáért felelő gomb funkciója
      * A jelenlegi virológussal kilistáztatja a nála lévő felszereléseket
      */
-    final static Function<ViewButton.ViewButtonArgs, String> EquipmentInventory = (viewButtonArgs) -> {
+    final static Function<ViewButton.ViewButtonArgs, String> EquipmentInventory = viewButtonArgs -> {
         ArrayList<Equipment> equipments = viewButtonArgs.getVirologist().getEquipment();
         ListDialog<Equipment> vDialog = new ListDialog<>(equipments, "EquipmentInventory");
         vDialog.setVisible(true);
@@ -305,7 +305,7 @@ class ButtonFunctions {
      * A virológuson lévő aktív ágensek kilistázásáért felelő gomb funkciója
      * A jelenlegi virológussal kilistáztatja a rajta lévő aktív ágenseket
      */
-    final static Function<ViewButton.ViewButtonArgs, String> ActiveAgentInventory = (viewButtonArgs) -> {
+    final static Function<ViewButton.ViewButtonArgs, String> ActiveAgentInventory = viewButtonArgs -> {
         ArrayList<Agent> agents = viewButtonArgs.getVirologist().getActiveAgents();
         ListDialog<Agent> vDialog = new ListDialog<>(agents, "ActiveAgentInventory");
         vDialog.setVisible(true);
@@ -316,7 +316,7 @@ class ButtonFunctions {
      * A kör befejezéséért felelő gomb funkciója
      * A jelenlegi virológus körét befejezi
      */
-    final static Function<ViewButton.ViewButtonArgs, String> SkipTurn = (viewButtonArgs) -> {
+    final static Function<ViewButton.ViewButtonArgs, String> SkipTurn = viewButtonArgs -> {
         Game.instance().nextTurn();
         return "";
     };

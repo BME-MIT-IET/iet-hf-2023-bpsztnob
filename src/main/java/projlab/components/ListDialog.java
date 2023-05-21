@@ -35,9 +35,9 @@ public class ListDialog<T> extends JDialog {
         add(list, BorderLayout.CENTER);
 
         JButton okButton = new JButton("OK");
-        okButton.addActionListener(e -> {
-            dispose();
-        });
+        okButton.addActionListener(e ->
+            dispose()
+        );
 
         JPanel panel = new JPanel();
         panel.add(okButton);

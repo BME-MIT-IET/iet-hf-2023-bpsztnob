@@ -56,9 +56,8 @@ public class SelectDialog<T> extends JDialog {
             dispose();
         });
         JButton cancelButton = new JButton("Cancel");
-        cancelButton.addActionListener(e -> {
-            dispose();
-        });
+        cancelButton.addActionListener(e ->
+            dispose());
 
         JPanel panel = new JPanel();
         panel.add(okButton);
