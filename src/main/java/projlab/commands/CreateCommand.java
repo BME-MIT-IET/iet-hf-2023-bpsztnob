@@ -22,8 +22,6 @@ public class CreateCommand implements ICommand {
             "AminoAcidMaterial", "NucleotideMaterial",
             "DumpsterTile", "LabTile", "ShelterTile", "StorageTile", "InfectiousLabTile", "Tile",
             "Virologist" };
-
-    // TODO: Dogshit implementacio, at kene irni, de lusta vagyok
     @Override
     public void run(String[] args) {
         String classTypeString = args[0];
