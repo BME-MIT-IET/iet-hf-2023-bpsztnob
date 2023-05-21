@@ -120,6 +120,7 @@ public class Equipment implements Cloneable, Serializable {
     }
 
     public void use(Virologist target) {
+        // Do nothing
     }
 
     /**

@@ -2,6 +2,7 @@ package projlab.material;
 
 import projlab.Prototype;
 import projlab.Skeleton;
+import projlab.util.Constants;
 
 import java.io.Serializable;
 

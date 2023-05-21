@@ -16,4 +16,5 @@ public class Constants {
     public static final String TO_TILE_SUCCESS = " mezőre sikeres.";
     public static final String TO_TILE_FAILED = " mezőre sikertelen.";
     public static final String TO_TILE_FAILED_RANDOM = " mezőre sikertelen. Véletlenszerű mozgás.";
+    public static final String GENETICCODE_ACCEPT = "GeneticCode.accept(code) : boolean";
 }

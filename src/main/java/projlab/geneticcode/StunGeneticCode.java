@@ -10,6 +10,7 @@ import projlab.inactiveagent.StunInactiveAgent;
 import projlab.material.AminoAcidMaterial;
 import projlab.material.Material;
 import projlab.material.NucleotideMaterial;
+import projlab.util.Constants;
 
 import java.io.Serializable;
 import java.util.ArrayList;

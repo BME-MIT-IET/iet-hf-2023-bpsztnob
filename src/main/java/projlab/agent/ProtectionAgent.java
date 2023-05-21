@@ -4,6 +4,7 @@ import projlab.Prototype;
 import projlab.Skeleton;
 import projlab.Virologist;
 import projlab.agent.Agent;
+import projlab.util.Constants;
 
 import java.io.Serializable;
 

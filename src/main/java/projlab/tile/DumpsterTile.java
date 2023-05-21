@@ -3,6 +3,7 @@ package projlab.tile;
 import projlab.Skeleton;
 import projlab.Virologist;
 import projlab.material.Material;
+import projlab.util.Constants;
 
 import java.io.Serializable;
 import java.util.ArrayList;

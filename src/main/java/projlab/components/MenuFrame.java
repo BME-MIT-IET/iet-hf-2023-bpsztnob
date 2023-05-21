@@ -40,6 +40,7 @@ public class MenuFrame extends JFrame {
 
             /**
              * Gombra kattintás esetén új játékot indít.
+             * 
              * @param e the event to be processed
              */
             @Override
@@ -59,22 +60,22 @@ public class MenuFrame extends JFrame {
 
             @Override
             public void mousePressed(MouseEvent e) {
-
+                // Do nothing
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-
+                // Do nothing
             }
 
             @Override
             public void mouseEntered(MouseEvent e) {
-
+                // Do nothing
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-
+                // Do nothing
             }
         });
         panel.repaint();
