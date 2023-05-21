@@ -60,7 +60,7 @@ public class BackpackEquipment extends Equipment implements Serializable {
         Skeleton.printWithTabs("BackpackEquipment.removeMaterials()");
         Skeleton.increaseTabs();
 
-        this.materials.remove(materials);
+        this.materials.removeAll(materials);
 
         Skeleton.printWithTabs("return");
         Skeleton.decreaseTabs();

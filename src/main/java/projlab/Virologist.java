@@ -212,7 +212,6 @@ public class Virologist implements Serializable {
         }
 
         ArrayList<Material> equipmentMaterials = equipment.getMaterials();
-        equipment.removeMaterials(equipmentMaterials);
 
         while (this.materials.size() < MAX_MATERIAL_COUNT && equipmentMaterials.size() > 0) {
             this.materials.add(equipmentMaterials.get(0));
@@ -222,6 +221,7 @@ public class Virologist implements Serializable {
             equipmentMaterials = eq.acceptMaterial(equipmentMaterials);
         }
 
+        equipment.removeMaterials(equipmentMaterials);
         Skeleton.printWithTabs("return");
         Skeleton.decreaseTabs();
     }
