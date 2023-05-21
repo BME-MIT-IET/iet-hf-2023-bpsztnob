@@ -484,7 +484,7 @@ public class TestCases {
         ShelterTile t2 = new ShelterTile();
         BackpackEquipment b1 = new BackpackEquipment();
         t2.addEquipment(b1);
-        ArrayList<Tile> neighbour = new ArrayList<Tile>();
+        ArrayList<Tile> neighbour = new ArrayList<>();
         neighbour.add(t1);
         t2.addNeighbours(neighbour);
         for (int i = 0; i < 4; i++) {

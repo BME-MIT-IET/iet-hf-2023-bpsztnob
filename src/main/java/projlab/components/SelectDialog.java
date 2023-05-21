@@ -8,7 +8,7 @@ public class SelectDialog<T> extends JDialog {
     /**
      * Választható objektumok.
      */
-    transient private ArrayList<T> items;
+    private transient  ArrayList<T> items;
     /**
      * Megadja, hogy 1 vagy több objektumot választhat ki a listából a játékos.
      */
