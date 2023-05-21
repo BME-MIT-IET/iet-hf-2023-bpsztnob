@@ -31,7 +31,7 @@ public class ListDialog<T> extends JDialog {
         for (int i = 0; i < items.size(); i++) {
             texts[i] = items.get(i).getClass().getSimpleName();
         }
-        JList list = new JList<>(texts);
+        JList list = new JList<String>(texts);
         add(list, BorderLayout.CENTER);
 
         JButton okButton = new JButton("OK");
