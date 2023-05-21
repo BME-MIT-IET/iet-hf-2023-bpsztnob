@@ -59,6 +59,8 @@ public class VirologistListCommand implements ICommand {
                     System.out.println(key);
                 }
                 break;
+            default:
+                return;
         }
     }
 }

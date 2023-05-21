@@ -14,13 +14,14 @@ import java.util.Arrays;
  * Létrehoz egy adott típusú objektumot a megadott névvel.
  */
 public class CreateCommand implements ICommand {
-    private String[] allowedClasses = {"AmnesiaAgent", "BearDeezNutsInYourMouthAgent", "DancingAgent", "ProtectionAgent", "StunAgent",
+    private String[] allowedClasses = { "AmnesiaAgent", "BearDeezNutsInYourMouthAgent", "DancingAgent",
+            "ProtectionAgent", "StunAgent",
             "AxeEquipment", "BackpackEquipment", "CoatEquipment", "GlovesEquipment",
             "AmnesiaGeneticCode", "DancingGeneticCode", "ProtectionGeneticCode", "StunGeneticCode",
             "AmnesiaInactiveAgent", "DancingInactiveAgent", "ProtectionInactiveAgent", "StunInactiveAgent",
             "AminoAcidMaterial", "NucleotideMaterial",
             "DumpsterTile", "LabTile", "ShelterTile", "StorageTile", "InfectiousLabTile", "Tile",
-            "Virologist"};
+            "Virologist" };
 
     // TODO: Dogshit implementacio, at kene irni, de lusta vagyok
     @Override
@@ -108,6 +109,8 @@ public class CreateCommand implements ICommand {
                 case "Virologist":
                     new Virologist();
                     break;
+                default:
+                    return;
             }
         }
     }
