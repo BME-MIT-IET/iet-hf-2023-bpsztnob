@@ -3,9 +3,7 @@ package projlab.geneticcode;
 import projlab.Skeleton;
 import projlab.Virologist;
 import projlab.inactiveagent.InactiveAgent;
-import projlab.material.AminoAcidMaterial;
 import projlab.material.Material;
-import projlab.material.NucleotideMaterial;
 
 import java.io.Serializable;
 import java.util.ArrayList;

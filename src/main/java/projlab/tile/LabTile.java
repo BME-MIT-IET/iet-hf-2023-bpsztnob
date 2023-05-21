@@ -1,10 +1,7 @@
 package projlab.tile;
 
-import projlab.Prototype;
 import projlab.Skeleton;
-import projlab.Virologist;
 import projlab.geneticcode.GeneticCode;
-import projlab.tile.Tile;
 
 import java.io.Serializable;
 

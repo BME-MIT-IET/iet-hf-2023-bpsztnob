@@ -3,7 +3,6 @@ package projlab.material;
 import projlab.Skeleton;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 /**
  * Az inaktív ágensek elkészítéséhez szükséges objektumok alapja.

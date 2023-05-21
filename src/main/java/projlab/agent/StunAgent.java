@@ -2,7 +2,6 @@ package projlab.agent;
 
 import projlab.Prototype;
 import projlab.Skeleton;
-import projlab.Virologist;
 
 import java.io.Serializable;
 

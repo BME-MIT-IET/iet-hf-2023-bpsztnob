@@ -1,10 +1,8 @@
 package projlab.tile;
 
-import projlab.Prototype;
 import projlab.Skeleton;
 import projlab.Steppable;
 import projlab.equipment.Equipment;
-import projlab.tile.Tile;
 
 import java.io.Serializable;
 

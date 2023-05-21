@@ -3,15 +3,7 @@ package projlab.commands.virologist;
 import projlab.Prototype;
 import projlab.Virologist;
 import projlab.commands.ICommand;
-import projlab.equipment.Equipment;
-import projlab.geneticcode.GeneticCode;
-import projlab.material.Material;
 import projlab.util.PickupEquipmentEnum;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
 
 /**
  * A virológus felveszi a mezőn lévő felszerelést.

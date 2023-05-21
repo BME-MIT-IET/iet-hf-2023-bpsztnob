@@ -1,6 +1,5 @@
 package projlab.tile;
 
-import projlab.Prototype;
 import projlab.Skeleton;
 import projlab.Timer;
 import projlab.Virologist;

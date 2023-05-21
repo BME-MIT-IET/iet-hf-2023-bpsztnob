@@ -4,7 +4,6 @@ import projlab.Skeleton;
 import projlab.Steppable;
 import projlab.Timer;
 import projlab.Virologist;
-import projlab.material.Material;
 import projlab.tile.Tile;
 
 import java.io.Serializable;

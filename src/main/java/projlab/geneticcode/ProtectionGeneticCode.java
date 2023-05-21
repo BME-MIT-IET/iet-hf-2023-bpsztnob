@@ -4,7 +4,6 @@ import projlab.Prototype;
 import projlab.Skeleton;
 import projlab.Timer;
 import projlab.Virologist;
-import projlab.inactiveagent.AmnesiaInactiveAgent;
 import projlab.inactiveagent.InactiveAgent;
 import projlab.inactiveagent.ProtectionInactiveAgent;
 import projlab.material.AminoAcidMaterial;

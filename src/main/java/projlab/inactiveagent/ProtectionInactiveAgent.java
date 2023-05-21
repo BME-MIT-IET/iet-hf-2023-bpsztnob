@@ -5,9 +5,7 @@ import projlab.Skeleton;
 import projlab.Timer;
 import projlab.Virologist;
 import projlab.agent.Agent;
-import projlab.agent.AmnesiaAgent;
 import projlab.agent.ProtectionAgent;
-import projlab.inactiveagent.InactiveAgent;
 
 import java.io.Serializable;
 

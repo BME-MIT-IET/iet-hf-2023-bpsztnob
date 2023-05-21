@@ -3,14 +3,7 @@ package projlab.commands.labtile;
 import projlab.Prototype;
 import projlab.commands.ICommand;
 import projlab.geneticcode.GeneticCode;
-import projlab.material.Material;
 import projlab.tile.LabTile;
-import projlab.tile.Tile;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
 
 /**
  * Beállítja azt, hogy melyik genetikai kódot lehet megtanulni az adott laboron.

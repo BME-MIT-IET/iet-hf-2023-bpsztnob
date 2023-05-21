@@ -3,7 +3,6 @@ package projlab.commands.virologist;
 import projlab.Prototype;
 import projlab.Virologist;
 import projlab.commands.ICommand;
-import projlab.inactiveagent.InactiveAgent;
 import projlab.material.Material;
 
 import java.util.ArrayList;

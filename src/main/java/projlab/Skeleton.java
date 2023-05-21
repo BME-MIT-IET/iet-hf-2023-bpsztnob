@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Scanner;
-import java.util.Set;
 
 /**
  * A tesztesetek kiválasztásáért és a futtatott függvények kiiratásáért felelős.
