@@ -10,8 +10,8 @@ import projlab.geneticcode.ProtectionGeneticCode;
 import projlab.geneticcode.StunGeneticCode;
 import projlab.tile.*;
 
+import java.security.SecureRandom;
 import java.util.ArrayList;
-import java.util.Random;
 
 /**
  * A pályát alkotó mezők tárolásáért és a pálya legenerálásáért felelős.
@@ -21,7 +21,7 @@ public class Map {
      * A pályát alkotó mezők.
      */
     private ArrayList<Tile> tiles;
-    private Random rnd = new Random();
+    private SecureRandom rnd = new SecureRandom();
 
     /**
      * Legenerálja a mezőket és a hozzájuk tartozó anyagokat, felszereléseket és a
