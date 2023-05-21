@@ -57,16 +57,9 @@ public class StorageTile extends Tile implements Steppable, Serializable {
             counter = RESPAWN_TIME;
             CustomRandom rand = new CustomRandom();
             try {
-                materials.add((Material) Material.MATERIALS[rand.nextInt(Material.MATERIALS.length)].getConstructor()
-                        .newInstance());
-            } catch (InstantiationException e) {
-                throw new RuntimeException(e);
-            } catch (IllegalAccessException e) {
-                throw new RuntimeException(e);
-            } catch (InvocationTargetException e) {
-                throw new RuntimeException(e);
-            } catch (NoSuchMethodException e) {
-                throw new RuntimeException(e);
+                materials.add((Material) Material.MATERIALS[rand.nextInt(Material.MATERIALS.length)].getConstructor().newInstance());
+            } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+                System.out.println(e.getMessage());
             }
 
             Skeleton.decreaseTabs();

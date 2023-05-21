@@ -27,7 +27,7 @@ public class LoadCommand implements ICommand {
             in.close();
             fileIn.close();
         } catch (IOException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
         }
     }
 }

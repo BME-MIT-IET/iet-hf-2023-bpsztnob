@@ -46,12 +46,12 @@ public class ShelterTile extends Tile implements Steppable, Serializable {
         Skeleton.printWithTabs("ShelterTile.getEquipment(): Equipment");
         Skeleton.increaseTabs();
 
-        Equipment equipment = this.equipment;
+        Equipment equipment1 = this.equipment;
         this.equipment = null;
 
         Skeleton.printWithTabs("return equipment");
         Skeleton.decreaseTabs();
-        return equipment;
+        return equipment1;
     }
 
     /**

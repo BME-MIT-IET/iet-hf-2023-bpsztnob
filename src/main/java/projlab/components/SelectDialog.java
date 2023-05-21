@@ -16,7 +16,7 @@ public class SelectDialog<T> extends JDialog {
     /**
      * Ebben jelennek meg az elemek.
      */
-    private JList list;
+    private JList<String> list;
     /**
      * Megadja, hogy a felhasználó az 'OK' gombbal zárta-e be az ablakot.
      */
@@ -47,7 +47,7 @@ public class SelectDialog<T> extends JDialog {
                 texts[i] = "LabTile";
             }
         }
-        list = new JList(texts);
+        list = new JList<String>(texts);
         add(list, BorderLayout.CENTER);
 
         JButton okButton = new JButton("OK");

@@ -28,7 +28,7 @@ public abstract class InactiveAgent implements Steppable, Serializable {
      *
      * @param owner a tulajdonos
      */
-    public InactiveAgent(Virologist owner) {
+    protected InactiveAgent(Virologist owner) {
         this.owner = owner;
         duration = 2;
     }

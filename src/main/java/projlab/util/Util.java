@@ -4,6 +4,9 @@ import java.util.Map;
 import java.util.Objects;
 
 public class Util {
+    private Util(){
+        
+    }
     /**
      * Visszaadja az értékhez tartozó első kulcsot.
      *
