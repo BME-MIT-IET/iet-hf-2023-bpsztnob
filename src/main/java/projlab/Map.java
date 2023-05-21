@@ -103,7 +103,7 @@ public class Map {
         }
         for (int i = 0; i < numberOfTiles; i++) {
             Tile iTile = tiles.get(i);
-            if (iTile.getNeighbours().size() == 0) {
+            if (iTile.getNeighbours().isEmpty()) {
                 Tile randomTile = iTile;
                 while (randomTile == iTile) {
                     randomTile = tiles.get(rnd.nextInt(numberOfTiles));
