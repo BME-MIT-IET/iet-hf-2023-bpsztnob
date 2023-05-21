@@ -35,7 +35,7 @@ public class TestCases {
     /**
      * Ágens magamra kenése mikor kesztyű és köpeny és védő ágens van rajtam
      */
-    public static void InfectSelfWithGlovesCoatProtectionAgent() {
+    public static void infectSelfWithGlovesCoatProtectionAgent() {
         // Test case initialization
         Virologist v1 = new Virologist();
         GlovesEquipment gloves = new GlovesEquipment();
@@ -69,7 +69,7 @@ public class TestCases {
     /**
      * Ágens kenése bénultan
      */
-    public static void InfectWhileStunned() {
+    public static void infectWhileStunned() {
         // Test case initialization
         Virologist v1 = new Virologist();
         Virologist target = new Virologist();
@@ -85,7 +85,7 @@ public class TestCases {
     /**
      * Lopás nem bénult virológustól
      */
-    public static void StealFromNonStunnedVirologist() {
+    public static void stealFromNonStunnedVirologist() {
         // Test case initialization
         Virologist target = new Virologist();
         CoatEquipment equipment = new CoatEquipment();
@@ -107,7 +107,7 @@ public class TestCases {
     /**
      * Lopás bénultan
      */
-    public static void StealWhileStunned() {
+    public static void stealWhileStunned() {
         // Test case initialization
         Virologist target = new Virologist();
         CoatEquipment equipment = new CoatEquipment();
@@ -132,7 +132,7 @@ public class TestCases {
     /**
      * Lopás bénult virológustól, akinek vannak anyagai
      */
-    public static void StealFromStunnedVirologistMaterials() {
+    public static void stealFromStunnedVirologistMaterials() {
         // Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
@@ -155,7 +155,7 @@ public class TestCases {
     /**
      * Lopás bénult virológustól, akinek vannak anyagai és tele vagyok
      */
-    public static void StealFromStunnedVirologistMaterialsWhileFull() {
+    public static void stealFromStunnedVirologistMaterialsWhileFull() {
         // Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
@@ -185,7 +185,7 @@ public class TestCases {
     /**
      * Lopás bénult virológustól, akinek van kesztyűje
      */
-    public static void StealFromStunnedVirologistGloves() {
+    public static void stealFromStunnedVirologistGloves() {
         /* A virológus csak akkor vehet fel kesztyűt, ha ShelterTile-n áll és nincs lebénulva.
          * Ha le van bénulva, akkor nem tudja felvenni a kesztyűt, ha rajta van a kesztyű, akkor
          * nem lehet lebénítani. Emiatt a szükséges tesztkörnyezetet nem lehet megcsinálni, és
@@ -199,7 +199,7 @@ public class TestCases {
      * Ha le van bénulva, akkor nem tudja felvenni a köpenyt, ha rajta van a köpenyt, akkor
      * van esély arra, hogy nem lesz lebénulva.
      */
-    public static void StealFromStunnedVirologistCoat() {
+    public static void stealFromStunnedVirologistCoat() {
         System.out.println("=========AZ EGÉSZ TESTCASE EGY RNG=========");
 
         // Test case initialization
@@ -226,7 +226,7 @@ public class TestCases {
     /**
      * Lopás bénult virológustól, akinek van zsákja, ami üres
      */
-    public static void StealFromStunnedVirologistBackpackNoMaterial() {
+    public static void stealFromStunnedVirologistBackpackNoMaterial() {
         Virologist target = new Virologist();
         BackpackEquipment equipment = new BackpackEquipment();
         Virologist v1 = new Virologist();
@@ -250,7 +250,7 @@ public class TestCases {
     /**
      * Lopás bénult virológustól, akinek van zsákja, ami nem üres
      */
-    public static void StealFromStunnedVirologistBackpackWithMaterials() {
+    public static void stealFromStunnedVirologistBackpackWithMaterials() {
         Virologist target = new Virologist();
         BackpackEquipment equipment = new BackpackEquipment();
         Virologist v1 = new Virologist();
@@ -289,7 +289,7 @@ public class TestCases {
      * Lopás bénult virológustól, akinek van zsákja, ami nem üres, de
      * tele vagyok felszerelésileg, de nem vagyok tele nyersanyagilag
      */
-    public static void StealFromStunnedVirologistBackpackWithMaterialsFullEquipment() {
+    public static void stealFromStunnedVirologistBackpackWithMaterialsFullEquipment() {
         Virologist target = new Virologist();
         BackpackEquipment backpackEquipment = new BackpackEquipment();
         CoatEquipment coatEquipment = new CoatEquipment();
@@ -339,7 +339,7 @@ public class TestCases {
     /**
      * Raktárból anyagfelvétel bénultan
      */
-    public static void PickupMaterialWhileStunned() {
+    public static void pickupMaterialWhileStunned() {
         //Test case init
         Virologist v1 = new Virologist();
         AminoAcidMaterial a1 = new AminoAcidMaterial();
@@ -361,7 +361,7 @@ public class TestCases {
     /**
      * Szabadmezőről anyagfelvétel
      */
-    public static void PickupMaterialFromNonStorageTile() {
+    public static void pickupMaterialFromNonStorageTile() {
         //Test case init
         Virologist v1 = new Virologist();
         AminoAcidMaterial a1 = new AminoAcidMaterial();
@@ -378,7 +378,7 @@ public class TestCases {
     /**
      * Raktárból anyagfelvétel nukleotiddal és aminosavval a raktárban
      */
-    public static void PickupMaterialFromLoadedStorage() {
+    public static void pickupMaterialFromLoadedStorage() {
         //Test case init
         Virologist v1 = new Virologist();
         AminoAcidMaterial a1 = new AminoAcidMaterial();
@@ -399,7 +399,7 @@ public class TestCases {
     /**
      * Raktárból anyagfelvétel anyaggal a raktárban, de a játékos tele van
      */
-    public static void PickupMaterialWhileFull() {
+    public static void pickupMaterialWhileFull() {
         //Test case init
         Virologist v1 = new Virologist();
         ArrayList<Material> l1 = new ArrayList<Material>();
@@ -424,7 +424,7 @@ public class TestCases {
     /**
      * Raktárból anyagfelvétel anyaggal a raktárban,de a játékos tele van, de van zsákja, ami nincs tele
      */
-    public static void PickupMaterialWhileFullAndBackpackNotFull() {
+    public static void pickupMaterialWhileFullAndBackpackNotFull() {
         //Test case
         Virologist v1 = new Virologist();
         ArrayList<Material> l1 = new ArrayList<Material>();
@@ -461,7 +461,7 @@ public class TestCases {
     /**
      * Raktárból anyagfelvétel anyaggal a raktárban, de a játékos tele van, és a nála lévő zsák is tele van
      */
-    public static void PickupMaterialWhileFullAndBackpackIsFull() {
+    public static void pickupMaterialWhileFullAndBackpackIsFull() {
         //Test case
         Virologist v1 = new Virologist();
         ArrayList<Material> l1 = new ArrayList<Material>();
@@ -507,7 +507,7 @@ public class TestCases {
     /**
      * Óvóhelyről felszerelés felvétele bénultan
      */
-    public static void PickupEquipmentWhileStunned() {
+    public static void pickupEquipmentWhileStunned() {
         //Test case init
         Virologist v1 = new Virologist();
         Virologist from = new Virologist();
@@ -529,7 +529,7 @@ public class TestCases {
     /**
      * Szabadmezőről felszerelés felvétel
      */
-    public static void PickupEquipmentFromNoneShelterTile() {
+    public static void pickupEquipmentFromNoneShelterTile() {
         //Test case init
         Virologist v1 = new Virologist();
         Tile t1 = new Tile();
@@ -543,7 +543,7 @@ public class TestCases {
     /**
      * Üres óvóhelyről felszerelés felvétel
      */
-    public static void PickupEquipmentFromEmptyShelter() {
+    public static void pickupEquipmentFromEmptyShelter() {
         //Test case init
         Virologist v1 = new Virologist();
         ShelterTile t1 = new ShelterTile();
@@ -557,7 +557,7 @@ public class TestCases {
     /**
      * Óvóhelyről felszerelés felvétel, ahol kesztyű van
      */
-    public static void PickupGlovesEquipmentFromShelter() {
+    public static void pickupGlovesEquipmentFromShelter() {
         //Test case init
         Virologist v1 = new Virologist();
         ShelterTile t1 = new ShelterTile();
@@ -576,7 +576,7 @@ public class TestCases {
     /**
      * Óvóhelyről felszerelés felvétel, ahol köpeny van
      */
-    public static void PickupCoatEquipmentFromShelter() {
+    public static void pickupCoatEquipmentFromShelter() {
         //Test case init
         Virologist v1 = new Virologist();
         ShelterTile t1 = new ShelterTile();
@@ -595,7 +595,7 @@ public class TestCases {
     /**
      * Óvóhelyről felszerelésfelvétel, ahol zsák van
      */
-    public static void PickupBackpackEquipmentFromShelter() {
+    public static void pickupBackpackEquipmentFromShelter() {
         //Test case init
         Virologist v1 = new Virologist();
         ShelterTile t1 = new ShelterTile();
@@ -614,7 +614,7 @@ public class TestCases {
     /**
      * Óvóhelyről felszerelésfelvétel ahol van felszerelés, de a játékos tele van
      */
-    public static void PickupEquipmentWhileFull() {
+    public static void pickupEquipmentWhileFull() {
         //Test case init
         Virologist v1 = new Virologist();
         ShelterTile t1 = new ShelterTile();
@@ -640,7 +640,7 @@ public class TestCases {
     /**
      * Bénító ágens kenése másik virológusra miközben bénultak vagyunk.
      */
-    public static void StunnedVirologistUsingStunAgent() {
+    public static void stunnedVirologistUsingStunAgent() {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
@@ -656,7 +656,7 @@ public class TestCases {
     /**
      * Védő ágens kenése másik virológusra miközben bénultak vagyunk.
      */
-    public static void StunnedVirologistUsingProtectionAgent() {
+    public static void stunnedVirologistUsingProtectionAgent() {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
@@ -672,7 +672,7 @@ public class TestCases {
     /**
      * Táncoló ágens kenése másik virológusra miközben bénultak vagyunk.
      */
-    public static void StunnedVirologistUsingDancingAgent() {
+    public static void stunnedVirologistUsingDancingAgent() {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
@@ -688,7 +688,7 @@ public class TestCases {
     /**
      * Amnesia ágens kenése másik virológusra miközben bénultak vagyunk.
      */
-    public static void StunnedVirologistUsingAmnesiaAgent() {
+    public static void stunnedVirologistUsingAmnesiaAgent() {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
@@ -704,7 +704,7 @@ public class TestCases {
     /**
      * Bénító ágens kenése védtelen virológusra.
      */
-    public static void UsingStunAgentOnNotProtectedVirologist() {
+    public static void usingStunAgentOnNotProtectedVirologist() {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
@@ -717,7 +717,7 @@ public class TestCases {
     /**
      * Vitustáncoló ágens kenése védtelen virológusra.
      */
-    public static void UsingDancingAgentOnNotProtectedVirologist() {
+    public static void usingDancingAgentOnNotProtectedVirologist() {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
@@ -730,7 +730,7 @@ public class TestCases {
     /**
      * Védő ágens kenése védtelen virológusra.
      */
-    public static void UsingProtectionAgentOnNotProtectedVirologist() {
+    public static void usingProtectionAgentOnNotProtectedVirologist() {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
@@ -743,7 +743,7 @@ public class TestCases {
     /**
      * Amnesia ágens kenése védtelen virológusra.
      */
-    public static void UsingAmnesiaAgentOnNotProtectedVirologist() {
+    public static void usingAmnesiaAgentOnNotProtectedVirologist() {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
@@ -756,7 +756,7 @@ public class TestCases {
     /**
      * Bénító ágens kenése virológusra aki rendelkezik köpennyel.
      */
-    public static void UsingStunAgentOnVirologistWithCoat() {
+    public static void usingStunAgentOnVirologistWithCoat() {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
@@ -778,7 +778,7 @@ public class TestCases {
     /**
      * Vitustáncoló ágens kenése virológusra aki rendelkezik köpennyel.
      */
-    public static void UsingDancingAgentOnVirologistWithCoat() {
+    public static void usingDancingAgentOnVirologistWithCoat() {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
@@ -801,7 +801,7 @@ public class TestCases {
     /**
      * Védő ágens kenése virológusra aki rendelkezik köpennyel.
      */
-    public static void UsingProtectionAgentOnVirologistWithCoat() {
+    public static void usingProtectionAgentOnVirologistWithCoat() {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
@@ -824,7 +824,7 @@ public class TestCases {
     /**
      * Amnesia ágens kenése virológusra aki rendelkezik köpennyel.
      */
-    public static void UsingAmnesiaAgentOnVirologistWithCoat() {
+    public static void usingAmnesiaAgentOnVirologistWithCoat() {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
@@ -847,7 +847,7 @@ public class TestCases {
     /**
      * Bénító ágens kenés védő ágenssel rendelkező virológusra.
      */
-    public static void UsingStunAgentOnVirologistWithProtectionAgent() {
+    public static void usingStunAgentOnVirologistWithProtectionAgent() {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
@@ -863,7 +863,7 @@ public class TestCases {
     /**
      * Védő ágens kenés védő ágenssel rendelkező virológusra.
      */
-    public static void UsingProtectionAgentOnVirologistWithProtectionAgent() {
+    public static void usingProtectionAgentOnVirologistWithProtectionAgent() {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
@@ -879,7 +879,7 @@ public class TestCases {
     /**
      * Vitustáncoló ágens kenés védő ágenssel rendelkező virológusra.
      */
-    public static void UsingDancingAgentOnVirologistWithProtectionAgent() {
+    public static void usingDancingAgentOnVirologistWithProtectionAgent() {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
@@ -895,7 +895,7 @@ public class TestCases {
     /**
      * Amnesia ágens kenés védő ágenssel rendelkező virológusra.
      */
-    public static void UsingAmnesiaAgentOnVirologistWithProtectionAgent() {
+    public static void usingAmnesiaAgentOnVirologistWithProtectionAgent() {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
@@ -911,7 +911,7 @@ public class TestCases {
     /**
      * Bénító ágens kenése kesztyűvel rendelkező virológusra.
      */
-    public static void UsingStunAgentOnVirologistWithGloves() {
+    public static void usingStunAgentOnVirologistWithGloves() {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
@@ -933,7 +933,7 @@ public class TestCases {
     /**
      * Védő ágens kenése kesztyűvel rendelkező virológusra.
      */
-    public static void UsingProtectionAgentOnVirologistWithGloves() {
+    public static void usingProtectionAgentOnVirologistWithGloves() {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
@@ -955,7 +955,7 @@ public class TestCases {
     /**
      * Vitustáncoló ágens kenése kesztyűvel rendelkező virológusra.
      */
-    public static void UsingDancingAgentOnVirologistWithGloves() {
+    public static void usingDancingAgentOnVirologistWithGloves() {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
@@ -977,7 +977,7 @@ public class TestCases {
     /**
      * Amnesia ágens kenése kesztyűvel rendelkező virológusra.
      */
-    public static void UsingAmnesiaAgentOnVirologistWithGloves() {
+    public static void usingAmnesiaAgentOnVirologistWithGloves() {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
@@ -999,7 +999,7 @@ public class TestCases {
     /**
      * Bénító ágens kenése kesztyűvel és köpennyel rendelkező virológusra.
      */
-    public static void UsingStunAgentOnVirologistWithGlovesAndCoat() {
+    public static void usingStunAgentOnVirologistWithGlovesAndCoat() {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
@@ -1034,7 +1034,7 @@ public class TestCases {
     /**
      * Védő ágens kenése kesztyűvel és köpennyel rendelkező virológusra.
      */
-    public static void UsingProtectionAgentOnVirologistWithGlovesAndCoat() {
+    public static void usingProtectionAgentOnVirologistWithGlovesAndCoat() {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
@@ -1069,7 +1069,7 @@ public class TestCases {
     /**
      * Vitustáncoló ágens kenése kesztyűvel és köpennyel rendelkező virológusra.
      */
-    public static void UsingDancingAgentOnVirologistWithGlovesAndCoat() {
+    public static void usingDancingAgentOnVirologistWithGlovesAndCoat() {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
@@ -1104,7 +1104,7 @@ public class TestCases {
     /**
      * Amnesia ágens kenése kesztyűvel és köpennyel rendelkező virológusra.
      */
-    public static void UsingAmnesiaAgentOnVirologistWithGlovesAndCoat() {
+    public static void usingAmnesiaAgentOnVirologistWithGlovesAndCoat() {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
@@ -1139,7 +1139,7 @@ public class TestCases {
     /**
      * Bénító ágens kenése kesztyűvel rendelkező virológusra miközben nekem is van kesztyűm.
      */
-    public static void UsingStunAgentWithGlovesOnVirologistWithGloves() {
+    public static void usingStunAgentWithGlovesOnVirologistWithGloves() {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
@@ -1168,7 +1168,7 @@ public class TestCases {
     /**
      * Védő ágens kenése kesztyűvel rendelkező virológusra miközben nekem is van kesztyűm.
      */
-    public static void UsingProtectionAgentWithGlovesOnVirologistWithGloves() {
+    public static void usingProtectionAgentWithGlovesOnVirologistWithGloves() {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
@@ -1197,7 +1197,7 @@ public class TestCases {
     /**
      * Vitustáncoló ágens kenése kesztyűvel rendelkező virológusra miközben nekem is van kesztyűm.
      */
-    public static void UsingDancingAgentWithGlovesOnVirologistWithGloves() {
+    public static void usingDancingAgentWithGlovesOnVirologistWithGloves() {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
@@ -1226,7 +1226,7 @@ public class TestCases {
     /**
      * Amnesia ágens kenése kesztyűvel rendelkező virológusra miközben nekem is van kesztyűm.
      */
-    public static void UsingAmnesiaAgentWithGlovesOnVirologistWithGloves() {
+    public static void usingAmnesiaAgentWithGlovesOnVirologistWithGloves() {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
@@ -1255,7 +1255,7 @@ public class TestCases {
     /**
      * Bénító ágens kenése kesztyűvel rendelkező virológusra miközben nekem van köpenyem.
      */
-    public static void UsingStunAgentWithCoatOnVirologistWithGloves() {
+    public static void usingStunAgentWithCoatOnVirologistWithGloves() {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
@@ -1286,7 +1286,7 @@ public class TestCases {
     /**
      * Védő ágens kenése kesztyűvel rendelkező virológusra miközben nekem van köpenyem.
      */
-    public static void UsingProtectionAgentWithCoatOnVirologistWithGloves() {
+    public static void usingProtectionAgentWithCoatOnVirologistWithGloves() {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
@@ -1317,7 +1317,7 @@ public class TestCases {
     /**
      * Vitustáncoló ágens kenése kesztyűvel rendelkező virológusra miközben nekem van köpenyem.
      */
-    public static void UsingDancingAgentWithCoatOnVirologistWithGloves() {
+    public static void usingDancingAgentWithCoatOnVirologistWithGloves() {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
@@ -1348,7 +1348,7 @@ public class TestCases {
     /**
      * Amnesia ágens kenése kesztyűvel rendelkező virológusra miközben nekem van köpenyem.
      */
-    public static void UsingAmnesiaAgentWithCoatOnVirologistWithGloves() {
+    public static void usingAmnesiaAgentWithCoatOnVirologistWithGloves() {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
@@ -1379,7 +1379,7 @@ public class TestCases {
     /**
      * Bénító ágens kenése kesztyűvel rendelkező virológusra miközben rajtam védő ágens van.
      */
-    public static void UsingStunAgentWithProtectionAgentOnMyselfOnVirologistWithGloves() {
+    public static void usingStunAgentWithProtectionAgentOnMyselfOnVirologistWithGloves() {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
@@ -1404,7 +1404,7 @@ public class TestCases {
     /**
      * Védő ágens kenése kesztyűvel rendelkező virológusra miközben rajtam védő ágens van.
      */
-    public static void UsingProtectionAgentWithProtectionAgentOnMyselfOnVirologistWithGloves() {
+    public static void usingProtectionAgentWithProtectionAgentOnMyselfOnVirologistWithGloves() {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
@@ -1429,7 +1429,7 @@ public class TestCases {
     /**
      * Vitustáncoló ágens kenése kesztyűvel rendelkező virológusra miközben rajtam védő ágens van.
      */
-    public static void UsingDancingAgentWithProtectionAgentOnMyselfOnVirologistWithGloves() {
+    public static void usingDancingAgentWithProtectionAgentOnMyselfOnVirologistWithGloves() {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
@@ -1454,7 +1454,7 @@ public class TestCases {
     /**
      * Amnesia ágens kenése kesztyűvel rendelkező virológusra miközben rajtam védő ágens van.
      */
-    public static void UsingAmnesiaAgentWithProtectionAgentOnMyselfOnVirologistWithGloves() {
+    public static void usingAmnesiaAgentWithProtectionAgentOnMyselfOnVirologistWithGloves() {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
@@ -1479,7 +1479,7 @@ public class TestCases {
     /**
      * Védő ágens öregítése
      */
-    public static void ProtectionAgentStep() {
+    public static void protectionAgentStep() {
         // Test case initialization
         Virologist from = new Virologist();
         ProtectionAgent prot = new ProtectionAgent();
@@ -1497,7 +1497,7 @@ public class TestCases {
     /**
      * Táncoló ágens öregítése
      */
-    public static void DancingAgentStep() {
+    public static void dancingAgentStep() {
         // Test case initialization
         Virologist from = new Virologist();
         DancingAgent danc = new DancingAgent();
@@ -1515,7 +1515,7 @@ public class TestCases {
     /**
      * Bénító ágens öregítése
      */
-    public static void StunAgentStep() {
+    public static void stunAgentStep() {
         // Test case initialization
         Virologist from = new Virologist();
         StunAgent stun = new StunAgent();
@@ -1533,7 +1533,7 @@ public class TestCases {
     /**
      * Felejtő ágens öregítése
      */
-    public static void AmnesiaAgentStep() {
+    public static void amnesiaAgentStep() {
         // Test case initialization
         Virologist from = new Virologist();
         AmnesiaAgent amne = new AmnesiaAgent();
@@ -1551,7 +1551,7 @@ public class TestCases {
     /**
      * Raktár anyagot generál
      */
-    public static void StorageTileStep() {
+    public static void storageTileStep() {
         StorageTile storage = new StorageTile();
         for (int i = 0; i < 4; i++) {
             storage.step();
@@ -1561,7 +1561,7 @@ public class TestCases {
     /**
      * Virológus eldobja a nála levő anyagokat
      */
-    public static void VirologistDropMaterials() {
+    public static void virologistDropMaterials() {
         // Test case initialization
         Virologist v = new Virologist();
         StorageTile storage = new StorageTile();
@@ -1587,7 +1587,7 @@ public class TestCases {
     /**
      * Bénító ágens készítése
      */
-    public static void MakingStunAgent() {
+    public static void makingStunAgent() {
         //Test case initialization
         Virologist maker = new Virologist();
         StunGeneticCode stuncode = new StunGeneticCode();
@@ -1611,7 +1611,7 @@ public class TestCases {
     /**
      * Vitustánc ágens készítése
      */
-    public static void MakingDancingAgent() {
+    public static void makingDancingAgent() {
         //Test case initialization
         Virologist maker = new Virologist();
         DancingGeneticCode dancingcode = new DancingGeneticCode();
@@ -1633,7 +1633,7 @@ public class TestCases {
     /**
      * Védő ágens készítése
      */
-    public static void MakingProtectionAgent() {
+    public static void makingProtectionAgent() {
         //Test case initialization
         Virologist maker = new Virologist();
         ProtectionGeneticCode protectioncode = new ProtectionGeneticCode();
@@ -1658,7 +1658,7 @@ public class TestCases {
     /**
      * Amnézia ágens készítése
      */
-    public static void MakingAmnesiaAgent() {
+    public static void makingAmnesiaAgent() {
         //Test case initialization
         Virologist maker = new Virologist();
         AmnesiaGeneticCode amnesiacode = new AmnesiaGeneticCode();
@@ -1686,7 +1686,7 @@ public class TestCases {
     /**
      * Lépés szomszédos mezőre
      */
-    public static void MovingToNeighbourTile() {
+    public static void movingToNeighbourTile() {
         //Test case initialization
         Virologist v1 = new Virologist();
         LabTile lab = new LabTile();
@@ -1704,7 +1704,7 @@ public class TestCases {
     /**
      * Bénítva lépés szomszédos mezőre
      */
-    public static void MovingWhileStunned() {
+    public static void movingWhileStunned() {
         //Test case initialization
         Virologist v1 = new Virologist();
         LabTile lab = new LabTile();
@@ -1725,7 +1725,7 @@ public class TestCases {
     /**
      * Vitustáncolva lépés szomszédos mezőre
      */
-    public static void MovingWhileDancing() {
+    public static void movingWhileDancing() {
         //Test case initialization
         Virologist v1 = new Virologist();
         LabTile lab = new LabTile();
@@ -1746,7 +1746,7 @@ public class TestCases {
     /**
      * Lépés nem szomszédos mezőre
      */
-    public static void MovingToNotNeighbourTile() {
+    public static void movingToNotNeighbourTile() {
         //Test case initialization
         Virologist v1 = new Virologist();
         LabTile lab = new LabTile();
@@ -1761,7 +1761,7 @@ public class TestCases {
     /**
      * Új genetikai kód tanulása bénítva
      */
-    public static void LearningNewGeneticCodeWhileStunned() {
+    public static void learningNewGeneticCodeWhileStunned() {
         //Test case initialization
         Virologist v1 = new Virologist();
         LabTile lab = new LabTile();
@@ -1779,7 +1779,7 @@ public class TestCases {
     /**
      * Új genetikai kód tanulása
      */
-    public static void LearningNewGeneticCode() {
+    public static void learningNewGeneticCode() {
         //Test case initialization
         Virologist v1 = new Virologist();
         LabTile lab = new LabTile();
@@ -1795,7 +1795,7 @@ public class TestCases {
     /**
      * Régi genetikai kód tanulása
      */
-    public static void LearningOldGeneticCode() {
+    public static void learningOldGeneticCode() {
         //Test case initialization
         Virologist v1 = new Virologist();
         LabTile lab = new LabTile();
@@ -1812,7 +1812,7 @@ public class TestCases {
     /**
      * Új genetikai kód tanulása és a játék megnyerése
      */
-    public static void LearningNewGeneticCodeAndWinningTheGame() {
+    public static void learningNewGeneticCodeAndWinningTheGame() {
         //Test case initialization
         Virologist v1 = new Virologist();
         LabTile lab1 = new LabTile();
@@ -1855,7 +1855,7 @@ public class TestCases {
     /**
      * Balta felvétele
      */
-    public static void PickupAxe() {
+    public static void pickupAxe() {
         //Test case init
         Virologist v1 = new Virologist();
         ShelterTile t1 = new ShelterTile();
@@ -1871,7 +1871,7 @@ public class TestCases {
     /**
      * Felszerelés eldobása
      */
-    public static void DropEquipment() {
+    public static void dropEquipment() {
         //Test case init
         Virologist v1 = new Virologist();
         ShelterTile t1 = new ShelterTile();
