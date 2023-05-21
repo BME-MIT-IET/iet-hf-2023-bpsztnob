@@ -4,6 +4,7 @@ import projlab.Prototype;
 import projlab.Virologist;
 import projlab.commands.ICommand;
 import projlab.tile.Tile;
+import projlab.util.Constants;
 import projlab.util.MoveEnum;
 
 /**
@@ -21,13 +22,13 @@ public class MoveCommand implements ICommand {
         MoveEnum status = v.move(tile);
         switch (status) {
             case SUCCESFUL:
-                System.out.println("Mozgás " + tileName + " mezőre sikeres.");
+                System.out.println(Constants.MOVING + tileName + Constants.TO_TILE_SUCCESS);
                 break;
             case FAILED:
-                System.out.println("Mozgás " + tileName + " mezőre sikertelen.");
+                System.out.println(Constants.MOVING + tileName + Constants.TO_TILE_FAILED);
                 break;
             case RANDOM_TILE:
-                System.out.println("Mozgás " + tileName + " mezőre sikertelen. Véletlenszerű mozgás.");
+                System.out.println(Constants.MOVING + tileName + Constants.TO_TILE_FAILED_RANDOM);
                 break;
         }
     }

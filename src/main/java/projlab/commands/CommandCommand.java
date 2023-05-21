@@ -89,6 +89,8 @@ public class CommandCommand implements ICommand {
                 case "IsDead":
                     new IsDeadCommand().run(args);
                     break;
+                default:
+                    return;
             }
         }
     }

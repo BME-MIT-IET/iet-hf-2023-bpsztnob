@@ -59,7 +59,7 @@ public class GlovesEquipment extends Equipment implements Serializable {
 
         from.getInfected(agent, owner);
 
-        Skeleton.printWithTabs("return true");
+        Skeleton.printWithTabs(Constants.RETURN_TRUE);
         Skeleton.decreaseTabs();
         return true;
     }

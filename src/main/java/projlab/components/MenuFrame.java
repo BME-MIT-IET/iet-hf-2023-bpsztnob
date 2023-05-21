@@ -26,8 +26,9 @@ public class MenuFrame extends JFrame {
         // Set background picture
         final ImageIcon icon = new ImageIcon("./assets/menuBG.png");
         JPanel panel = new JPanel() {
-            Image img = icon.getImage();
+            transient Image img = icon.getImage();
 
+            @Override
             public void paintComponent(Graphics graphics) {
                 super.paintComponent(graphics);
                 graphics.drawImage(img, 0, 0, this);
@@ -40,6 +41,7 @@ public class MenuFrame extends JFrame {
 
             /**
              * Gombra kattintás esetén új játékot indít.
+             * 
              * @param e the event to be processed
              */
             @Override
@@ -59,22 +61,22 @@ public class MenuFrame extends JFrame {
 
             @Override
             public void mousePressed(MouseEvent e) {
-
+                // Do nothing
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-
+                // Do nothing
             }
 
             @Override
             public void mouseEntered(MouseEvent e) {
-
+                // Do nothing
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-
+                // Do nothing
             }
         });
         panel.repaint();

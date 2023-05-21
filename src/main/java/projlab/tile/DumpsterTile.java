@@ -3,6 +3,7 @@ package projlab.tile;
 import projlab.Skeleton;
 import projlab.Virologist;
 import projlab.material.Material;
+import projlab.util.Constants;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -21,7 +22,8 @@ public class DumpsterTile extends Tile implements Serializable {
     /**
      * A paraméterként kapott anyagokat kitörli a virológus anyagkészletéből.
      *
-     * @param materials az anyagok, amelyeket ki kell törölni a paraméterül kapott virológus anyagkészletéből.
+     * @param materials az anyagok, amelyeket ki kell törölni a paraméterül kapott
+     *                  virológus anyagkészletéből.
      * @param who       az a virológus, akitől ki kell törölni az anyagokat.
      * @return true
      */
@@ -32,7 +34,7 @@ public class DumpsterTile extends Tile implements Serializable {
 
         who.removeMaterials(materials);
 
-        Skeleton.printWithTabs("return true");
+        Skeleton.printWithTabs(Constants.RETURN_TRUE);
         Skeleton.decreaseTabs();
         return true;
     }

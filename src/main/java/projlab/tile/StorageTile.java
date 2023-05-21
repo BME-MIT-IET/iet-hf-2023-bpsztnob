@@ -121,7 +121,7 @@ public class StorageTile extends Tile implements Steppable, Serializable {
 
         this.materials.removeAll(materials);
 
-        Skeleton.printWithTabs("return true");
+        Skeleton.printWithTabs(Constants.RETURN_TRUE);
         Skeleton.decreaseTabs();
         return true;
     }

@@ -92,7 +92,7 @@ public abstract class GeneticCode implements Cloneable, Serializable {
      */
     public boolean accept(GeneticCode code) {
 
-        Skeleton.printWithTabs("GeneticCode.accept(code) : boolean");
+        Skeleton.printWithTabs(Constants.GENETICCODE_ACCEPT);
         Skeleton.increaseTabs();
 
         if (code instanceof AmnesiaGeneticCode) {
@@ -154,7 +154,7 @@ public abstract class GeneticCode implements Cloneable, Serializable {
      * @return false
      */
     public boolean accept(AmnesiaGeneticCode code) {
-        Skeleton.printWithTabs("GeneticCode.accept(code) : boolean");
+        Skeleton.printWithTabs(Constants.GENETICCODE_ACCEPT);
         Skeleton.increaseTabs();
 
         Skeleton.printWithTabs(Constants.RETURN_FALSE);
@@ -170,7 +170,7 @@ public abstract class GeneticCode implements Cloneable, Serializable {
      * @return false
      */
     public boolean accept(ProtectionGeneticCode code) {
-        Skeleton.printWithTabs("GeneticCode.accept(code) : boolean");
+        Skeleton.printWithTabs(Constants.GENETICCODE_ACCEPT);
         Skeleton.increaseTabs();
 
         Skeleton.printWithTabs(Constants.RETURN_FALSE);
@@ -186,7 +186,7 @@ public abstract class GeneticCode implements Cloneable, Serializable {
      * @return false
      */
     public boolean accept(StunGeneticCode code) {
-        Skeleton.printWithTabs("GeneticCode.accept(code) : boolean");
+        Skeleton.printWithTabs(Constants.GENETICCODE_ACCEPT);
         Skeleton.increaseTabs();
 
         Skeleton.printWithTabs(Constants.RETURN_FALSE);
@@ -202,7 +202,7 @@ public abstract class GeneticCode implements Cloneable, Serializable {
      * @return false
      */
     public boolean accept(DancingGeneticCode code) {
-        Skeleton.printWithTabs("GeneticCode.accept(code) : boolean");
+        Skeleton.printWithTabs(Constants.GENETICCODE_ACCEPT);
         Skeleton.increaseTabs();
 
         Skeleton.printWithTabs(Constants.RETURN_FALSE);
