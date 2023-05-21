@@ -74,7 +74,8 @@ public class Skeleton {
         testCases.put("PickupMaterialFromNonStorageTile", TestCases::PickupMaterialFromNonStorageTile);
         testCases.put("PickupMaterialFromLoadedStorage", TestCases::PickupMaterialFromLoadedStorage);
         testCases.put("PickupMaterialWhileFull", TestCases::PickupMaterialWhileFull);
-        testCases.put("PickupMaterialWhileFullAndBackpackNotFull", TestCases::PickupMaterialWhileFullAndBackpackNotFull);
+        testCases.put("PickupMaterialWhileFullAndBackpackNotFull",
+                TestCases::PickupMaterialWhileFullAndBackpackNotFull);
         testCases.put("PickupMaterialWhileFullAndBackpackIsFull", TestCases::PickupMaterialWhileFullAndBackpackIsFull);
 
         testCases.put("PickupEquipmentWhileStunned", TestCases::PickupEquipmentWhileStunned);
@@ -91,66 +92,93 @@ public class Skeleton {
         testCases.put("StealFromNonStunnedVirologist", TestCases::StealFromNonStunnedVirologist);
         testCases.put("StealWhileStunned", TestCases::StealWhileStunned);
         testCases.put("StealFromStunnedVirologistMaterials", TestCases::StealFromStunnedVirologistMaterials);
-        testCases.put("StealFromStunnedVirologistMaterialsWhileFull", TestCases::StealFromStunnedVirologistMaterialsWhileFull);
+        testCases.put("StealFromStunnedVirologistMaterialsWhileFull",
+                TestCases::StealFromStunnedVirologistMaterialsWhileFull);
         testCases.put("StealFromStunnedVirologistCoat", TestCases::StealFromStunnedVirologistCoat);
-        testCases.put("StealFromStunnedVirologistBackpackNoMaterial", TestCases::StealFromStunnedVirologistBackpackNoMaterial);
-        testCases.put("StealFromStunnedVirologistBackpackWithMaterials", TestCases::StealFromStunnedVirologistBackpackWithMaterials);
-        testCases.put("StealFromStunnedVirologistBackpackWithMaterialsFullEquipment", TestCases::StealFromStunnedVirologistBackpackWithMaterialsFullEquipment);
+        testCases.put("StealFromStunnedVirologistBackpackNoMaterial",
+                TestCases::StealFromStunnedVirologistBackpackNoMaterial);
+        testCases.put("StealFromStunnedVirologistBackpackWithMaterials",
+                TestCases::StealFromStunnedVirologistBackpackWithMaterials);
+        testCases.put("StealFromStunnedVirologistBackpackWithMaterialsFullEquipment",
+                TestCases::StealFromStunnedVirologistBackpackWithMaterialsFullEquipment);
 
-
-        //Kenés bénultan
+        // Kenés bénultan
         testCases.put("StunnedVirologistUsingStunAgent", TestCases::StunnedVirologistUsingStunAgent);
         testCases.put("StunnedVirologistUsingProtectionAgent", TestCases::StunnedVirologistUsingProtectionAgent);
         testCases.put("StunnedVirologistUsingDancingAgent", TestCases::StunnedVirologistUsingDancingAgent);
         testCases.put("StunnedVirologistUsingAmnesiaAgent", TestCases::StunnedVirologistUsingAmnesiaAgent);
 
-        //Kenés védtelen virológusra
+        // Kenés védtelen virológusra
         testCases.put("UsingStunAgentOnNotProtectedVirologist", TestCases::UsingStunAgentOnNotProtectedVirologist);
-        testCases.put("UsingProtectionAgentOnNotProtectedVirologist", TestCases::UsingProtectionAgentOnNotProtectedVirologist);
-        testCases.put("UsingDancingAgentOnNotProtectedVirologist", TestCases::UsingDancingAgentOnNotProtectedVirologist);
-        testCases.put("UsingAmnesiaAgentOnNotProtectedVirologist", TestCases::UsingAmnesiaAgentOnNotProtectedVirologist);
+        testCases.put("UsingProtectionAgentOnNotProtectedVirologist",
+                TestCases::UsingProtectionAgentOnNotProtectedVirologist);
+        testCases.put("UsingDancingAgentOnNotProtectedVirologist",
+                TestCases::UsingDancingAgentOnNotProtectedVirologist);
+        testCases.put("UsingAmnesiaAgentOnNotProtectedVirologist",
+                TestCases::UsingAmnesiaAgentOnNotProtectedVirologist);
 
-        //Kenés köpennyel rendelkező virológusra
+        // Kenés köpennyel rendelkező virológusra
         testCases.put("UsingStunAgentOnVirologistWithCoat", TestCases::UsingStunAgentOnVirologistWithCoat);
         testCases.put("UsingProtectionAgentOnVirologistWithCoat", TestCases::UsingProtectionAgentOnVirologistWithCoat);
         testCases.put("UsingDancingAgentOnVirologistWithCoat", TestCases::UsingDancingAgentOnVirologistWithCoat);
         testCases.put("UsingAmnesiaAgentOnVirologistWithCoat", TestCases::UsingAmnesiaAgentOnVirologistWithCoat);
 
-        //Kenés védő ágenssel rendelkező virológusra
-        testCases.put("UsingStunAgentOnVirologistWithProtectionAgent", TestCases::UsingStunAgentOnVirologistWithProtectionAgent);
-        testCases.put("UsingProtectionAgentOnVirologistWithProtectionAgent", TestCases::UsingProtectionAgentOnVirologistWithProtectionAgent);
-        testCases.put("UsingDancingAgentOnVirologistWithProtectionAgent", TestCases::UsingDancingAgentOnVirologistWithProtectionAgent);
-        testCases.put("UsingAmnesiaAgentOnVirologistWithProtectionAgent", TestCases::UsingAmnesiaAgentOnVirologistWithProtectionAgent);
+        // Kenés védő ágenssel rendelkező virológusra
+        testCases.put("UsingStunAgentOnVirologistWithProtectionAgent",
+                TestCases::UsingStunAgentOnVirologistWithProtectionAgent);
+        testCases.put("UsingProtectionAgentOnVirologistWithProtectionAgent",
+                TestCases::UsingProtectionAgentOnVirologistWithProtectionAgent);
+        testCases.put("UsingDancingAgentOnVirologistWithProtectionAgent",
+                TestCases::UsingDancingAgentOnVirologistWithProtectionAgent);
+        testCases.put("UsingAmnesiaAgentOnVirologistWithProtectionAgent",
+                TestCases::UsingAmnesiaAgentOnVirologistWithProtectionAgent);
 
-        //Kenés kesztyűvel rendelkező virológusra
+        // Kenés kesztyűvel rendelkező virológusra
         testCases.put("UsingStunAgentOnVirologistWithGloves", TestCases::UsingStunAgentOnVirologistWithGloves);
-        testCases.put("UsingProtectionAgentOnVirologistWithGloves", TestCases::UsingProtectionAgentOnVirologistWithGloves);
+        testCases.put("UsingProtectionAgentOnVirologistWithGloves",
+                TestCases::UsingProtectionAgentOnVirologistWithGloves);
         testCases.put("UsingDancingAgentOnVirologistWithGloves", TestCases::UsingDancingAgentOnVirologistWithGloves);
         testCases.put("UsingAmnesiaAgentOnVirologistWithGloves", TestCases::UsingAmnesiaAgentOnVirologistWithGloves);
 
-        //Kenés köpennyel és kesztyűvel rendelkező virológusra
-        testCases.put("UsingStunAgentOnVirologistWithGlovesAndCoat", TestCases::UsingStunAgentOnVirologistWithGlovesAndCoat);
-        testCases.put("UsingProtectionAgentOnVirologistWithGlovesAndCoat", TestCases::UsingProtectionAgentOnVirologistWithGlovesAndCoat);
-        testCases.put("UsingDancingAgentOnVirologistWithGlovesAndCoat", TestCases::UsingDancingAgentOnVirologistWithGlovesAndCoat);
-        testCases.put("UsingAmnesiaAgentOnVirologistWithGlovesAndCoat", TestCases::UsingAmnesiaAgentOnVirologistWithGlovesAndCoat);
+        // Kenés köpennyel és kesztyűvel rendelkező virológusra
+        testCases.put("UsingStunAgentOnVirologistWithGlovesAndCoat",
+                TestCases::UsingStunAgentOnVirologistWithGlovesAndCoat);
+        testCases.put("UsingProtectionAgentOnVirologistWithGlovesAndCoat",
+                TestCases::UsingProtectionAgentOnVirologistWithGlovesAndCoat);
+        testCases.put("UsingDancingAgentOnVirologistWithGlovesAndCoat",
+                TestCases::UsingDancingAgentOnVirologistWithGlovesAndCoat);
+        testCases.put("UsingAmnesiaAgentOnVirologistWithGlovesAndCoat",
+                TestCases::UsingAmnesiaAgentOnVirologistWithGlovesAndCoat);
 
-        //Kenés kesztyűvel egy kesztyűvel rendelkező virológusra
-        testCases.put("UsingStunAgentWithGlovesOnVirologistWithGloves", TestCases::UsingStunAgentWithGlovesOnVirologistWithGloves);
-        testCases.put("UsingProtectionAgentWithGlovesOnVirologistWithGloves", TestCases::UsingProtectionAgentWithGlovesOnVirologistWithGloves);
-        testCases.put("UsingDancingAgentWithGlovesOnVirologistWithGloves", TestCases::UsingDancingAgentWithGlovesOnVirologistWithGloves);
-        testCases.put("UsingAmnesiaAgentWithGlovesOnVirologistWithGloves", TestCases::UsingAmnesiaAgentWithGlovesOnVirologistWithGloves);
+        // Kenés kesztyűvel egy kesztyűvel rendelkező virológusra
+        testCases.put("UsingStunAgentWithGlovesOnVirologistWithGloves",
+                TestCases::UsingStunAgentWithGlovesOnVirologistWithGloves);
+        testCases.put("UsingProtectionAgentWithGlovesOnVirologistWithGloves",
+                TestCases::UsingProtectionAgentWithGlovesOnVirologistWithGloves);
+        testCases.put("UsingDancingAgentWithGlovesOnVirologistWithGloves",
+                TestCases::UsingDancingAgentWithGlovesOnVirologistWithGloves);
+        testCases.put("UsingAmnesiaAgentWithGlovesOnVirologistWithGloves",
+                TestCases::UsingAmnesiaAgentWithGlovesOnVirologistWithGloves);
 
-        //Kenés köpennyel egy kesztyűvel rendelkező virológusra
-        testCases.put("UsingStunAgentWithCoatOnVirologistWithGloves", TestCases::UsingStunAgentWithCoatOnVirologistWithGloves);
-        testCases.put("UsingProtectionAgentWithCoatOnVirologistWithGloves", TestCases::UsingProtectionAgentWithCoatOnVirologistWithGloves);
-        testCases.put("UsingDancingAgentWithCoatOnVirologistWithGloves", TestCases::UsingDancingAgentWithCoatOnVirologistWithGloves);
-        testCases.put("UsingAmnesiaAgentWithCoatOnVirologistWithGloves", TestCases::UsingAmnesiaAgentWithCoatOnVirologistWithGloves);
+        // Kenés köpennyel egy kesztyűvel rendelkező virológusra
+        testCases.put("UsingStunAgentWithCoatOnVirologistWithGloves",
+                TestCases::UsingStunAgentWithCoatOnVirologistWithGloves);
+        testCases.put("UsingProtectionAgentWithCoatOnVirologistWithGloves",
+                TestCases::UsingProtectionAgentWithCoatOnVirologistWithGloves);
+        testCases.put("UsingDancingAgentWithCoatOnVirologistWithGloves",
+                TestCases::UsingDancingAgentWithCoatOnVirologistWithGloves);
+        testCases.put("UsingAmnesiaAgentWithCoatOnVirologistWithGloves",
+                TestCases::UsingAmnesiaAgentWithCoatOnVirologistWithGloves);
 
-        //Kenés védő rajtam védő ágenssel egy kesztyűvel rendelkező virológusra
-        testCases.put("UsingStunAgentWithProtectionAgentOnMyselfOnVirologistWithGloves", TestCases::UsingStunAgentWithProtectionAgentOnMyselfOnVirologistWithGloves);
-        testCases.put("UsingProtectionAgentWithProtectionAgentOnMyselfOnVirologistWithGloves", TestCases::UsingProtectionAgentWithProtectionAgentOnMyselfOnVirologistWithGloves);
-        testCases.put("UsingDancingAgentWithProtectionAgentOnMyselfOnVirologistWithGloves", TestCases::UsingDancingAgentWithProtectionAgentOnMyselfOnVirologistWithGloves);
-        testCases.put("UsingAmnesiaAgentWithProtectionAgentOnMyselfOnVirologistWithGloves", TestCases::UsingAmnesiaAgentWithProtectionAgentOnMyselfOnVirologistWithGloves);
+        // Kenés védő rajtam védő ágenssel egy kesztyűvel rendelkező virológusra
+        testCases.put("UsingStunAgentWithProtectionAgentOnMyselfOnVirologistWithGloves",
+                TestCases::UsingStunAgentWithProtectionAgentOnMyselfOnVirologistWithGloves);
+        testCases.put("UsingProtectionAgentWithProtectionAgentOnMyselfOnVirologistWithGloves",
+                TestCases::UsingProtectionAgentWithProtectionAgentOnMyselfOnVirologistWithGloves);
+        testCases.put("UsingDancingAgentWithProtectionAgentOnMyselfOnVirologistWithGloves",
+                TestCases::UsingDancingAgentWithProtectionAgentOnMyselfOnVirologistWithGloves);
+        testCases.put("UsingAmnesiaAgentWithProtectionAgentOnMyselfOnVirologistWithGloves",
+                TestCases::UsingAmnesiaAgentWithProtectionAgentOnMyselfOnVirologistWithGloves);
 
         testCases.put("ProtectionAgentStep", TestCases::ProtectionAgentStep);
         testCases.put("DancingAgentStep", TestCases::DancingAgentStep);
@@ -188,7 +216,7 @@ public class Skeleton {
             try {
                 System.in.read();
             } catch (IOException e) {
-                e.printStackTrace();
+                System.err.println(e.getMessage());
             }
         }
     }

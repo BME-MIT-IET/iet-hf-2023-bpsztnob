@@ -21,14 +21,15 @@ public class Map {
      * A pályát alkotó mezők.
      */
     private ArrayList<Tile> tiles;
+    private Random rnd = new Random();
 
     /**
-     * Legenerálja a mezőket és a hozzájuk tartozó anyagokat, felszereléseket és a genetikai kódokat.
+     * Legenerálja a mezőket és a hozzájuk tartozó anyagokat, felszereléseket és a
+     * genetikai kódokat.
      */
     public ArrayList<Virologist> generateMap(int numberOfVirologist) {
         Skeleton.printWithTabs("Map.generateMap(numberOfVirologist): ArrayList<Virologist>");
         Skeleton.increaseTabs();
-        Random rnd = new Random();
 
         tiles = new ArrayList<>();
 
@@ -111,7 +112,6 @@ public class Map {
                 randomTile.addNeighbour(iTile);
             }
         }
-
 
         ArrayList<Virologist> virologists = new ArrayList<>();
         for (int i = 0; i < numberOfVirologist; i++) {

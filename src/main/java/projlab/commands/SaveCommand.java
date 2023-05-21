@@ -19,8 +19,8 @@ public class SaveCommand implements ICommand {
             out.close();
             fileOut.close();
             System.out.println("Állapot sikeresen elmentve a " + args[0] + " fájlba.");
-        } catch (IOException i) {
-            i.printStackTrace();
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
         }
     }
 }
