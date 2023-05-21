@@ -23,7 +23,7 @@ public class ViewPanel extends JPanel {
     /**
      * A háttér aminek meg kell jelennie.
      */
-    Image gameBackground;
+    transient Image gameBackground;
     /**
      * A szöveg, aminek meg kell jelennie lent.
      */
@@ -31,11 +31,11 @@ public class ViewPanel extends JPanel {
     /**
      * A virológusokhoz tartozó képeket tartalmazza.
      */
-    HashMap<Virologist, Image> virologistIcons = new HashMap<>();
+    transient HashMap<Virologist, Image> virologistIcons = new HashMap<>();
     /**
      * A mezőkhöz tartózó háttérképek.
      */
-    HashMap<String, Image> tileBackgrounds = new HashMap<>();
+    transient HashMap<String, Image> tileBackgrounds = new HashMap<>();
     /**
      * A jelenlegi mező nevét tárolja.
      */

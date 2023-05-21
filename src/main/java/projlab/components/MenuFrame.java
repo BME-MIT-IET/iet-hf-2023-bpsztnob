@@ -26,8 +26,9 @@ public class MenuFrame extends JFrame {
         // Set background picture
         final ImageIcon icon = new ImageIcon("./assets/menuBG.png");
         JPanel panel = new JPanel() {
-            Image img = icon.getImage();
+            transient Image img = icon.getImage();
 
+            @Override
             public void paintComponent(Graphics graphics) {
                 super.paintComponent(graphics);
                 graphics.drawImage(img, 0, 0, this);
