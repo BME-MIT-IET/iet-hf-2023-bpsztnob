@@ -16,7 +16,7 @@ public abstract class GeneticCode implements Cloneable, Serializable {
     /**
      * Eltárolja az összes létező genetikai kód típust.
      */
-    protected static final Class[] GENETICCODES = new Class[] { AmnesiaGeneticCode.class,
+    public static final Class[] GENETICCODES = new Class[] { AmnesiaGeneticCode.class,
             DancingGeneticCode.class,
             StunGeneticCode.class,
             ProtectionGeneticCode.class
