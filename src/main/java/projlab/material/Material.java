@@ -12,7 +12,7 @@ public class Material implements Cloneable, Serializable {
     /**
      * Az összes létező anyagtípus.
      */
-    public final static Class[] MATERIALS = {
+    protected final static Class[] MATERIALS = {
             AminoAcidMaterial.class,
             NucleotideMaterial.class
     };

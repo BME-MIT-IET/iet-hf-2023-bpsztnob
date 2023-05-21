@@ -26,7 +26,7 @@ public class ShelterTile extends Tile implements Steppable, Serializable {
     /**
      * A felszerelés újragenerálásának ideje.
      */
-    private final int RESPAWN_TIME = 3;
+    private static final int RESPAWN_TIME = 3;
 
     /**
      * ShelterTile ctor

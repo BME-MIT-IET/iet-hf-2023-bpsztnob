@@ -26,11 +26,11 @@ public class Virologist implements Serializable {
     /**
      * Meghatározza, hogy mennyi anyagot vihet magával a virológus.
      */
-    private final int MAX_MATERIAL_COUNT = 10;
+    private static final int MAX_MATERIAL_COUNT = 10;
     /**
      * Meghatározza, hogy mennyi felszerelést vihet magával a virológus.
      */
-    private final int MAX_EQUIPMENT_COUNT = 3;
+    private static final int MAX_EQUIPMENT_COUNT = 3;
     /**
      * A megtanult genetikai kódok.
      */

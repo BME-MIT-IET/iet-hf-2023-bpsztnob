@@ -26,11 +26,11 @@ public class StorageTile extends Tile implements Steppable, Serializable {
     /**
      * A felszerelés újragenerálásának ideje.
      */
-    private final int RESPAWN_TIME = 3;
+    private static final int RESPAWN_TIME = 3;
     /**
      * A raktárban tárolható anyagok maximális száma.
      */
-    private final int MAX_COUNT = 5;
+    private static final int MAX_COUNT = 5;
 
     /**
      * StorageTile ctor
