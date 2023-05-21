@@ -16,8 +16,8 @@ public class SaveCommand implements ICommand {
             out.writeObject(Prototype.getObjects());
             out.writeObject(Timer.instance().getSteppables());
             System.out.println("Állapot sikeresen elmentve a " + args[0] + " fájlba.");
-        } catch (IOException i) {
-            i.printStackTrace();
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
         }
     }
 }
