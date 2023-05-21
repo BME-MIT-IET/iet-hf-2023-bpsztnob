@@ -42,6 +42,7 @@ public class BearDeezNutsInYourMouthAgent extends DancingAgent implements Serial
      *
      * @param virologists akikre terjed az ágens
      */
+    @Override
     public void spread(ArrayList<Virologist> virologists) {
         Skeleton.printWithTabs("BearDeezNutsInYourMouthAgent.spread(virologists)");
         Skeleton.increaseTabs();

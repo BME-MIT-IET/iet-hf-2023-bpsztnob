@@ -42,7 +42,7 @@ public class ViewButton {
             try {
                 icon = ImageIO.read(new File(pathToIcon));
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                System.out.println(e.getMessage());
             }
         }
     }

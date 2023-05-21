@@ -28,6 +28,7 @@ public class MenuFrame extends JFrame {
         JPanel panel = new JPanel() {
             Image img = icon.getImage();
 
+            @Override
             public void paintComponent(Graphics graphics) {
                 super.paintComponent(graphics);
                 graphics.drawImage(img, 0, 0, this);

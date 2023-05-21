@@ -24,6 +24,9 @@ import projlab.tile.*;
 import java.util.ArrayList;
 
 public class TestCases {
+    private TestCases(){
+
+    }
     /*
      * A tesztesetek nincsenek sorba rendezve, éredemes inkább a Skeleton
      * main osztályából megkeresni a tesztesetek implementálását vagy Ctrl-F-ezni
@@ -530,7 +533,6 @@ public class TestCases {
         //Test case init
         Virologist v1 = new Virologist();
         Tile t1 = new Tile();
-        CoatEquipment c1 = new CoatEquipment();
 
         v1.move(t1);
 

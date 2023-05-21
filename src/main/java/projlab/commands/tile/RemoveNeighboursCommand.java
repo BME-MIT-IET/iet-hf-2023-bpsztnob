@@ -29,7 +29,7 @@ public class RemoveNeighboursCommand implements ICommand {
             }
         }
         tile.removeNeighbours(neighbours);
-        ArrayList<Tile> temp = new ArrayList();
+        ArrayList<Tile> temp = new ArrayList<Tile>();
         temp.add(tile);
         for (Tile neighbour : neighbours) {
             neighbour.removeNeighbours(temp);

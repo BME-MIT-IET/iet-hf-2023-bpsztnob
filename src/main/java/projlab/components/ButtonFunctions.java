@@ -18,6 +18,9 @@ class ButtonFunctions {
      * A lopást megvalósító gomb funkció
      * A jelenlegi virológust lopásra bírja
      */
+    private ButtonFunctions(){
+        
+    }
     final static Function<ViewButton.ViewButtonArgs, String> StealEquipment = (viewButtonArgs) -> {
         Virologist virologist = viewButtonArgs.getVirologist();
         ArrayList<Virologist> virologists = viewButtonArgs.getVirologist().getTile().getVirologists();

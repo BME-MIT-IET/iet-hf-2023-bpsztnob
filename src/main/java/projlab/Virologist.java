@@ -999,14 +999,8 @@ public class Virologist implements Serializable {
     }
 
 
-    /**
-     * Visszaadja a virológuson lévő ágenseket.
-     *
-     * @return A virológuson lévő ágensek
-     */
-    public ArrayList<Agent> getAgents() {
-        return agents;
-    }
+
+
 
     /**
      * Visszaadja a virológusnál lévő inaktív ágenseket.

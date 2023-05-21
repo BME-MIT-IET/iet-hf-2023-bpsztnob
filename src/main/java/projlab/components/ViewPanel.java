@@ -59,7 +59,7 @@ public class ViewPanel extends JPanel {
             virologistIcons.put(virologists.get(2), ImageIO.read(new File("./assets/virologists/virologistOrange.png")));
             virologistIcons.put(virologists.get(3), ImageIO.read(new File("./assets/virologists/virologistGreen.png")));
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
         }
 
         initComponents();
@@ -159,7 +159,7 @@ public class ViewPanel extends JPanel {
         equipmentButton.setFunction(ButtonFunctions.EquipmentInventory);
         buttons.add(equipmentButton);
 
-        ViewButton activeAgentButton = new ViewButton(1280 - buttonSize - 50, 50 + (buttonSize + padding) * iter++, buttonSize, buttonSize, "./assets/icons/activeAgent.png");
+        ViewButton activeAgentButton = new ViewButton(1280 - buttonSize - 50, 50 + (buttonSize + padding) * iter, buttonSize, buttonSize, "./assets/icons/activeAgent.png");
         activeAgentButton.setFunction(ButtonFunctions.ActiveAgentInventory);
         buttons.add(activeAgentButton);
 
@@ -228,7 +228,7 @@ public class ViewPanel extends JPanel {
             f = Font.createFont(Font.TRUETYPE_FONT, Files.newInputStream(Paths.get("./assets/PROPAGAN.ttf")));
             f = f.deriveFont(40.0f);
         } catch (FontFormatException | IOException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
         }
         if (!"".equals(statusText)) {
             drawCenteredString(g, statusText, new Rectangle(0, 720, 1280, 100), f);

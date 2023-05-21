@@ -25,7 +25,7 @@ public class VirologistListCommand implements ICommand {
 
         switch (args[2]) {
             case "agents":
-                ArrayList<Agent> agents = v.getAgents();
+                ArrayList<Agent> agents = v.getActiveAgents();
                 for (Agent agent : agents) {
                     String key = getKeyByValue(Prototype.getObjects(), agent);
                     System.out.println(key);
