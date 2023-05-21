@@ -4,12 +4,12 @@ import projlab.Prototype;
 import projlab.Skeleton;
 import projlab.Timer;
 import projlab.Virologist;
-import projlab.inactiveagent.AmnesiaInactiveAgent;
 import projlab.inactiveagent.InactiveAgent;
 import projlab.inactiveagent.ProtectionInactiveAgent;
 import projlab.material.AminoAcidMaterial;
 import projlab.material.Material;
 import projlab.material.NucleotideMaterial;
+import projlab.util.Constants;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -38,7 +38,8 @@ public class ProtectionGeneticCode extends GeneticCode implements Serializable {
     }
 
     /**
-     * A paraméterként kapott virológus létrehoz a paraméterként átadott anyagokkal egy inaktív védő ágenst.
+     * A paraméterként kapott virológus létrehoz a paraméterként átadott anyagokkal
+     * egy inaktív védő ágenst.
      *
      * @param maker     a virológus, aki létrehozza az inaktívágenst.
      * @param inventory a virológusnál lévő anyagok.
@@ -87,7 +88,7 @@ public class ProtectionGeneticCode extends GeneticCode implements Serializable {
         Skeleton.printWithTabs("ProtectionGeneticCode.accept(code) : boolean");
         Skeleton.increaseTabs();
 
-        Skeleton.printWithTabs("return true");
+        Skeleton.printWithTabs(Constants.RETURN_TRUE);
         Skeleton.decreaseTabs();
 
         return true;

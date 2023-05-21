@@ -1,5 +1,6 @@
 package projlab.equipment;
 
+import projlab.util.Constants;
 import projlab.util.CustomRandom;
 import projlab.Prototype;
 import projlab.Skeleton;
@@ -7,8 +8,10 @@ import projlab.Skeleton;
 import java.io.Serializable;
 
 /**
- * A köpeny felszerelés szerepe, hogy a virológusra kent ágenseket megpróbálja kivédeni.
- * Ezt egy bizonyos hatásfokkal képes megtenni. Egy bizonyos mennyiségű védés után elszakad
+ * A köpeny felszerelés szerepe, hogy a virológusra kent ágenseket megpróbálja
+ * kivédeni.
+ * Ezt egy bizonyos hatásfokkal képes megtenni. Egy bizonyos mennyiségű védés
+ * után elszakad
  * és ekkor eltűnik a virológus felszerelései közül.
  */
 public class CoatEquipment extends Equipment implements Serializable {
@@ -31,8 +34,10 @@ public class CoatEquipment extends Equipment implements Serializable {
     }
 
     /**
-     * Megvizsgálja, hogy sikeres volt-e a védés, amennyiben igen csökkenti a köpeny életpontját.
-     * Amennyiben 0-ra csökken az életpontja a köpenynek kitörlődik a birtoklójának a felszerelés tárából.
+     * Megvizsgálja, hogy sikeres volt-e a védés, amennyiben igen csökkenti a köpeny
+     * életpontját.
+     * Amennyiben 0-ra csökken az életpontja a köpenynek kitörlődik a birtoklójának
+     * a felszerelés tárából.
      *
      * @return igaz
      */
@@ -57,11 +62,11 @@ public class CoatEquipment extends Equipment implements Serializable {
             }
             Skeleton.decreaseTabs();
 
-            Skeleton.printWithTabs("return true");
+            Skeleton.printWithTabs(Constants.RETURN_TRUE);
             Skeleton.decreaseTabs();
             return true;
         }
-        Skeleton.printWithTabs("return false");
+        Skeleton.printWithTabs(Constants.RETURN_FALSE);
         Skeleton.decreaseTabs();
         return false;
     }

@@ -2,6 +2,7 @@ package projlab.material;
 
 import projlab.Prototype;
 import projlab.Skeleton;
+import projlab.util.Constants;
 
 import java.io.Serializable;
 
@@ -41,7 +42,7 @@ public class NucleotideMaterial extends Material implements Serializable {
     public boolean accept(NucleotideMaterial nucleotide) {
         Skeleton.printWithTabs("NucleotideMaterial.accept(nucleotide): boolean");
         Skeleton.increaseTabs();
-        Skeleton.printWithTabs("return true");
+        Skeleton.printWithTabs(Constants.RETURN_TRUE);
         Skeleton.decreaseTabs();
         return true;
     }

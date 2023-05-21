@@ -2,8 +2,11 @@ package projlab;
 
 import java.util.ArrayList;
 
+import projlab.util.Constants;
+
 /**
- * Az objektumok körönkénti elvégzendő műveletek elindításáért felelős singleton osztály.
+ * Az objektumok körönkénti elvégzendő műveletek elindításáért felelős singleton
+ * osztály.
  */
 public class Timer {
     private static Timer timer = null;
@@ -22,7 +25,8 @@ public class Timer {
     /**
      * Új léptethető dolog hozzáadása.
      *
-     * @param s A léptethető dolog, amelyet felveszünk a léptethető dolgok listájába.
+     * @param s A léptethető dolog, amelyet felveszünk a léptethető dolgok
+     *          listájába.
      */
     public void addSteppable(Steppable s) {
         Skeleton.printWithTabs("Timer.addSteppable(s)");
@@ -31,14 +35,15 @@ public class Timer {
         if (!steppables.contains(s))
             steppables.add(s);
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 
     /**
      * Léptethető dolog törlése.
      *
-     * @param s A léptethető dolog, amelyet kiveszünk a léptethető dolgok listájából.
+     * @param s A léptethető dolog, amelyet kiveszünk a léptethető dolgok
+     *          listájából.
      */
     public void removeSteppable(Steppable s) {
         Skeleton.printWithTabs("Timer.removeSteppable(s)");
@@ -46,7 +51,7 @@ public class Timer {
 
         steppables.remove(s);
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 
@@ -63,7 +68,7 @@ public class Timer {
             s.step();
         }
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 
@@ -80,7 +85,6 @@ public class Timer {
             Skeleton.printWithTabs("if (timer == null) : true");
             Skeleton.increaseTabs();
 
-
             Skeleton.printWithTabs("timer = new Timer()");
             timer = new Timer();
 
@@ -94,6 +98,7 @@ public class Timer {
 
     /**
      * Visszaadja a léptethető objektumokat.
+     * 
      * @return steppables, léptethető objektumok.
      */
     public ArrayList<Steppable> getSteppables() {
@@ -102,6 +107,7 @@ public class Timer {
 
     /**
      * Beállítja a paraméterként kapott objektumokat léptethetőre.
+     * 
      * @param _steppables objektumok, amik léptethetőek lesznek.
      */
     public void setSteppables(ArrayList<Steppable> _steppables) {
@@ -115,5 +121,3 @@ public class Timer {
         steppables.clear();
     }
 }
-
-

@@ -3,10 +3,7 @@ package projlab.commands.virologist;
 import projlab.Prototype;
 import projlab.Virologist;
 import projlab.commands.ICommand;
-import projlab.geneticcode.GeneticCode;
 import projlab.util.LearnGeneticCodeEnum;
-
-import java.util.Objects;
 
 /**
  * A virológus megtanulja a mezőn lévő genetikai kódot.

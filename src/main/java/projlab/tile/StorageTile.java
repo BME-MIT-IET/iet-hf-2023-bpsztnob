@@ -1,5 +1,6 @@
 package projlab.tile;
 
+import projlab.util.Constants;
 import projlab.util.CustomRandom;
 import projlab.Skeleton;
 import projlab.Steppable;
@@ -10,7 +11,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
 /**
- * A raktár mezőben találhatóak az aminosavak és a nukleotidok, amelyeket a virológusok tudnak felvenni.
+ * A raktár mezőben találhatóak az aminosavak és a nukleotidok, amelyeket a
+ * virológusok tudnak felvenni.
  */
 public class StorageTile extends Tile implements Steppable, Serializable {
     /**
@@ -40,7 +42,8 @@ public class StorageTile extends Tile implements Steppable, Serializable {
     }
 
     /**
-     * Számláló értékét csökkenti eggyel. Ha eléri a 0-t, akkor létrehoz egy új anyagot,
+     * Számláló értékét csökkenti eggyel. Ha eléri a 0-t, akkor létrehoz egy új
+     * anyagot,
      * majd visszaállítja a számlálót eredeti értékére.
      */
     public void step() {
@@ -55,14 +58,8 @@ public class StorageTile extends Tile implements Steppable, Serializable {
             CustomRandom rand = new CustomRandom();
             try {
                 materials.add((Material) Material.MATERIALS[rand.nextInt(Material.MATERIALS.length)].getConstructor().newInstance());
-            } catch (InstantiationException e) {
-                throw new RuntimeException(e);
-            } catch (IllegalAccessException e) {
-                throw new RuntimeException(e);
-            } catch (InvocationTargetException e) {
-                throw new RuntimeException(e);
-            } catch (NoSuchMethodException e) {
-                throw new RuntimeException(e);
+            } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+                System.out.println(e.getMessage());
             }
 
             Skeleton.decreaseTabs();
@@ -70,7 +67,7 @@ public class StorageTile extends Tile implements Steppable, Serializable {
             counter--;
         }
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 
@@ -100,7 +97,7 @@ public class StorageTile extends Tile implements Steppable, Serializable {
 
         this.materials.addAll(materials);
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 
@@ -117,7 +114,7 @@ public class StorageTile extends Tile implements Steppable, Serializable {
 
         this.materials.removeAll(materials);
 
-        Skeleton.printWithTabs("return true");
+        Skeleton.printWithTabs(Constants.RETURN_TRUE);
         Skeleton.decreaseTabs();
         return true;
     }

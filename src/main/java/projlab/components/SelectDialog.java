@@ -8,7 +8,7 @@ public class SelectDialog<T> extends JDialog {
     /**
      * Választható objektumok.
      */
-    private ArrayList<T> items;
+    transient private ArrayList<T> items;
     /**
      * Megadja, hogy 1 vagy több objektumot választhat ki a listából a játékos.
      */
@@ -16,7 +16,7 @@ public class SelectDialog<T> extends JDialog {
     /**
      * Ebben jelennek meg az elemek.
      */
-    private JList list;
+    private JList<String> list;
     /**
      * Megadja, hogy a felhasználó az 'OK' gombbal zárta-e be az ablakot.
      */
@@ -30,7 +30,7 @@ public class SelectDialog<T> extends JDialog {
     }
 
     /**
-     *Inicializálja a listából való választás megjelenítését.
+     * Inicializálja a listából való választás megjelenítését.
      */
     private void initComponents() {
         setLayout(new BorderLayout());
@@ -47,7 +47,7 @@ public class SelectDialog<T> extends JDialog {
                 texts[i] = "LabTile";
             }
         }
-        list = new JList(texts);
+        list = new JList<String>(texts);
         add(list, BorderLayout.CENTER);
 
         JButton okButton = new JButton("OK");
@@ -70,6 +70,7 @@ public class SelectDialog<T> extends JDialog {
 
     /**
      * Visszatér a játékos által kiválasztott objektumokkal.
+     * 
      * @return játékos által kiválasztott objektumok.
      */
     public ArrayList<T> getSelectedItems() {
@@ -90,6 +91,7 @@ public class SelectDialog<T> extends JDialog {
 
     /**
      * Visszatér azzal, hogy a játékos 'OK'-val zárta-e le az ablakot
+     * 
      * @return lezárás eredménye
      */
     public boolean isOkResponse() {

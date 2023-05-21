@@ -1,15 +1,14 @@
 package projlab.tile;
 
-import projlab.Prototype;
 import projlab.Skeleton;
-import projlab.Virologist;
 import projlab.geneticcode.GeneticCode;
-import projlab.tile.Tile;
+import projlab.util.Constants;
 
 import java.io.Serializable;
 
 /**
- * A labor mezőben tudják megtanulni a genetikai kódokat a virológusok, amelyek a játék megnyeréséhez kellenek.
+ * A labor mezőben tudják megtanulni a genetikai kódokat a virológusok, amelyek
+ * a játék megnyeréséhez kellenek.
  */
 public class LabTile extends Tile implements Serializable {
     /**
@@ -61,7 +60,7 @@ public class LabTile extends Tile implements Serializable {
             code = geneticCode;
         }
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 }

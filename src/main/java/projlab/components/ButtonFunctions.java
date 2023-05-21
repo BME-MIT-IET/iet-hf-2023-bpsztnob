@@ -8,6 +8,7 @@ import projlab.geneticcode.GeneticCode;
 import projlab.inactiveagent.InactiveAgent;
 import projlab.material.Material;
 import projlab.tile.Tile;
+import projlab.util.Constants;
 import projlab.util.MoveEnum;
 
 import java.util.ArrayList;
@@ -18,19 +19,22 @@ class ButtonFunctions {
      * A lopást megvalósító gomb funkció
      * A jelenlegi virológust lopásra bírja
      */
+    private ButtonFunctions(){
+        
+    }
     final static Function<ViewButton.ViewButtonArgs, String> StealEquipment = (viewButtonArgs) -> {
         Virologist virologist = viewButtonArgs.getVirologist();
         ArrayList<Virologist> virologists = viewButtonArgs.getVirologist().getTile().getVirologists();
 
         virologists.remove(virologist);
-        SelectDialog<Virologist> vDialog = new SelectDialog<>(virologists, true, "Select virologist");
+        SelectDialog<Virologist> vDialog = new SelectDialog<>(virologists, true, (Constants.SELECT_VIROLOGIST));
         vDialog.setVisible(true);
         if (!vDialog.isOkResponse()) {
             return "";
         }
         Virologist target = vDialog.getSelectedItems().get(0);
 
-        SelectDialog<Equipment> eDialog = new SelectDialog<>(target.getEquipment(), true, "Select equipment");
+        SelectDialog<Equipment> eDialog = new SelectDialog<>(target.getEquipment(), true, Constants.SELECT_EQUIPMENT);
         eDialog.setVisible(true);
         if (!eDialog.isOkResponse()) {
             return "";
@@ -82,7 +86,7 @@ class ButtonFunctions {
      */
     final static Function<ViewButton.ViewButtonArgs, String> PickupMaterials = (viewButtonArgs) -> {
         ArrayList<Material> materials = viewButtonArgs.getVirologist().getTile().getMaterials();
-        SelectDialog<Material> vDialog = new SelectDialog<>(materials, false, "Select materials");
+        SelectDialog<Material> vDialog = new SelectDialog<>(materials, false, Constants.SELECT_MATERIALS);
         vDialog.setVisible(true);
         if (!vDialog.isOkResponse()) {
             return "";
@@ -105,14 +109,14 @@ class ButtonFunctions {
 
         virologists.remove(virologist);
 
-        SelectDialog<Virologist> vDialog = new SelectDialog<>(virologists, true, "Select virologist");
+        SelectDialog<Virologist> vDialog = new SelectDialog<>(virologists, true, (Constants.SELECT_VIROLOGIST));
         vDialog.setVisible(true);
         if (!vDialog.isOkResponse()) {
             return "";
         }
         Virologist target = vDialog.getSelectedItems().get(0);
 
-        SelectDialog<Material> mDialog = new SelectDialog<>(target.getMaterials(), false, "Select materials");
+        SelectDialog<Material> mDialog = new SelectDialog<>(target.getMaterials(), false, Constants.SELECT_MATERIALS);
         mDialog.setVisible(true);
         if (!mDialog.isOkResponse()) {
             return "";
@@ -132,7 +136,6 @@ class ButtonFunctions {
     final static Function<ViewButton.ViewButtonArgs, String> Move = viewButtonArgs -> {
         Virologist virologist = viewButtonArgs.getVirologist();
         Tile tile = virologist.getTile();
-
 
         SelectDialog<Tile> tDialog = new SelectDialog<>(tile.getNeighbours(), true, "Select tile");
         tDialog.setVisible(true);
@@ -160,14 +163,15 @@ class ButtonFunctions {
 
         virologists.remove(virologist);
 
-        SelectDialog<Virologist> vDialog = new SelectDialog<>(virologists, true, "Select virologist");
+        SelectDialog<Virologist> vDialog = new SelectDialog<>(virologists, true, (Constants.SELECT_VIROLOGIST));
         vDialog.setVisible(true);
         if (!vDialog.isOkResponse()) {
             return "";
         }
         Virologist target = vDialog.getSelectedItems().get(0);
 
-        SelectDialog<InactiveAgent> iDialog = new SelectDialog<>(virologist.getInactiveAgents(), true, "Select inactive agent");
+        SelectDialog<InactiveAgent> iDialog = new SelectDialog<>(virologist.getInactiveAgents(), true,
+                "Select inactive agent");
         iDialog.setVisible(true);
         if (!iDialog.isOkResponse()) {
             return "";
@@ -211,14 +215,15 @@ class ButtonFunctions {
         ArrayList<Virologist> virologists = viewButtonArgs.getVirologist().getTile().getVirologists();
 
         virologists.remove(virologist);
-        SelectDialog<Virologist> vDialog = new SelectDialog<>(virologists, true, "Select virologist");
+        SelectDialog<Virologist> vDialog = new SelectDialog<>(virologists, true, (Constants.SELECT_VIROLOGIST));
         vDialog.setVisible(true);
         if (!vDialog.isOkResponse()) {
             return "";
         }
         Virologist target = vDialog.getSelectedItems().get(0);
 
-        SelectDialog<Equipment> eDialog = new SelectDialog<>(virologist.getEquipment(), true, "Select equipment");
+        SelectDialog<Equipment> eDialog = new SelectDialog<>(virologist.getEquipment(), true,
+                Constants.SELECT_EQUIPMENT);
         eDialog.setVisible(true);
         if (!eDialog.isOkResponse()) {
             return "";
@@ -237,7 +242,7 @@ class ButtonFunctions {
         Virologist virologist = viewButtonArgs.getVirologist();
         ArrayList<Material> materials = viewButtonArgs.getVirologist().getMaterials();
 
-        SelectDialog<Material> vDialog = new SelectDialog<>(materials, false, "Select materials");
+        SelectDialog<Material> vDialog = new SelectDialog<>(materials, false, Constants.SELECT_MATERIALS);
         vDialog.setVisible(true);
         if (!vDialog.isOkResponse()) {
             return "";
@@ -258,7 +263,7 @@ class ButtonFunctions {
         Virologist virologist = viewButtonArgs.getVirologist();
         ArrayList<Equipment> equipment = viewButtonArgs.getVirologist().getEquipment();
 
-        SelectDialog<Equipment> vDialog = new SelectDialog<>(equipment, true, "Select equipment");
+        SelectDialog<Equipment> vDialog = new SelectDialog<>(equipment, true, Constants.SELECT_EQUIPMENT);
         vDialog.setVisible(true);
         if (!vDialog.isOkResponse()) {
             return "";

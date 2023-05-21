@@ -19,11 +19,11 @@ public class ViewPanel extends JPanel {
     /**
      * A gombot tároló lista.
      */
-    ArrayList<ViewButton> buttons = new ArrayList<>();
+    transient ArrayList<ViewButton> buttons = new ArrayList<>();
     /**
      * A háttér aminek meg kell jelennie.
      */
-    Image background;
+    transient Image gameBackground;
     /**
      * A szöveg, aminek meg kell jelennie lent.
      */
@@ -31,11 +31,11 @@ public class ViewPanel extends JPanel {
     /**
      * A virológusokhoz tartozó képeket tartalmazza.
      */
-    HashMap<Virologist, Image> virologistIcons = new HashMap<>();
+    transient HashMap<Virologist, Image> virologistIcons = new HashMap<>();
     /**
      * A mezőkhöz tartózó háttérképek.
      */
-    HashMap<String, Image> tileBackgrounds = new HashMap<>();
+    transient HashMap<String, Image> tileBackgrounds = new HashMap<>();
     /**
      * A jelenlegi mező nevét tárolja.
      */
@@ -56,10 +56,11 @@ public class ViewPanel extends JPanel {
             ArrayList<Virologist> virologists = Game.instance().getVirologists();
             virologistIcons.put(virologists.get(0), ImageIO.read(new File("./assets/virologists/virologistRed.png")));
             virologistIcons.put(virologists.get(1), ImageIO.read(new File("./assets/virologists/virologistCyan.png")));
-            virologistIcons.put(virologists.get(2), ImageIO.read(new File("./assets/virologists/virologistOrange.png")));
+            virologistIcons.put(virologists.get(2),
+                    ImageIO.read(new File("./assets/virologists/virologistOrange.png")));
             virologistIcons.put(virologists.get(3), ImageIO.read(new File("./assets/virologists/virologistGreen.png")));
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
         }
 
         initComponents();
@@ -77,44 +78,48 @@ public class ViewPanel extends JPanel {
 
             @Override
             public void mousePressed(MouseEvent e) {
-
+                // Do nothing
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-
+                // Do nothing
             }
 
             @Override
             public void mouseEntered(MouseEvent e) {
-
+                // Do nothing
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-
+                // Do nothing
             }
         });
         int buttonSize = 100;
 
-
-        ViewButton stealEquipmentButton = new ViewButton(0, 820, buttonSize, buttonSize, "./assets/icons/stealEquipment.png");
+        ViewButton stealEquipmentButton = new ViewButton(0, 820, buttonSize, buttonSize,
+                "./assets/icons/stealEquipment.png");
         stealEquipmentButton.setFunction(ButtonFunctions.StealEquipment);
         buttons.add(stealEquipmentButton);
 
-        ViewButton stealMaterialsButton = new ViewButton(0, 820, buttonSize, buttonSize, "./assets/icons/stealMaterials.png");
+        ViewButton stealMaterialsButton = new ViewButton(0, 820, buttonSize, buttonSize,
+                "./assets/icons/stealMaterials.png");
         stealMaterialsButton.setFunction(ButtonFunctions.StealMaterial);
         buttons.add(stealMaterialsButton);
 
-        ViewButton useEquipmentButton = new ViewButton(0, 820, buttonSize, buttonSize, "./assets/icons/useEquipment.png");
+        ViewButton useEquipmentButton = new ViewButton(0, 820, buttonSize, buttonSize,
+                "./assets/icons/useEquipment.png");
         useEquipmentButton.setFunction(ButtonFunctions.UseEquipment);
         buttons.add(useEquipmentButton);
 
-        ViewButton dumpMaterialsButton = new ViewButton(0, 820, buttonSize, buttonSize, "./assets/icons/dumpMaterials.png");
+        ViewButton dumpMaterialsButton = new ViewButton(0, 820, buttonSize, buttonSize,
+                "./assets/icons/dumpMaterials.png");
         dumpMaterialsButton.setFunction(ButtonFunctions.DumpMaterials);
         buttons.add(dumpMaterialsButton);
 
-        ViewButton pickupMaterialsButton = new ViewButton(0, 820, buttonSize, buttonSize, "./assets/icons/pickupMaterials.png");
+        ViewButton pickupMaterialsButton = new ViewButton(0, 820, buttonSize, buttonSize,
+                "./assets/icons/pickupMaterials.png");
         pickupMaterialsButton.setFunction(ButtonFunctions.PickupMaterials);
         buttons.add(pickupMaterialsButton);
 
@@ -122,15 +127,18 @@ public class ViewPanel extends JPanel {
         infectButton.setFunction(ButtonFunctions.Infect);
         buttons.add(infectButton);
 
-        ViewButton pickupEquipmentButton = new ViewButton(0, 820, buttonSize, buttonSize, "./assets/icons/pickupEquipment.png");
+        ViewButton pickupEquipmentButton = new ViewButton(0, 820, buttonSize, buttonSize,
+                "./assets/icons/pickupEquipment.png");
         pickupEquipmentButton.setFunction(ButtonFunctions.PickupEquipment);
         buttons.add(pickupEquipmentButton);
 
-        ViewButton learnGeneticCodeButton = new ViewButton(0, 820, buttonSize, buttonSize, "./assets/icons/learnGeneticCode.png");
+        ViewButton learnGeneticCodeButton = new ViewButton(0, 820, buttonSize, buttonSize,
+                "./assets/icons/learnGeneticCode.png");
         learnGeneticCodeButton.setFunction(ButtonFunctions.LearnGeneticCode);
         buttons.add(learnGeneticCodeButton);
 
-        ViewButton makeInactiveAgentButton = new ViewButton(0, 820, buttonSize, buttonSize, "./assets/icons/makeInactiveAgent.png");
+        ViewButton makeInactiveAgentButton = new ViewButton(0, 820, buttonSize, buttonSize,
+                "./assets/icons/makeInactiveAgent.png");
         makeInactiveAgentButton.setFunction(ButtonFunctions.MakeInactiveAgent);
         buttons.add(makeInactiveAgentButton);
 
@@ -147,19 +155,22 @@ public class ViewPanel extends JPanel {
 
         int padding = 20;
         int iter = 0;
-        ViewButton inactiveAgentButton = new ViewButton(1280 - buttonSize - 50, 50 + (buttonSize + padding) * iter++, buttonSize, buttonSize, "./assets/icons/inactiveAgent.png");
+        ViewButton inactiveAgentButton = new ViewButton(1280 - buttonSize - 50, 50 + (buttonSize + padding) * iter++,
+                buttonSize, buttonSize, "./assets/icons/inactiveAgent.png");
         inactiveAgentButton.setFunction(ButtonFunctions.InactiveAgentInventory);
         buttons.add(inactiveAgentButton);
 
-        ViewButton materialsButton = new ViewButton(1280 - buttonSize - 50, 50 + (buttonSize + padding) * iter++, buttonSize, buttonSize, "./assets/icons/material.png");
+        ViewButton materialsButton = new ViewButton(1280 - buttonSize - 50, 50 + (buttonSize + padding) * iter++,
+                buttonSize, buttonSize, "./assets/icons/material.png");
         materialsButton.setFunction(ButtonFunctions.MaterialInventory);
         buttons.add(materialsButton);
 
-        ViewButton equipmentButton = new ViewButton(1280 - buttonSize - 50, 50 + (buttonSize + padding) * iter++, buttonSize, buttonSize, "./assets/icons/equipment.png");
+        ViewButton equipmentButton = new ViewButton(1280 - buttonSize - 50, 50 + (buttonSize + padding) * iter++,
+                buttonSize, buttonSize, "./assets/icons/equipment.png");
         equipmentButton.setFunction(ButtonFunctions.EquipmentInventory);
         buttons.add(equipmentButton);
 
-        ViewButton activeAgentButton = new ViewButton(1280 - buttonSize - 50, 50 + (buttonSize + padding) * iter++, buttonSize, buttonSize, "./assets/icons/activeAgent.png");
+        ViewButton activeAgentButton = new ViewButton(1280 - buttonSize - 50, 50 + (buttonSize + padding) * iter, buttonSize, buttonSize, "./assets/icons/activeAgent.png");
         activeAgentButton.setFunction(ButtonFunctions.ActiveAgentInventory);
         buttons.add(activeAgentButton);
 
@@ -169,13 +180,14 @@ public class ViewPanel extends JPanel {
 
         String tileName = Game.instance().getCurrentVirologist().getTile().getClass().getSimpleName();
         if (!currentTileName.equals(tileName)) {
-            background = tileBackgrounds.get(tileName);
+            gameBackground = tileBackgrounds.get(tileName);
             repaint();
         }
     }
 
     /**
-     * Megnézi, hogy a megadott koordináta benne van-e valamelyik gombban, és meghívja annak a függvényét.
+     * Megnézi, hogy a megadott koordináta benne van-e valamelyik gombban, és
+     * meghívja annak a függvényét.
      *
      * @param x a pont X koordinátája.
      * @param y a pont Y koordinátája.
@@ -196,7 +208,7 @@ public class ViewPanel extends JPanel {
         }
         String tileName = Game.instance().getCurrentVirologist().getTile().getClass().getSimpleName();
         if (!currentTileName.equals(tileName)) {
-            background = tileBackgrounds.get(tileName);
+            gameBackground = tileBackgrounds.get(tileName);
             repaint();
         }
     }
@@ -210,10 +222,10 @@ public class ViewPanel extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        if (background != null) {
-            int x = 1280 / 2 - background.getWidth(null) / 2;
+        if (gameBackground != null) {
+            int x = 1280 / 2 - gameBackground.getWidth(null) / 2;
             int y = 0;
-            g.drawImage(background, x, y, null);
+            g.drawImage(gameBackground, x, y, null);
         }
 
         g.setColor(Color.GRAY);
@@ -228,7 +240,7 @@ public class ViewPanel extends JPanel {
             f = Font.createFont(Font.TRUETYPE_FONT, Files.newInputStream(Paths.get("./assets/PROPAGAN.ttf")));
             f = f.deriveFont(40.0f);
         } catch (FontFormatException | IOException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
         }
         if (!"".equals(statusText)) {
             drawCenteredString(g, statusText, new Rectangle(0, 720, 1280, 100), f);
@@ -263,7 +275,8 @@ public class ViewPanel extends JPanel {
         FontMetrics metrics = g.getFontMetrics(font);
         // Determine the X coordinate for the text
         int x = rect.x + (rect.width - metrics.stringWidth(text)) / 2;
-        // Determine the Y coordinate for the text (note we add the ascent, as in java 2d 0 is top of the screen)
+        // Determine the Y coordinate for the text (note we add the ascent, as in java
+        // 2d 0 is top of the screen)
         int y = rect.y + ((rect.height - metrics.getHeight()) / 2) + metrics.getAscent();
         // Set the font
         g.setFont(font);

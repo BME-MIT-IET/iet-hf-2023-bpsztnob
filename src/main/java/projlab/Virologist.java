@@ -6,6 +6,7 @@ import projlab.geneticcode.GeneticCode;
 import projlab.inactiveagent.InactiveAgent;
 import projlab.material.Material;
 import projlab.tile.Tile;
+import projlab.util.Constants;
 import projlab.util.LearnGeneticCodeEnum;
 import projlab.util.MoveEnum;
 import projlab.util.PickupEquipmentEnum;
@@ -16,8 +17,10 @@ import java.util.ArrayList;
 /**
  * A játékos által irányított karakter, felvehet anyagokat, felszereléseket és
  * leadhat anyagokat. Megtanulhat genetikai kódokat, amiket ágensek készítéséhez
- * használhat, amelyeket önmagára vagy más virológusokra kenhet. A fertőzések esetén
- * a virológuson lévő védekezéseket figyelembe veszi. Bénult játékostól lophat felszerelést vagy anyagot.
+ * használhat, amelyeket önmagára vagy más virológusokra kenhet. A fertőzések
+ * esetén
+ * a virológuson lévő védekezéseket figyelembe veszi. Bénult játékostól lophat
+ * felszerelést vagy anyagot.
  */
 public class Virologist implements Serializable {
     /**
@@ -81,7 +84,7 @@ public class Virologist implements Serializable {
 
         for (Agent agent : agents) {
             if (agent.isStunned()) {
-                Skeleton.printWithTabs("if (agent.isStunned()) : true");
+                Skeleton.printWithTabs(Constants.IF_AGENT_ISSTUNNED_TRUE);
                 Skeleton.increaseTabs();
 
                 Skeleton.printWithTabs("return LearnGeneticCodeEnum.FAILED");
@@ -113,7 +116,8 @@ public class Virologist implements Serializable {
         if (!isDuplicate) {
             geneticCodes.add(newGeneticCode);
             if (geneticCodes.size() == GeneticCode.GENETICCODES.length) {
-                Skeleton.printWithTabs("if (!isDuplicate && geneticCodes.size() == GeneticCode.GENETICCODES.length) : true");
+                Skeleton.printWithTabs(
+                        "if (!isDuplicate && geneticCodes.size() == GeneticCode.GENETICCODES.length) : true");
                 Skeleton.increaseTabs();
 
                 Game.instance().endGame(this);
@@ -139,10 +143,10 @@ public class Virologist implements Serializable {
 
         for (Agent agent : agents) {
             if (agent.isStunned()) {
-                Skeleton.printWithTabs("if (agent.isStunned()) : true");
+                Skeleton.printWithTabs(Constants.IF_AGENT_ISSTUNNED_TRUE);
                 Skeleton.increaseTabs();
 
-                Skeleton.printWithTabs("return false");
+                Skeleton.printWithTabs(Constants.RETURN_FALSE);
                 Skeleton.decreaseTabs();
                 Skeleton.decreaseTabs();
                 return false;
@@ -167,7 +171,7 @@ public class Virologist implements Serializable {
                 Skeleton.printWithTabs("if (tremainingMaterials.size() > 0) : true");
                 Skeleton.increaseTabs();
 
-                Skeleton.printWithTabs("return false");
+                Skeleton.printWithTabs(Constants.RETURN_FALSE);
                 Skeleton.decreaseTabs();
                 Skeleton.decreaseTabs();
                 return false;
@@ -178,14 +182,13 @@ public class Virologist implements Serializable {
             Skeleton.printWithTabs("if (tile.removeMaterial(materials)) : false");
             Skeleton.increaseTabs();
 
-            Skeleton.printWithTabs("return false");
+            Skeleton.printWithTabs(Constants.RETURN_FALSE);
             Skeleton.decreaseTabs();
             Skeleton.decreaseTabs();
             return false;
         }
 
-
-        Skeleton.printWithTabs("return true");
+        Skeleton.printWithTabs(Constants.RETURN_TRUE);
         Skeleton.decreaseTabs();
         return true;
     }
@@ -201,10 +204,10 @@ public class Virologist implements Serializable {
 
         for (Agent agent : agents) {
             if (agent.isStunned()) {
-                Skeleton.printWithTabs("if (agent.isStunned()) : true");
+                Skeleton.printWithTabs(Constants.IF_AGENT_ISSTUNNED_TRUE);
                 Skeleton.increaseTabs();
 
-                Skeleton.printWithTabs("return");
+                Skeleton.printWithTabs(Constants.RETURN);
                 Skeleton.decreaseTabs();
                 Skeleton.decreaseTabs();
                 return;
@@ -212,7 +215,6 @@ public class Virologist implements Serializable {
         }
 
         ArrayList<Material> equipmentMaterials = equipment.getMaterials();
-        equipment.removeMaterials(equipmentMaterials);
 
         while (this.materials.size() < MAX_MATERIAL_COUNT && equipmentMaterials.size() > 0) {
             this.materials.add(equipmentMaterials.get(0));
@@ -222,7 +224,8 @@ public class Virologist implements Serializable {
             equipmentMaterials = eq.acceptMaterial(equipmentMaterials);
         }
 
-        Skeleton.printWithTabs("return");
+        equipment.removeMaterials(equipmentMaterials);
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 
@@ -237,7 +240,7 @@ public class Virologist implements Serializable {
 
         for (Agent agent : agents) {
             if (agent.isStunned()) {
-                Skeleton.printWithTabs("if (agent.isStunned()) : true");
+                Skeleton.printWithTabs(Constants.IF_AGENT_ISSTUNNED_TRUE);
                 Skeleton.increaseTabs();
 
                 Skeleton.printWithTabs("return PickupEquipmentEnum.FAILED");
@@ -292,11 +295,11 @@ public class Virologist implements Serializable {
         Skeleton.increaseTabs();
 
         if (tile.dumpMaterials(materials, this)) {
-            Skeleton.printWithTabs("return true");
+            Skeleton.printWithTabs(Constants.RETURN_TRUE);
             Skeleton.decreaseTabs();
             return true;
         } else {
-            Skeleton.printWithTabs("return false");
+            Skeleton.printWithTabs(Constants.RETURN_FALSE);
             Skeleton.decreaseTabs();
             return false;
         }
@@ -313,10 +316,10 @@ public class Virologist implements Serializable {
 
         for (Agent agent : agents) {
             if (agent.isStunned()) {
-                Skeleton.printWithTabs("if (agent.isStunned()) : true");
+                Skeleton.printWithTabs(Constants.IF_AGENT_ISSTUNNED_TRUE);
                 Skeleton.increaseTabs();
 
-                Skeleton.printWithTabs("return false");
+                Skeleton.printWithTabs(Constants.RETURN_FALSE);
                 Skeleton.decreaseTabs();
                 Skeleton.decreaseTabs();
                 return false;
@@ -331,12 +334,12 @@ public class Virologist implements Serializable {
         InactiveAgent inactiveAgent = code.makeInactiveAgent(this, allMaterials);
         if (inactiveAgent != null) {
             inactiveAgents.add(inactiveAgent);
-            Skeleton.printWithTabs("return true");
+            Skeleton.printWithTabs(Constants.RETURN_TRUE);
             Skeleton.decreaseTabs();
             return true;
         }
 
-        Skeleton.printWithTabs("return false");
+        Skeleton.printWithTabs(Constants.RETURN_FALSE);
         Skeleton.decreaseTabs();
         return false;
     }
@@ -355,7 +358,7 @@ public class Virologist implements Serializable {
             eq.removeMaterials(materials);
         }
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 
@@ -371,10 +374,10 @@ public class Virologist implements Serializable {
 
         for (Agent agent : agents) {
             if (agent.isStunned()) {
-                Skeleton.printWithTabs("if (agent.isStunned()) : true");
+                Skeleton.printWithTabs(Constants.IF_AGENT_ISSTUNNED_TRUE);
                 Skeleton.increaseTabs();
 
-                Skeleton.printWithTabs("return false");
+                Skeleton.printWithTabs(Constants.RETURN_FALSE);
                 Skeleton.decreaseTabs();
                 Skeleton.decreaseTabs();
                 return false;
@@ -384,7 +387,7 @@ public class Virologist implements Serializable {
         inactiveAgent.infect(target, this);
         removeInactiveAgent(inactiveAgent);
 
-        Skeleton.printWithTabs("return true");
+        Skeleton.printWithTabs(Constants.RETURN_TRUE);
         Skeleton.decreaseTabs();
         return true;
     }
@@ -417,8 +420,7 @@ public class Virologist implements Serializable {
                 Skeleton.printWithTabs("if (repelled) : true");
                 Skeleton.increaseTabs();
 
-
-                Skeleton.printWithTabs("return");
+                Skeleton.printWithTabs(Constants.RETURN);
                 Skeleton.decreaseTabs();
                 Skeleton.decreaseTabs();
                 Skeleton.decreaseTabs();
@@ -469,7 +471,7 @@ public class Virologist implements Serializable {
 
                 Timer.instance().removeSteppable(agent);
 
-                Skeleton.printWithTabs("return");
+                Skeleton.printWithTabs(Constants.RETURN);
                 Skeleton.decreaseTabs();
                 Skeleton.decreaseTabs();
                 Skeleton.decreaseTabs();
@@ -481,7 +483,7 @@ public class Virologist implements Serializable {
         agents.add(agent);
         agent.initialEffect(this);
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 
@@ -496,7 +498,7 @@ public class Virologist implements Serializable {
 
         agents.remove(agent);
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 
@@ -511,10 +513,9 @@ public class Virologist implements Serializable {
         Skeleton.increaseTabs();
         boolean isRandomMoving = false;
 
-
         for (Agent agent : agents) {
             if (agent.isStunned()) {
-                Skeleton.printWithTabs("if (agent.isStunned()) : true");
+                Skeleton.printWithTabs(Constants.IF_AGENT_ISSTUNNED_TRUE);
                 Skeleton.increaseTabs();
 
                 Skeleton.printWithTabs("return MoveEnum.FAILED");
@@ -593,7 +594,8 @@ public class Virologist implements Serializable {
      * Ellopja a másik virológustól az adott felszerelést.
      *
      * @param target    az a virológus, akitől lopnak.
-     * @param equipment az a felszerelés, amelyiket ellopja a virológus a másik virológustól.
+     * @param equipment az a felszerelés, amelyiket ellopja a virológus a másik
+     *                  virológustól.
      */
     public boolean stealEquipment(Virologist target, Equipment equipment) {
         Skeleton.printWithTabs("Virologist.stealEquipment(tile, equipment)");
@@ -601,10 +603,10 @@ public class Virologist implements Serializable {
 
         for (Agent agent : agents) {
             if (agent.isStunned()) {
-                Skeleton.printWithTabs("if (agent.isStunned()) : true");
+                Skeleton.printWithTabs(Constants.IF_AGENT_ISSTUNNED_TRUE);
                 Skeleton.increaseTabs();
 
-                Skeleton.printWithTabs("return false");
+                Skeleton.printWithTabs(Constants.RETURN_FALSE);
                 Skeleton.decreaseTabs();
                 Skeleton.decreaseTabs();
                 return false;
@@ -622,14 +624,14 @@ public class Virologist implements Serializable {
             }
             pickupMaterials(equipment);
 
-            Skeleton.printWithTabs("return true");
+            Skeleton.printWithTabs(Constants.RETURN_TRUE);
             Skeleton.decreaseTabs();
             Skeleton.decreaseTabs();
             return true;
         } else {
             Skeleton.printWithTabs("if (equipment != null) : false");
             Skeleton.increaseTabs();
-            Skeleton.printWithTabs("return false");
+            Skeleton.printWithTabs(Constants.RETURN_FALSE);
             Skeleton.decreaseTabs();
             Skeleton.decreaseTabs();
             return false;
@@ -686,12 +688,12 @@ public class Virologist implements Serializable {
         } else {
             Skeleton.printWithTabs("if (!stolenMaterials.isEmpty()) : false");
             Skeleton.increaseTabs();
-            Skeleton.printWithTabs("return false");
+            Skeleton.printWithTabs(Constants.RETURN_FALSE);
             Skeleton.decreaseTabs();
             return false;
         }
 
-        Skeleton.printWithTabs("return true");
+        Skeleton.printWithTabs(Constants.RETURN_TRUE);
         Skeleton.decreaseTabs();
         return true;
     }
@@ -708,7 +710,7 @@ public class Virologist implements Serializable {
 
         for (Agent agent : agents) {
             if (agent.isStunned()) {
-                Skeleton.printWithTabs("if (agent.isStunned()) : true");
+                Skeleton.printWithTabs(Constants.IF_AGENT_ISSTUNNED_TRUE);
                 Skeleton.increaseTabs();
 
                 removeMaterials(materials);
@@ -736,7 +738,7 @@ public class Virologist implements Serializable {
 
         equipment.remove(equipm);
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 
@@ -764,14 +766,15 @@ public class Virologist implements Serializable {
 
         geneticCodes.clear();
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 
     /**
      * Eltávolítja a megadott inaktív ágenst a virológus arzenáljából.
      *
-     * @param iagent az az inaktív ágens, amely eltávolítódik a virológus arzenáljából.
+     * @param iagent az az inaktív ágens, amely eltávolítódik a virológus
+     *               arzenáljából.
      */
     public void removeInactiveAgent(InactiveAgent iagent) {
         Skeleton.printWithTabs("Virologist.removeInactiveAgent(iagent)");
@@ -779,12 +782,13 @@ public class Virologist implements Serializable {
 
         inactiveAgents.remove(iagent);
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 
     /**
-     * Ellenőrzi, hogy a virológus vitustánccal meg lett-e fertőzve és az alapján mozgatja a virológust.
+     * Ellenőrzi, hogy a virológus vitustánccal meg lett-e fertőzve és az alapján
+     * mozgatja a virológust.
      *
      * @return igazzal tér vissza, egyébként ha le van bénulva, akkor hamissal.
      */
@@ -796,7 +800,7 @@ public class Virologist implements Serializable {
             Skeleton.printWithTabs("if (dead) : true");
             Skeleton.increaseTabs();
 
-            Skeleton.printWithTabs("return false");
+            Skeleton.printWithTabs(Constants.RETURN_FALSE);
             Skeleton.decreaseTabs();
             Skeleton.decreaseTabs();
 
@@ -805,10 +809,10 @@ public class Virologist implements Serializable {
 
         for (Agent agent : agents) {
             if (agent.isStunned()) {
-                Skeleton.printWithTabs("if (agent.isStunned()) : true");
+                Skeleton.printWithTabs(Constants.IF_AGENT_ISSTUNNED_TRUE);
                 Skeleton.increaseTabs();
 
-                Skeleton.printWithTabs("return false");
+                Skeleton.printWithTabs(Constants.RETURN_FALSE);
                 Skeleton.decreaseTabs();
                 Skeleton.decreaseTabs();
                 return false;
@@ -830,7 +834,7 @@ public class Virologist implements Serializable {
             }
         }
 
-        Skeleton.printWithTabs("return true");
+        Skeleton.printWithTabs(Constants.RETURN_TRUE);
         Skeleton.decreaseTabs();
         return true;
     }
@@ -864,7 +868,7 @@ public class Virologist implements Serializable {
             }
         }
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 
@@ -880,10 +884,10 @@ public class Virologist implements Serializable {
 
         for (Agent agent : agents) {
             if (agent.isStunned()) {
-                Skeleton.printWithTabs("if (agent.isStunned()) : true");
+                Skeleton.printWithTabs(Constants.IF_AGENT_ISSTUNNED_TRUE);
                 Skeleton.increaseTabs();
 
-                Skeleton.printWithTabs("return");
+                Skeleton.printWithTabs(Constants.RETURN);
                 Skeleton.decreaseTabs();
                 Skeleton.decreaseTabs();
                 return;
@@ -892,7 +896,7 @@ public class Virologist implements Serializable {
 
         equipm.use(target);
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 
@@ -907,7 +911,7 @@ public class Virologist implements Serializable {
             agent.getHit();
         }
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 
@@ -920,7 +924,7 @@ public class Virologist implements Serializable {
 
         dead = true;
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 
@@ -999,14 +1003,8 @@ public class Virologist implements Serializable {
     }
 
 
-    /**
-     * Visszaadja a virológuson lévő ágenseket.
-     *
-     * @return A virológuson lévő ágensek
-     */
-    public ArrayList<Agent> getAgents() {
-        return agents;
-    }
+
+
 
     /**
      * Visszaadja a virológusnál lévő inaktív ágenseket.

@@ -3,17 +3,21 @@ package projlab.equipment;
 import projlab.Prototype;
 import projlab.Skeleton;
 import projlab.material.Material;
+import projlab.util.Constants;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * A hátizsák felszerelése szerepe, hogy megnövelje az anyagok számát, amelyet magával
- * tud vinni a virológus. Nem tud elszakadni, csak akkor tűnik el a virológustól, ha ellopják tőle.
+ * A hátizsák felszerelése szerepe, hogy megnövelje az anyagok számát, amelyet
+ * magával
+ * tud vinni a virológus. Nem tud elszakadni, csak akkor tűnik el a
+ * virológustól, ha ellopják tőle.
  */
 public class BackpackEquipment extends Equipment implements Serializable {
     /**
-     * Meghatározza, hogy mennyivel növeli az anyagok számát, amit a virológus magával tud vinni.
+     * Meghatározza, hogy mennyivel növeli az anyagok számát, amit a virológus
+     * magával tud vinni.
      */
     private int MAX_MATERIAL_COUNT = 5;
     /**
@@ -30,10 +34,12 @@ public class BackpackEquipment extends Equipment implements Serializable {
     }
 
     /**
-     * A paraméterként kapott anyagokat eltárolja., amelyeket nem férnek bele azokkal visszatér. Ha minden belefért, akkor null-val tér vissza.
+     * A paraméterként kapott anyagokat eltárolja., amelyeket nem férnek bele
+     * azokkal visszatér. Ha minden belefért, akkor null-val tér vissza.
      *
      * @param remainingMaterials az anyagok, amelyeket el kell tárolni a zsákban.
-     * @return azok az anyagoknak a listája, amelyek nem fértek be a zsákba, ha minden befért akkor null.
+     * @return azok az anyagoknak a listája, amelyek nem fértek be a zsákba, ha
+     *         minden befért akkor null.
      */
     @Override
     public ArrayList<Material> acceptMaterial(ArrayList<Material> remainingMaterials) {
@@ -60,9 +66,9 @@ public class BackpackEquipment extends Equipment implements Serializable {
         Skeleton.printWithTabs("BackpackEquipment.removeMaterials()");
         Skeleton.increaseTabs();
 
-        this.materials.remove(materials);
+        this.materials.removeAll(materials);
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 

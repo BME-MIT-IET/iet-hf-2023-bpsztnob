@@ -1,7 +1,6 @@
 package projlab.commands;
 
 import projlab.Prototype;
-import projlab.Virologist;
 import projlab.commands.agent.InfectVirologistCommand;
 import projlab.commands.labtile.AddGeneticCodeCommand;
 import projlab.commands.storagetile.AddMaterialsToStorageTileCommand;
@@ -90,6 +89,8 @@ public class CommandCommand implements ICommand {
                 case "IsDead":
                     new IsDeadCommand().run(args);
                     break;
+                default:
+                    return;
             }
         }
     }

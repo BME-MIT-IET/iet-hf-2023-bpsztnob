@@ -3,9 +3,8 @@ package projlab.geneticcode;
 import projlab.Skeleton;
 import projlab.Virologist;
 import projlab.inactiveagent.InactiveAgent;
-import projlab.material.AminoAcidMaterial;
 import projlab.material.Material;
-import projlab.material.NucleotideMaterial;
+import projlab.util.Constants;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -17,7 +16,7 @@ public abstract class GeneticCode implements Cloneable, Serializable {
     /**
      * Eltárolja az összes létező genetikai kód típust.
      */
-    public static Class[] GENETICCODES = new Class[]{AmnesiaGeneticCode.class,
+    public static Class[] GENETICCODES = new Class[] { AmnesiaGeneticCode.class,
             DancingGeneticCode.class,
             StunGeneticCode.class,
             ProtectionGeneticCode.class
@@ -28,7 +27,8 @@ public abstract class GeneticCode implements Cloneable, Serializable {
     protected ArrayList<Material> recipe;
 
     /**
-     * A paraméterként kapott virológus létrehoz a paraméterként átadott anyagokkal egy inaktív ágenst.
+     * A paraméterként kapott virológus létrehoz a paraméterként átadott anyagokkal
+     * egy inaktív ágenst.
      *
      * @param maker     a létrehozó
      * @param inventory a létrehozónál lévő anyagok
@@ -39,8 +39,10 @@ public abstract class GeneticCode implements Cloneable, Serializable {
     /**
      * Megvizsgálja, hogy a paraméterül kapott anyagokból előállítható-e az ágens.
      *
-     * @param materials a virológusnál lévő anyagok, amelyekből elő szeretné állítani az ágenst.
-     * @return az előállításhoz szükséges anyagok, ha elő tudja állítani egyébként null.
+     * @param materials a virológusnál lévő anyagok, amelyekből elő szeretné
+     *                  állítani az ágenst.
+     * @return az előállításhoz szükséges anyagok, ha elő tudja állítani egyébként
+     *         null.
      */
     public ArrayList<Material> isCraftable(ArrayList<Material> materials) {
 
@@ -90,7 +92,7 @@ public abstract class GeneticCode implements Cloneable, Serializable {
      */
     public boolean accept(GeneticCode code) {
 
-        Skeleton.printWithTabs("GeneticCode.accept(code) : boolean");
+        Skeleton.printWithTabs(Constants.GENETICCODE_ACCEPT);
         Skeleton.increaseTabs();
 
         if (code instanceof AmnesiaGeneticCode) {
@@ -99,7 +101,7 @@ public abstract class GeneticCode implements Cloneable, Serializable {
 
             boolean accept = accept((AmnesiaGeneticCode) code);
 
-            Skeleton.printWithTabs("return accept");
+            Skeleton.printWithTabs(Constants.RETURN_ACCEPT);
             Skeleton.decreaseTabs();
             Skeleton.decreaseTabs();
 
@@ -110,7 +112,7 @@ public abstract class GeneticCode implements Cloneable, Serializable {
 
             boolean accept = accept((ProtectionGeneticCode) code);
 
-            Skeleton.printWithTabs("return accept");
+            Skeleton.printWithTabs(Constants.RETURN_ACCEPT);
             Skeleton.decreaseTabs();
             Skeleton.decreaseTabs();
 
@@ -121,7 +123,7 @@ public abstract class GeneticCode implements Cloneable, Serializable {
 
             boolean accept = accept((StunGeneticCode) code);
 
-            Skeleton.printWithTabs("return accept");
+            Skeleton.printWithTabs(Constants.RETURN_ACCEPT);
             Skeleton.decreaseTabs();
             Skeleton.decreaseTabs();
 
@@ -132,14 +134,14 @@ public abstract class GeneticCode implements Cloneable, Serializable {
 
             boolean accept = accept((DancingGeneticCode) code);
 
-            Skeleton.printWithTabs("return accept");
+            Skeleton.printWithTabs(Constants.RETURN_ACCEPT);
             Skeleton.decreaseTabs();
             Skeleton.decreaseTabs();
 
             return accept;
         }
 
-        Skeleton.printWithTabs("return false");
+        Skeleton.printWithTabs(Constants.RETURN_FALSE);
         Skeleton.decreaseTabs();
 
         return false;
@@ -152,10 +154,10 @@ public abstract class GeneticCode implements Cloneable, Serializable {
      * @return false
      */
     public boolean accept(AmnesiaGeneticCode code) {
-        Skeleton.printWithTabs("GeneticCode.accept(code) : boolean");
+        Skeleton.printWithTabs(Constants.GENETICCODE_ACCEPT);
         Skeleton.increaseTabs();
 
-        Skeleton.printWithTabs("return false");
+        Skeleton.printWithTabs(Constants.RETURN_FALSE);
         Skeleton.decreaseTabs();
 
         return false;
@@ -168,10 +170,10 @@ public abstract class GeneticCode implements Cloneable, Serializable {
      * @return false
      */
     public boolean accept(ProtectionGeneticCode code) {
-        Skeleton.printWithTabs("GeneticCode.accept(code) : boolean");
+        Skeleton.printWithTabs(Constants.GENETICCODE_ACCEPT);
         Skeleton.increaseTabs();
 
-        Skeleton.printWithTabs("return false");
+        Skeleton.printWithTabs(Constants.RETURN_FALSE);
         Skeleton.decreaseTabs();
 
         return false;
@@ -184,10 +186,10 @@ public abstract class GeneticCode implements Cloneable, Serializable {
      * @return false
      */
     public boolean accept(StunGeneticCode code) {
-        Skeleton.printWithTabs("GeneticCode.accept(code) : boolean");
+        Skeleton.printWithTabs(Constants.GENETICCODE_ACCEPT);
         Skeleton.increaseTabs();
 
-        Skeleton.printWithTabs("return false");
+        Skeleton.printWithTabs(Constants.RETURN_FALSE);
         Skeleton.decreaseTabs();
 
         return false;
@@ -200,10 +202,10 @@ public abstract class GeneticCode implements Cloneable, Serializable {
      * @return false
      */
     public boolean accept(DancingGeneticCode code) {
-        Skeleton.printWithTabs("GeneticCode.accept(code) : boolean");
+        Skeleton.printWithTabs(Constants.GENETICCODE_ACCEPT);
         Skeleton.increaseTabs();
 
-        Skeleton.printWithTabs("return false");
+        Skeleton.printWithTabs(Constants.RETURN_FALSE);
         Skeleton.decreaseTabs();
 
         return false;
@@ -230,7 +232,6 @@ public abstract class GeneticCode implements Cloneable, Serializable {
         } catch (CloneNotSupportedException e) {
             throw new AssertionError();
         }
-
 
     }
 }

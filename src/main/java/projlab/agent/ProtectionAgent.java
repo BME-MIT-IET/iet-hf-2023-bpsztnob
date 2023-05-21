@@ -2,8 +2,7 @@ package projlab.agent;
 
 import projlab.Prototype;
 import projlab.Skeleton;
-import projlab.Virologist;
-import projlab.agent.Agent;
+import projlab.util.Constants;
 
 import java.io.Serializable;
 
@@ -29,7 +28,7 @@ public class ProtectionAgent extends Agent implements Serializable {
         Skeleton.printWithTabs("ProtectionAgent.isProtected(): boolean");
         Skeleton.increaseTabs();
 
-        Skeleton.printWithTabs("return true");
+        Skeleton.printWithTabs(Constants.RETURN_TRUE);
         Skeleton.decreaseTabs();
         return true;
     }

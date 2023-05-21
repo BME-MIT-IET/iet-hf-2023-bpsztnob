@@ -8,7 +8,7 @@ public class ListDialog<T> extends JDialog {
     /**
      * Listában szereplő objektumok.
      */
-    private ArrayList<T> items;
+    private transient ArrayList<T> items;
 
     public ListDialog(ArrayList<T> items, String title) {
         this.items = items;
@@ -31,7 +31,7 @@ public class ListDialog<T> extends JDialog {
         for (int i = 0; i < items.size(); i++) {
             texts[i] = items.get(i).getClass().getSimpleName();
         }
-        JList list = new JList(texts);
+        JList<String> list = new JList<String>(texts);
         add(list, BorderLayout.CENTER);
 
         JButton okButton = new JButton("OK");

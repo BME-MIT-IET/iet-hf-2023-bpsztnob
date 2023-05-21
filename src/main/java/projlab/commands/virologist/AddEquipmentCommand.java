@@ -4,7 +4,6 @@ import projlab.Prototype;
 import projlab.Virologist;
 import projlab.commands.ICommand;
 import projlab.equipment.Equipment;
-import projlab.inactiveagent.InactiveAgent;
 
 /**
  * Hozzáadja a megadott felszerelést a virológushoz

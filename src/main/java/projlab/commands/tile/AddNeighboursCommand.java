@@ -2,7 +2,6 @@ package projlab.commands.tile;
 
 import projlab.Prototype;
 import projlab.commands.ICommand;
-import projlab.material.Material;
 import projlab.tile.Tile;
 
 import java.util.ArrayList;

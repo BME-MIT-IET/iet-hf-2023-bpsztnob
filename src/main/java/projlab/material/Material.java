@@ -1,9 +1,9 @@
 package projlab.material;
 
 import projlab.Skeleton;
+import projlab.util.Constants;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 /**
  * Az inaktív ágensek elkészítéséhez szükséges objektumok alapja.
@@ -31,7 +31,7 @@ public class Material implements Cloneable, Serializable {
             Skeleton.increaseTabs();
             boolean accept = accept((AminoAcidMaterial) material);
 
-            Skeleton.printWithTabs("return accept");
+            Skeleton.printWithTabs(Constants.RETURN_ACCEPT);
             Skeleton.decreaseTabs();
             Skeleton.decreaseTabs();
             return accept;
@@ -40,12 +40,12 @@ public class Material implements Cloneable, Serializable {
             Skeleton.increaseTabs();
             boolean accept = accept((NucleotideMaterial) material);
 
-            Skeleton.printWithTabs("return accept");
+            Skeleton.printWithTabs(Constants.RETURN_ACCEPT);
             Skeleton.decreaseTabs();
             Skeleton.decreaseTabs();
             return accept;
         }
-        Skeleton.printWithTabs("return false");
+        Skeleton.printWithTabs(Constants.RETURN_FALSE);
         Skeleton.decreaseTabs();
         return false;
     }
@@ -59,7 +59,7 @@ public class Material implements Cloneable, Serializable {
     public boolean accept(AminoAcidMaterial amino) {
         Skeleton.printWithTabs("Material.accept(amino): boolean");
         Skeleton.increaseTabs();
-        Skeleton.printWithTabs("return false");
+        Skeleton.printWithTabs(Constants.RETURN_FALSE);
         Skeleton.decreaseTabs();
         return false;
     }
@@ -73,7 +73,7 @@ public class Material implements Cloneable, Serializable {
     public boolean accept(NucleotideMaterial nucleotide) {
         Skeleton.printWithTabs("Material.accept(nucleotide): boolean");
         Skeleton.increaseTabs();
-        Skeleton.printWithTabs("return false");
+        Skeleton.printWithTabs(Constants.RETURN_FALSE);
         Skeleton.decreaseTabs();
         return false;
     }

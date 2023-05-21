@@ -5,9 +5,8 @@ import projlab.Skeleton;
 import projlab.Timer;
 import projlab.Virologist;
 import projlab.agent.Agent;
-import projlab.agent.AmnesiaAgent;
 import projlab.agent.DancingAgent;
-import projlab.inactiveagent.InactiveAgent;
+import projlab.util.Constants;
 
 import java.io.Serializable;
 
@@ -28,7 +27,8 @@ public class DancingInactiveAgent extends InactiveAgent implements Serializable 
     }
 
     /**
-     * Létrehoz egy aktív vitustánc ágenst, amelyet ráken a paraméterként kapott célpont virológusra.
+     * Létrehoz egy aktív vitustánc ágenst, amelyet ráken a paraméterként kapott
+     * célpont virológusra.
      *
      * @param target a megtámadott virológus
      * @param from   a támadó virológus.
@@ -45,7 +45,7 @@ public class DancingInactiveAgent extends InactiveAgent implements Serializable 
         Timer.instance().addSteppable(newAgent);
         target.getInfected(newAgent, from);
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 }
