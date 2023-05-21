@@ -3,6 +3,7 @@ package projlab.tile;
 import projlab.Skeleton;
 import projlab.Steppable;
 import projlab.equipment.Equipment;
+import projlab.util.Constants;
 
 import java.io.Serializable;
 
@@ -54,7 +55,8 @@ public class ShelterTile extends Tile implements Steppable, Serializable {
     }
 
     /**
-     * Hozzáadja a mezőhőz a paraméterül kapott felszerelést, ha a mezőn még nincs felszerelés.
+     * Hozzáadja a mezőhőz a paraméterül kapott felszerelést, ha a mezőn még nincs
+     * felszerelés.
      *
      * @param equipment a felszerelés, amelyet hozzá kell adni a mezőhőz.
      */
@@ -67,12 +69,13 @@ public class ShelterTile extends Tile implements Steppable, Serializable {
             this.equipment = equipmentRespawning.clone();
         }
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 
     /**
-     * Számláló értékét csökkenti eggyel. Ha eléri a 0-t, akkor létrehoz egy új felszerelést, majd visszaállítja a számlálót eredeti értékére.
+     * Számláló értékét csökkenti eggyel. Ha eléri a 0-t, akkor létrehoz egy új
+     * felszerelést, majd visszaállítja a számlálót eredeti értékére.
      */
     public void step() {
         Skeleton.printWithTabs("ShelterTile.step()");
@@ -90,7 +93,7 @@ public class ShelterTile extends Tile implements Steppable, Serializable {
             counter--;
         }
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 }

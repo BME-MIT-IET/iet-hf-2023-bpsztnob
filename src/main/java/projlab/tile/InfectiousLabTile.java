@@ -4,6 +4,7 @@ import projlab.Skeleton;
 import projlab.Timer;
 import projlab.Virologist;
 import projlab.agent.BearDeezNutsInYourMouthAgent;
+import projlab.util.Constants;
 
 import java.io.Serializable;
 
@@ -25,7 +26,8 @@ public class InfectiousLabTile extends LabTile implements Serializable {
      * A paraméterként kapott virológust felveszi a mezőn szereplő virológusok közé.
      * Ha sikerült felvenni, akkor a virológus megfertőződik medveágenssel.
      *
-     * @param virologist az a virológus, aki a mezőre lép, tehát fel kell venni a mezőn szerepló virológusok közé.
+     * @param virologist az a virológus, aki a mezőre lép, tehát fel kell venni a
+     *                   mezőn szerepló virológusok közé.
      */
     @Override
     public void accept(Virologist virologist) {
@@ -37,7 +39,7 @@ public class InfectiousLabTile extends LabTile implements Serializable {
         Timer.instance().addSteppable(newAgent);
         virologist.getInfected(newAgent, null);
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 }

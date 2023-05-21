@@ -4,6 +4,7 @@ import projlab.Skeleton;
 import projlab.Steppable;
 import projlab.Timer;
 import projlab.Virologist;
+import projlab.util.Constants;
 
 import java.io.Serializable;
 
@@ -51,13 +52,14 @@ public abstract class InactiveAgent implements Steppable, Serializable {
         }
         duration--;
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
 
     }
 
     /**
-     * Létrehoz egy aktív ágenst, amelyet ráken a paraméterként kapott célpont virológusra.
+     * Létrehoz egy aktív ágenst, amelyet ráken a paraméterként kapott célpont
+     * virológusra.
      *
      * @param target a célpont
      * @param from   aki rákente az ágenst

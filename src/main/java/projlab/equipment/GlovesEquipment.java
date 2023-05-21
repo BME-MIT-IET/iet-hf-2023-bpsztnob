@@ -4,6 +4,7 @@ import projlab.Prototype;
 import projlab.Skeleton;
 import projlab.Virologist;
 import projlab.agent.Agent;
+import projlab.util.Constants;
 
 import java.io.Serializable;
 
@@ -42,7 +43,7 @@ public class GlovesEquipment extends Equipment implements Serializable {
             Skeleton.printWithTabs("if (from == null) : true");
             Skeleton.increaseTabs();
 
-            Skeleton.printWithTabs("return false");
+            Skeleton.printWithTabs(Constants.RETURN_FALSE);
             Skeleton.decreaseTabs();
             Skeleton.decreaseTabs();
             return false;

@@ -5,6 +5,7 @@ import projlab.Steppable;
 import projlab.Timer;
 import projlab.Virologist;
 import projlab.tile.Tile;
+import projlab.util.Constants;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -24,7 +25,8 @@ public abstract class Agent implements Steppable, Serializable {
     protected Virologist infected;
 
     /**
-     * Csökkenti a durationt 1-gyel, ha 0 lesz akkor kiveszi önmagát a virológusra ható ágensek közül illetve kiveszi magát a Timerből.
+     * Csökkenti a durationt 1-gyel, ha 0 lesz akkor kiveszi önmagát a virológusra
+     * ható ágensek közül illetve kiveszi magát a Timerből.
      */
     public void step() {
         Skeleton.printWithTabs("Agent.step()");
@@ -41,7 +43,7 @@ public abstract class Agent implements Steppable, Serializable {
         }
         duration--;
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 
@@ -54,7 +56,7 @@ public abstract class Agent implements Steppable, Serializable {
         Skeleton.printWithTabs("Agent.isProtected(): boolean");
         Skeleton.increaseTabs();
 
-        Skeleton.printWithTabs("return false");
+        Skeleton.printWithTabs(Constants.RETURN_FALSE);
         Skeleton.decreaseTabs();
         return false;
     }
@@ -68,13 +70,14 @@ public abstract class Agent implements Steppable, Serializable {
         Skeleton.printWithTabs("Agent.isStunned(): boolean");
         Skeleton.increaseTabs();
 
-        Skeleton.printWithTabs("return false");
+        Skeleton.printWithTabs(Constants.RETURN_FALSE);
         Skeleton.decreaseTabs();
         return false;
     }
 
     /**
-     * Ha a virológus vitustáncol, akkor visszaadna egy véletlenszerű mezőt a listából.
+     * Ha a virológus vitustáncol, akkor visszaadna egy véletlenszerű mezőt a
+     * listából.
      *
      * @param tiles a mezők
      * @return null
@@ -99,7 +102,7 @@ public abstract class Agent implements Steppable, Serializable {
 
         infected = virologist;
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 
@@ -112,7 +115,7 @@ public abstract class Agent implements Steppable, Serializable {
         Skeleton.printWithTabs("Agent.spread(virologists)");
         Skeleton.increaseTabs();
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 
@@ -125,7 +128,7 @@ public abstract class Agent implements Steppable, Serializable {
         Skeleton.printWithTabs("Agent.destroyMaterialsOnTile(tile)");
         Skeleton.increaseTabs();
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 
@@ -136,7 +139,7 @@ public abstract class Agent implements Steppable, Serializable {
         Skeleton.printWithTabs("Agent.getHit()");
         Skeleton.increaseTabs();
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 }

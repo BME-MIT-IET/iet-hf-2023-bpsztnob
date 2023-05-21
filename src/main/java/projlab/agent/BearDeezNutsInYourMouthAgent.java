@@ -5,6 +5,7 @@ import projlab.Timer;
 import projlab.Virologist;
 import projlab.material.Material;
 import projlab.tile.Tile;
+import projlab.util.Constants;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -32,7 +33,7 @@ public class BearDeezNutsInYourMouthAgent extends DancingAgent implements Serial
         Skeleton.printWithTabs("BearDeezNutsInYourMouthAgent.step()");
         Skeleton.increaseTabs();
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 
@@ -53,7 +54,7 @@ public class BearDeezNutsInYourMouthAgent extends DancingAgent implements Serial
             }
         }
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 
@@ -70,7 +71,7 @@ public class BearDeezNutsInYourMouthAgent extends DancingAgent implements Serial
         ArrayList<Material> materials = tile.getMaterials();
         tile.removeMaterial(materials);
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 
@@ -84,7 +85,7 @@ public class BearDeezNutsInYourMouthAgent extends DancingAgent implements Serial
 
         infected.die();
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 }

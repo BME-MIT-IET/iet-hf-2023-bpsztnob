@@ -3,11 +3,13 @@ package projlab.equipment;
 import projlab.Prototype;
 import projlab.Skeleton;
 import projlab.Virologist;
+import projlab.util.Constants;
 
 import java.io.Serializable;
 
 /**
- * A baltafelszerelés szerepe, hogy a medveágenssel megfertőzött virológust megölje.
+ * A baltafelszerelés szerepe, hogy a medveágenssel megfertőzött virológust
+ * megölje.
  */
 public class AxeEquipment extends Equipment implements Serializable {
     private int numberOfUses = 1;
@@ -39,7 +41,7 @@ public class AxeEquipment extends Equipment implements Serializable {
             Skeleton.decreaseTabs();
         }
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 }

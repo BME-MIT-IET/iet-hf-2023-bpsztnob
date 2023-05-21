@@ -6,6 +6,7 @@ import projlab.Timer;
 import projlab.Virologist;
 import projlab.agent.Agent;
 import projlab.agent.ProtectionAgent;
+import projlab.util.Constants;
 
 import java.io.Serializable;
 
@@ -26,7 +27,8 @@ public class ProtectionInactiveAgent extends InactiveAgent implements Serializab
     }
 
     /**
-     * Létrehoz egy aktív védő ágenst, amelyet ráken a paraméterként kapott célpont virológusra.
+     * Létrehoz egy aktív védő ágenst, amelyet ráken a paraméterként kapott célpont
+     * virológusra.
      *
      * @param target a megtámadott virológus
      * @param from   a támadó virológus.
@@ -41,7 +43,7 @@ public class ProtectionInactiveAgent extends InactiveAgent implements Serializab
         Timer.instance().addSteppable(newAgent);
         target.getInfected(newAgent, from);
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 }

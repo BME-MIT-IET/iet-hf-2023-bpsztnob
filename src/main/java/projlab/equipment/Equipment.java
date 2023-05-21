@@ -4,6 +4,7 @@ import projlab.Skeleton;
 import projlab.Virologist;
 import projlab.agent.Agent;
 import projlab.material.Material;
+import projlab.util.Constants;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ public class Equipment implements Cloneable, Serializable {
 
         owner = virologist;
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 
@@ -51,7 +52,7 @@ public class Equipment implements Cloneable, Serializable {
         Skeleton.printWithTabs("Equipment.isProtected(): boolean");
         Skeleton.increaseTabs();
 
-        Skeleton.printWithTabs("return false");
+        Skeleton.printWithTabs(Constants.RETURN_FALSE);
         Skeleton.decreaseTabs();
         return false;
     }
@@ -68,7 +69,7 @@ public class Equipment implements Cloneable, Serializable {
         Skeleton.printWithTabs("Equipment.repel(agent, from): boolean");
         Skeleton.increaseTabs();
 
-        Skeleton.printWithTabs("return false");
+        Skeleton.printWithTabs(Constants.RETURN_FALSE);
         Skeleton.decreaseTabs();
         return false;
     }
@@ -99,7 +100,7 @@ public class Equipment implements Cloneable, Serializable {
         Skeleton.printWithTabs("Equipment.removeMaterial(materials)");
         Skeleton.increaseTabs();
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 
@@ -117,7 +118,6 @@ public class Equipment implements Cloneable, Serializable {
         Skeleton.decreaseTabs();
         return new ArrayList<>();
     }
-
 
     public void use(Virologist target) {
     }

@@ -6,12 +6,14 @@ import projlab.Virologist;
 import projlab.equipment.Equipment;
 import projlab.geneticcode.GeneticCode;
 import projlab.material.Material;
+import projlab.util.Constants;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * A mezők ősosztálya, amely tárolja a rajta lévő virológusokat és a szomszédokat.
+ * A mezők ősosztálya, amely tárolja a rajta lévő virológusokat és a
+ * szomszédokat.
  */
 public class Tile implements Serializable {
     /**
@@ -45,7 +47,8 @@ public class Tile implements Serializable {
     /**
      * A paraméterként kapott virológust felveszi a mezőn szereplő virológusok közé.
      *
-     * @param virologist az a virológus, aki a mezőre lép, tehát fel kell venni a mezőn szerepló virológusok közé.
+     * @param virologist az a virológus, aki a mezőre lép, tehát fel kell venni a
+     *                   mezőn szerepló virológusok közé.
      */
     public void accept(Virologist virologist) {
         Skeleton.printWithTabs("Tile.accept(virologist)");
@@ -57,20 +60,21 @@ public class Tile implements Serializable {
         }
         virologists.add(virologist);
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 
     /**
      * A paraméterként kapott virológust eltávolítja a mezőről.
      *
-     * @param virologist az a virológus, aki a mezőről ellép, tehát ki kell törölni a mezőn szerepló virológusok közül.
+     * @param virologist az a virológus, aki a mezőről ellép, tehát ki kell törölni
+     *                   a mezőn szerepló virológusok közül.
      */
     public void remove(Virologist virologist) {
         Skeleton.printWithTabs("Tile.remove(virologist)");
         Skeleton.increaseTabs();
         virologists.remove(virologist);
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 
@@ -123,7 +127,7 @@ public class Tile implements Serializable {
     public boolean dumpMaterials(ArrayList<Material> materials, Virologist who) {
         Skeleton.printWithTabs("Tile.dumpMaterials(materials, who): boolean");
         Skeleton.increaseTabs();
-        Skeleton.printWithTabs("return false");
+        Skeleton.printWithTabs(Constants.RETURN_FALSE);
         Skeleton.decreaseTabs();
         return false;
     }
@@ -150,7 +154,7 @@ public class Tile implements Serializable {
         Skeleton.printWithTabs("Tile.addNeighbours(neighbours)");
         Skeleton.increaseTabs();
         this.neighbours.addAll(neighbours);
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 
@@ -164,7 +168,8 @@ public class Tile implements Serializable {
     }
 
     /**
-     * Elveszi a paraméterként kapott mezőket a szomszédok listából, ha benne vannak.
+     * Elveszi a paraméterként kapott mezőket a szomszédok listából, ha benne
+     * vannak.
      *
      * @param neighbours azok a mezők, amelyeket a szomszéd listából el kell venni.
      */
@@ -172,7 +177,7 @@ public class Tile implements Serializable {
         Skeleton.printWithTabs("Tile.removeNeighbours(neighbours)");
         Skeleton.increaseTabs();
         this.neighbours.removeAll(neighbours);
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 
@@ -184,7 +189,7 @@ public class Tile implements Serializable {
     public void addMaterial(ArrayList<Material> materials) {
         Skeleton.printWithTabs("Tile.addMaterial(materials)");
         Skeleton.increaseTabs();
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 
@@ -197,7 +202,7 @@ public class Tile implements Serializable {
     public boolean removeMaterial(ArrayList<Material> materials) {
         Skeleton.printWithTabs("Tile.removeMaterial(materials) : boolean");
         Skeleton.increaseTabs();
-        Skeleton.printWithTabs("return false");
+        Skeleton.printWithTabs(Constants.RETURN_FALSE);
         Skeleton.decreaseTabs();
         return false;
     }

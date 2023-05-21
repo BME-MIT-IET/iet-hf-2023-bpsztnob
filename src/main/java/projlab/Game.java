@@ -7,6 +7,7 @@ import projlab.geneticcode.GeneticCode;
 import projlab.inactiveagent.InactiveAgent;
 import projlab.material.Material;
 import projlab.tile.Tile;
+import projlab.util.Constants;
 import projlab.util.LearnGeneticCodeEnum;
 import projlab.util.MoveEnum;
 import projlab.util.PickupEquipmentEnum;
@@ -63,7 +64,6 @@ public class Game {
         return game;
     }
 
-
     /**
      * Megvizsgálja, hogy a virológus megnyerte-e a játékot.
      */
@@ -77,7 +77,7 @@ public class Game {
         MenuFrame mf = new MenuFrame();
         mf.setVisible(true);
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 
@@ -95,12 +95,13 @@ public class Game {
         this.virologists = map.generateMap(4);
         this.currentVirologist = this.virologists.get(0);
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 
     /**
-     * Minden körben kiírja a következő virológust, csökkenti a visszamaradt körök számát az adott virológusnak.
+     * Minden körben kiírja a következő virológust, csökkenti a visszamaradt körök
+     * számát az adott virológusnak.
      */
     private void doingThisEveryTurn() {
         turnsLeft--;
