@@ -343,7 +343,7 @@ public class TestCases {
         //Test case init
         Virologist v1 = new Virologist();
         AminoAcidMaterial a1 = new AminoAcidMaterial();
-        ArrayList<Material> l1 = new ArrayList<Material>();
+        ArrayList<Material> l1 = new ArrayList<>();
         l1.add(a1);
         StorageTile t1 = new StorageTile();
         Virologist from = new Virologist();
@@ -365,7 +365,7 @@ public class TestCases {
         //Test case init
         Virologist v1 = new Virologist();
         AminoAcidMaterial a1 = new AminoAcidMaterial();
-        ArrayList<Material> l1 = new ArrayList<Material>();
+        ArrayList<Material> l1 = new ArrayList<>();
         l1.add(a1);
         Tile t1 = new Tile();
 
@@ -383,7 +383,7 @@ public class TestCases {
         Virologist v1 = new Virologist();
         AminoAcidMaterial a1 = new AminoAcidMaterial();
         NucleotideMaterial n1 = new NucleotideMaterial();
-        ArrayList<Material> l1 = new ArrayList<Material>();
+        ArrayList<Material> l1 = new ArrayList<>();
         l1.add(a1);
         l1.add(n1);
         StorageTile t1 = new StorageTile();
@@ -402,13 +402,13 @@ public class TestCases {
     public static void pickupMaterialWhileFull() {
         //Test case init
         Virologist v1 = new Virologist();
-        ArrayList<Material> l1 = new ArrayList<Material>();
+        ArrayList<Material> l1 = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             AminoAcidMaterial a1 = new AminoAcidMaterial();
             l1.add(a1);
         }
         StorageTile t1 = new StorageTile();
-        ArrayList<Material> l2 = new ArrayList<Material>();
+        ArrayList<Material> l2 = new ArrayList<>();
         NucleotideMaterial n1 = new NucleotideMaterial();
         l2.add(n1);
 
@@ -427,18 +427,18 @@ public class TestCases {
     public static void pickupMaterialWhileFullAndBackpackNotFull() {
         //Test case
         Virologist v1 = new Virologist();
-        ArrayList<Material> l1 = new ArrayList<Material>();
+        ArrayList<Material> l1 = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             AminoAcidMaterial a1 = new AminoAcidMaterial();
             l1.add(a1);
         }
         StorageTile t1 = new StorageTile();
-        ArrayList<Material> l2 = new ArrayList<Material>();
+        ArrayList<Material> l2 = new ArrayList<>();
         NucleotideMaterial n1 = new NucleotideMaterial();
         l2.add(n1);
 
         ShelterTile t2 = new ShelterTile();
-        ArrayList<Tile> neighbour = new ArrayList<Tile>();
+        ArrayList<Tile> neighbour = new ArrayList<>();
         neighbour.add(t1);
         t2.addNeighbours(neighbour);
         BackpackEquipment b1 = new BackpackEquipment();
@@ -464,19 +464,19 @@ public class TestCases {
     public static void pickupMaterialWhileFullAndBackpackIsFull() {
         //Test case
         Virologist v1 = new Virologist();
-        ArrayList<Material> l1 = new ArrayList<Material>();
+        ArrayList<Material> l1 = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             AminoAcidMaterial a1 = new AminoAcidMaterial();
             l1.add(a1);
         }
         StorageTile t1 = new StorageTile();
-        ArrayList<Material> l2 = new ArrayList<Material>();
+        ArrayList<Material> l2 = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             NucleotideMaterial n1 = new NucleotideMaterial();
             l2.add(n1);
         }
 
-        ArrayList<Material> l3 = new ArrayList<Material>();
+        ArrayList<Material> l3 = new ArrayList<>();
         NucleotideMaterial n1 = new NucleotideMaterial();
         l3.add(n1);
 
@@ -644,13 +644,13 @@ public class TestCases {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
-        StunInactiveAgent IAgent = new StunInactiveAgent(v1);
+        StunInactiveAgent iAgent = new StunInactiveAgent(v1);
         StunAgent agent = new StunAgent();
 
         v1.getInfected(agent, null);
 
         //Test case
-        v1.infectVirologistWith(IAgent, target);
+        v1.infectVirologistWith(iAgent, target);
     }
 
     /**
@@ -660,13 +660,13 @@ public class TestCases {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
-        ProtectionInactiveAgent IAgent = new ProtectionInactiveAgent(v1);
+        ProtectionInactiveAgent iAgent = new ProtectionInactiveAgent(v1);
         StunAgent agent = new StunAgent();
 
         v1.getInfected(agent, null);
 
         //Test case
-        v1.infectVirologistWith(IAgent, target);
+        v1.infectVirologistWith(iAgent, target);
     }
 
     /**
@@ -676,13 +676,13 @@ public class TestCases {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
-        DancingInactiveAgent IAgent = new DancingInactiveAgent(v1);
+        DancingInactiveAgent iAgent = new DancingInactiveAgent(v1);
         StunAgent agent = new StunAgent();
 
         v1.getInfected(agent, null);
 
         //Test case
-        v1.infectVirologistWith(IAgent, target);
+        v1.infectVirologistWith(iAgent, target);
     }
 
     /**
@@ -692,13 +692,13 @@ public class TestCases {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
-        AmnesiaInactiveAgent IAgent = new AmnesiaInactiveAgent(v1);
+        AmnesiaInactiveAgent iAgent = new AmnesiaInactiveAgent(v1);
         StunAgent agent = new StunAgent();
 
         v1.getInfected(agent, null);
 
         //Test case
-        v1.infectVirologistWith(IAgent, target);
+        v1.infectVirologistWith(iAgent, target);
     }
 
     /**
@@ -708,10 +708,10 @@ public class TestCases {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
-        StunInactiveAgent IAgent = new StunInactiveAgent(v1);
+        StunInactiveAgent iAgent = new StunInactiveAgent(v1);
 
         //Test case
-        v1.infectVirologistWith(IAgent, target);
+        v1.infectVirologistWith(iAgent, target);
     }
 
     /**
@@ -721,10 +721,10 @@ public class TestCases {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
-        DancingInactiveAgent IAgent = new DancingInactiveAgent(v1);
+        DancingInactiveAgent iAgent = new DancingInactiveAgent(v1);
 
         //Test case
-        v1.infectVirologistWith(IAgent, target);
+        v1.infectVirologistWith(iAgent, target);
     }
 
     /**
@@ -734,10 +734,10 @@ public class TestCases {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
-        ProtectionInactiveAgent IAgent = new ProtectionInactiveAgent(v1);
+        ProtectionInactiveAgent iAgent = new ProtectionInactiveAgent(v1);
 
         //Test case
-        v1.infectVirologistWith(IAgent, target);
+        v1.infectVirologistWith(iAgent, target);
     }
 
     /**
@@ -747,10 +747,10 @@ public class TestCases {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
-        AmnesiaInactiveAgent IAgent = new AmnesiaInactiveAgent(v1);
+        AmnesiaInactiveAgent iAgent = new AmnesiaInactiveAgent(v1);
 
         //Test case
-        v1.infectVirologistWith(IAgent, target);
+        v1.infectVirologistWith(iAgent, target);
     }
 
     /**
@@ -760,7 +760,7 @@ public class TestCases {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
-        StunInactiveAgent IAgent = new StunInactiveAgent(v1);
+        StunInactiveAgent iAgent = new StunInactiveAgent(v1);
         CoatEquipment coat = new CoatEquipment();
         ShelterTile tile = new ShelterTile();
 
@@ -772,7 +772,7 @@ public class TestCases {
         target.pickupEquipment();
 
         //Test case
-        v1.infectVirologistWith(IAgent, target);
+        v1.infectVirologistWith(iAgent, target);
     }
 
     /**
@@ -782,7 +782,7 @@ public class TestCases {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
-        DancingInactiveAgent IAgent = new DancingInactiveAgent(v1);
+        DancingInactiveAgent iAgent = new DancingInactiveAgent(v1);
         CoatEquipment coat = new CoatEquipment();
         ShelterTile tile = new ShelterTile();
 
@@ -795,7 +795,7 @@ public class TestCases {
 
 
         //Test case
-        v1.infectVirologistWith(IAgent, target);
+        v1.infectVirologistWith(iAgent, target);
     }
 
     /**
@@ -805,7 +805,7 @@ public class TestCases {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
-        ProtectionInactiveAgent IAgent = new ProtectionInactiveAgent(v1);
+        ProtectionInactiveAgent iAgent = new ProtectionInactiveAgent(v1);
         CoatEquipment coat = new CoatEquipment();
         ShelterTile tile = new ShelterTile();
 
@@ -818,7 +818,7 @@ public class TestCases {
 
 
         //Test case
-        v1.infectVirologistWith(IAgent, target);
+        v1.infectVirologistWith(iAgent, target);
     }
 
     /**
@@ -828,7 +828,7 @@ public class TestCases {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
-        AmnesiaInactiveAgent IAgent = new AmnesiaInactiveAgent(v1);
+        AmnesiaInactiveAgent iAgent = new AmnesiaInactiveAgent(v1);
         CoatEquipment coat = new CoatEquipment();
         ShelterTile tile = new ShelterTile();
 
@@ -841,7 +841,7 @@ public class TestCases {
 
 
         //Test case
-        v1.infectVirologistWith(IAgent, target);
+        v1.infectVirologistWith(iAgent, target);
     }
 
     /**
@@ -851,13 +851,13 @@ public class TestCases {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
-        StunInactiveAgent IAgent = new StunInactiveAgent(v1);
+        StunInactiveAgent iAgent = new StunInactiveAgent(v1);
         ProtectionAgent agent = new ProtectionAgent();
 
         target.getInfected(agent, null);
 
         //Test case
-        v1.infectVirologistWith(IAgent, target);
+        v1.infectVirologistWith(iAgent, target);
     }
 
     /**
@@ -867,13 +867,13 @@ public class TestCases {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
-        ProtectionInactiveAgent IAgent = new ProtectionInactiveAgent(v1);
+        ProtectionInactiveAgent iAgent = new ProtectionInactiveAgent(v1);
         ProtectionAgent agent = new ProtectionAgent();
 
         target.getInfected(agent, null);
 
         //Test case
-        v1.infectVirologistWith(IAgent, target);
+        v1.infectVirologistWith(iAgent, target);
     }
 
     /**
@@ -883,13 +883,13 @@ public class TestCases {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
-        DancingInactiveAgent IAgent = new DancingInactiveAgent(v1);
+        DancingInactiveAgent iAgent = new DancingInactiveAgent(v1);
         ProtectionAgent agent = new ProtectionAgent();
 
         target.getInfected(agent, null);
 
         //Test case
-        v1.infectVirologistWith(IAgent, target);
+        v1.infectVirologistWith(iAgent, target);
     }
 
     /**
@@ -899,13 +899,13 @@ public class TestCases {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
-        AmnesiaInactiveAgent IAgent = new AmnesiaInactiveAgent(v1);
+        AmnesiaInactiveAgent iAgent = new AmnesiaInactiveAgent(v1);
         ProtectionAgent agent = new ProtectionAgent();
 
         target.getInfected(agent, null);
 
         //Test case
-        v1.infectVirologistWith(IAgent, target);
+        v1.infectVirologistWith(iAgent, target);
     }
 
     /**
@@ -915,7 +915,7 @@ public class TestCases {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
-        StunInactiveAgent IAgent = new StunInactiveAgent(v1);
+        StunInactiveAgent iAgent = new StunInactiveAgent(v1);
         GlovesEquipment gloves = new GlovesEquipment();
         ShelterTile tile = new ShelterTile();
 
@@ -927,7 +927,7 @@ public class TestCases {
         target.pickupEquipment();
 
         //Test case
-        v1.infectVirologistWith(IAgent, target);
+        v1.infectVirologistWith(iAgent, target);
     }
 
     /**
@@ -937,7 +937,7 @@ public class TestCases {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
-        ProtectionInactiveAgent IAgent = new ProtectionInactiveAgent(v1);
+        ProtectionInactiveAgent iAgent = new ProtectionInactiveAgent(v1);
         GlovesEquipment gloves = new GlovesEquipment();
         ShelterTile tile = new ShelterTile();
 
@@ -949,7 +949,7 @@ public class TestCases {
         target.pickupEquipment();
 
         //Test case
-        v1.infectVirologistWith(IAgent, target);
+        v1.infectVirologistWith(iAgent, target);
     }
 
     /**
@@ -959,7 +959,7 @@ public class TestCases {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
-        DancingInactiveAgent IAgent = new DancingInactiveAgent(v1);
+        DancingInactiveAgent iAgent = new DancingInactiveAgent(v1);
         GlovesEquipment gloves = new GlovesEquipment();
         ShelterTile tile = new ShelterTile();
 
@@ -971,7 +971,7 @@ public class TestCases {
         target.pickupEquipment();
 
         //Test case
-        v1.infectVirologistWith(IAgent, target);
+        v1.infectVirologistWith(iAgent, target);
     }
 
     /**
@@ -981,7 +981,7 @@ public class TestCases {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
-        AmnesiaInactiveAgent IAgent = new AmnesiaInactiveAgent(v1);
+        AmnesiaInactiveAgent iAgent = new AmnesiaInactiveAgent(v1);
         GlovesEquipment gloves = new GlovesEquipment();
         ShelterTile tile = new ShelterTile();
 
@@ -993,7 +993,7 @@ public class TestCases {
         target.pickupEquipment();
 
         //Test case
-        v1.infectVirologistWith(IAgent, target);
+        v1.infectVirologistWith(iAgent, target);
     }
 
     /**
@@ -1003,7 +1003,7 @@ public class TestCases {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
-        StunInactiveAgent IAgent = new StunInactiveAgent(v1);
+        StunInactiveAgent iAgent = new StunInactiveAgent(v1);
         GlovesEquipment gloves = new GlovesEquipment();
         CoatEquipment coat = new CoatEquipment();
         ShelterTile tile1 = new ShelterTile();
@@ -1028,7 +1028,7 @@ public class TestCases {
         target.pickupEquipment();
 
         //Test case
-        v1.infectVirologistWith(IAgent, target);
+        v1.infectVirologistWith(iAgent, target);
     }
 
     /**
@@ -1038,7 +1038,7 @@ public class TestCases {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
-        ProtectionInactiveAgent IAgent = new ProtectionInactiveAgent(v1);
+        ProtectionInactiveAgent iAgent = new ProtectionInactiveAgent(v1);
         GlovesEquipment gloves = new GlovesEquipment();
         CoatEquipment coat = new CoatEquipment();
         ShelterTile tile1 = new ShelterTile();
@@ -1063,7 +1063,7 @@ public class TestCases {
         target.pickupEquipment();
 
         //Test case
-        v1.infectVirologistWith(IAgent, target);
+        v1.infectVirologistWith(iAgent, target);
     }
 
     /**
@@ -1073,7 +1073,7 @@ public class TestCases {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
-        DancingInactiveAgent IAgent = new DancingInactiveAgent(v1);
+        DancingInactiveAgent iAgent = new DancingInactiveAgent(v1);
         GlovesEquipment gloves = new GlovesEquipment();
         CoatEquipment coat = new CoatEquipment();
         ShelterTile tile1 = new ShelterTile();
@@ -1098,7 +1098,7 @@ public class TestCases {
         target.pickupEquipment();
 
         //Test case
-        v1.infectVirologistWith(IAgent, target);
+        v1.infectVirologistWith(iAgent, target);
     }
 
     /**
@@ -1108,7 +1108,7 @@ public class TestCases {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
-        AmnesiaInactiveAgent IAgent = new AmnesiaInactiveAgent(v1);
+        AmnesiaInactiveAgent iAgent = new AmnesiaInactiveAgent(v1);
         GlovesEquipment gloves = new GlovesEquipment();
         CoatEquipment coat = new CoatEquipment();
         ShelterTile tile1 = new ShelterTile();
@@ -1133,7 +1133,7 @@ public class TestCases {
         target.pickupEquipment();
 
         //Test case
-        v1.infectVirologistWith(IAgent, target);
+        v1.infectVirologistWith(iAgent, target);
     }
 
     /**
@@ -1143,7 +1143,7 @@ public class TestCases {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
-        StunInactiveAgent IAgent = new StunInactiveAgent(v1);
+        StunInactiveAgent iAgent = new StunInactiveAgent(v1);
         GlovesEquipment gloves = new GlovesEquipment();
         ShelterTile tile = new ShelterTile();
 
@@ -1162,7 +1162,7 @@ public class TestCases {
         v1.pickupEquipment();
 
         //Test case
-        v1.infectVirologistWith(IAgent, target);
+        v1.infectVirologistWith(iAgent, target);
     }
 
     /**
@@ -1172,7 +1172,7 @@ public class TestCases {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
-        ProtectionInactiveAgent IAgent = new ProtectionInactiveAgent(v1);
+        ProtectionInactiveAgent iAgent = new ProtectionInactiveAgent(v1);
         GlovesEquipment gloves = new GlovesEquipment();
         ShelterTile tile = new ShelterTile();
 
@@ -1191,7 +1191,7 @@ public class TestCases {
         v1.pickupEquipment();
 
         //Test case
-        v1.infectVirologistWith(IAgent, target);
+        v1.infectVirologistWith(iAgent, target);
     }
 
     /**
@@ -1201,7 +1201,7 @@ public class TestCases {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
-        DancingInactiveAgent IAgent = new DancingInactiveAgent(v1);
+        DancingInactiveAgent iAgent = new DancingInactiveAgent(v1);
         GlovesEquipment gloves = new GlovesEquipment();
         ShelterTile tile = new ShelterTile();
 
@@ -1220,7 +1220,7 @@ public class TestCases {
         v1.pickupEquipment();
 
         //Test case
-        v1.infectVirologistWith(IAgent, target);
+        v1.infectVirologistWith(iAgent, target);
     }
 
     /**
@@ -1230,7 +1230,7 @@ public class TestCases {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
-        AmnesiaInactiveAgent IAgent = new AmnesiaInactiveAgent(v1);
+        AmnesiaInactiveAgent iAgent = new AmnesiaInactiveAgent(v1);
         GlovesEquipment gloves = new GlovesEquipment();
         ShelterTile tile = new ShelterTile();
 
@@ -1249,7 +1249,7 @@ public class TestCases {
         v1.pickupEquipment();
 
         //Test case
-        v1.infectVirologistWith(IAgent, target);
+        v1.infectVirologistWith(iAgent, target);
     }
 
     /**
@@ -1259,7 +1259,7 @@ public class TestCases {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
-        StunInactiveAgent IAgent = new StunInactiveAgent(v1);
+        StunInactiveAgent iAgent = new StunInactiveAgent(v1);
         GlovesEquipment gloves = new GlovesEquipment();
         CoatEquipment coat = new CoatEquipment();
         ShelterTile tile1 = new ShelterTile();
@@ -1280,7 +1280,7 @@ public class TestCases {
         v1.pickupEquipment();
 
         //Test case
-        v1.infectVirologistWith(IAgent, target);
+        v1.infectVirologistWith(iAgent, target);
     }
 
     /**
@@ -1290,7 +1290,7 @@ public class TestCases {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
-        ProtectionInactiveAgent IAgent = new ProtectionInactiveAgent(v1);
+        ProtectionInactiveAgent iAgent = new ProtectionInactiveAgent(v1);
         GlovesEquipment gloves = new GlovesEquipment();
         CoatEquipment coat = new CoatEquipment();
         ShelterTile tile1 = new ShelterTile();
@@ -1311,7 +1311,7 @@ public class TestCases {
         v1.pickupEquipment();
 
         //Test case
-        v1.infectVirologistWith(IAgent, target);
+        v1.infectVirologistWith(iAgent, target);
     }
 
     /**
@@ -1321,7 +1321,7 @@ public class TestCases {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
-        DancingInactiveAgent IAgent = new DancingInactiveAgent(v1);
+        DancingInactiveAgent iAgent = new DancingInactiveAgent(v1);
         GlovesEquipment gloves = new GlovesEquipment();
         CoatEquipment coat = new CoatEquipment();
         ShelterTile tile1 = new ShelterTile();
@@ -1342,7 +1342,7 @@ public class TestCases {
         v1.pickupEquipment();
 
         //Test case
-        v1.infectVirologistWith(IAgent, target);
+        v1.infectVirologistWith(iAgent, target);
     }
 
     /**
@@ -1352,7 +1352,7 @@ public class TestCases {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
-        AmnesiaInactiveAgent IAgent = new AmnesiaInactiveAgent(v1);
+        AmnesiaInactiveAgent iAgent = new AmnesiaInactiveAgent(v1);
         GlovesEquipment gloves = new GlovesEquipment();
         CoatEquipment coat = new CoatEquipment();
         ShelterTile tile1 = new ShelterTile();
@@ -1373,7 +1373,7 @@ public class TestCases {
         v1.pickupEquipment();
 
         //Test case
-        v1.infectVirologistWith(IAgent, target);
+        v1.infectVirologistWith(iAgent, target);
     }
 
     /**
@@ -1383,7 +1383,7 @@ public class TestCases {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
-        StunInactiveAgent IAgent = new StunInactiveAgent(v1);
+        StunInactiveAgent iAgent = new StunInactiveAgent(v1);
         GlovesEquipment gloves = new GlovesEquipment();
         ShelterTile tile = new ShelterTile();
         ProtectionAgent agent = new ProtectionAgent();
@@ -1398,7 +1398,7 @@ public class TestCases {
         target.pickupEquipment();
 
         //Test case
-        v1.infectVirologistWith(IAgent, target);
+        v1.infectVirologistWith(iAgent, target);
     }
 
     /**
@@ -1408,7 +1408,7 @@ public class TestCases {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
-        ProtectionInactiveAgent IAgent = new ProtectionInactiveAgent(v1);
+        ProtectionInactiveAgent iAgent = new ProtectionInactiveAgent(v1);
         GlovesEquipment gloves = new GlovesEquipment();
         ShelterTile tile = new ShelterTile();
         ProtectionAgent agent = new ProtectionAgent();
@@ -1423,7 +1423,7 @@ public class TestCases {
         target.pickupEquipment();
 
         //Test case
-        v1.infectVirologistWith(IAgent, target);
+        v1.infectVirologistWith(iAgent, target);
     }
 
     /**
@@ -1433,7 +1433,7 @@ public class TestCases {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
-        DancingInactiveAgent IAgent = new DancingInactiveAgent(v1);
+        DancingInactiveAgent iAgent = new DancingInactiveAgent(v1);
         GlovesEquipment gloves = new GlovesEquipment();
         ShelterTile tile = new ShelterTile();
         ProtectionAgent agent = new ProtectionAgent();
@@ -1448,7 +1448,7 @@ public class TestCases {
         target.pickupEquipment();
 
         //Test case
-        v1.infectVirologistWith(IAgent, target);
+        v1.infectVirologistWith(iAgent, target);
     }
 
     /**
@@ -1458,7 +1458,7 @@ public class TestCases {
         //Test case initialization
         Virologist target = new Virologist();
         Virologist v1 = new Virologist();
-        AmnesiaInactiveAgent IAgent = new AmnesiaInactiveAgent(v1);
+        AmnesiaInactiveAgent iAgent = new AmnesiaInactiveAgent(v1);
         GlovesEquipment gloves = new GlovesEquipment();
         ShelterTile tile = new ShelterTile();
         ProtectionAgent agent = new ProtectionAgent();
@@ -1473,7 +1473,7 @@ public class TestCases {
         target.pickupEquipment();
 
         //Test case
-        v1.infectVirologistWith(IAgent, target);
+        v1.infectVirologistWith(iAgent, target);
     }
 
     /**

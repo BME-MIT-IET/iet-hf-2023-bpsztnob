@@ -46,7 +46,7 @@ public class BackpackEquipment extends Equipment implements Serializable {
         Skeleton.printWithTabs("BackpackEquipment.acceptMaterials(remainingMaterials): ArrayList<Material>");
         Skeleton.increaseTabs();
 
-        while ((this.materials.size() < MAX_MATERIAL_COUNT && remainingMaterials.size() > 0)) {
+        while ((this.materials.size() < MAX_MATERIAL_COUNT && !remainingMaterials.isEmpty())) {
             this.materials.add(remainingMaterials.get(0));
             remainingMaterials.remove(0);
         }

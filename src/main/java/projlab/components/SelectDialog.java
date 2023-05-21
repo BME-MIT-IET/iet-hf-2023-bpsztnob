@@ -47,7 +47,7 @@ public class SelectDialog<T> extends JDialog {
                 texts[i] = "LabTile";
             }
         }
-        list = new JList<String>(texts);
+        list = new JList<>(texts);
         add(list, BorderLayout.CENTER);
 
         JButton okButton = new JButton("OK");
@@ -56,9 +56,8 @@ public class SelectDialog<T> extends JDialog {
             dispose();
         });
         JButton cancelButton = new JButton("Cancel");
-        cancelButton.addActionListener(e -> {
-            dispose();
-        });
+        cancelButton.addActionListener(e ->
+            dispose());
 
         JPanel panel = new JPanel();
         panel.add(okButton);

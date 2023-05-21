@@ -31,13 +31,13 @@ public class ListDialog<T> extends JDialog {
         for (int i = 0; i < items.size(); i++) {
             texts[i] = items.get(i).getClass().getSimpleName();
         }
-        JList<String> list = new JList<String>(texts);
+        JList list = new JList<>(texts);
         add(list, BorderLayout.CENTER);
 
         JButton okButton = new JButton("OK");
-        okButton.addActionListener(e -> {
-            dispose();
-        });
+        okButton.addActionListener(e ->
+            dispose()
+        );
 
         JPanel panel = new JPanel();
         panel.add(okButton);
