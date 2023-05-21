@@ -8,6 +8,7 @@ import projlab.agent.Agent;
 import projlab.agent.AmnesiaAgent;
 import projlab.agent.StunAgent;
 import projlab.inactiveagent.InactiveAgent;
+import projlab.util.Constants;
 
 import java.io.Serializable;
 
@@ -28,7 +29,8 @@ public class StunInactiveAgent extends InactiveAgent implements Serializable {
     }
 
     /**
-     * Létrehoz egy aktív bénító ágenst, amelyet ráken a paraméterként kapott célpont virológusra.
+     * Létrehoz egy aktív bénító ágenst, amelyet ráken a paraméterként kapott
+     * célpont virológusra.
      *
      * @param target a megtámadott virológus
      * @param from   a támadó virológus.
@@ -44,7 +46,7 @@ public class StunInactiveAgent extends InactiveAgent implements Serializable {
         Timer.instance().addSteppable(newAgent);
         target.getInfected(newAgent, from);
 
-        Skeleton.printWithTabs("return");
+        Skeleton.printWithTabs(Constants.RETURN);
         Skeleton.decreaseTabs();
     }
 }
