@@ -8,7 +8,7 @@ public class ListDialog<T> extends JDialog {
     /**
      * Listában szereplő objektumok.
      */
-    private ArrayList<T> items;
+    private transient ArrayList<T> items;
 
     public ListDialog(ArrayList<T> items, String title) {
         this.items = items;
