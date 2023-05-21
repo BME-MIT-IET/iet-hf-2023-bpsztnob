@@ -340,7 +340,7 @@ public class TestCases {
         //Test case init
         Virologist v1 = new Virologist();
         AminoAcidMaterial a1 = new AminoAcidMaterial();
-        ArrayList<Material> l1 = new ArrayList<Material>();
+        ArrayList<Material> l1 = new ArrayList<>();
         l1.add(a1);
         StorageTile t1 = new StorageTile();
         Virologist from = new Virologist();
@@ -362,7 +362,7 @@ public class TestCases {
         //Test case init
         Virologist v1 = new Virologist();
         AminoAcidMaterial a1 = new AminoAcidMaterial();
-        ArrayList<Material> l1 = new ArrayList<Material>();
+        ArrayList<Material> l1 = new ArrayList<>();
         l1.add(a1);
         Tile t1 = new Tile();
 
@@ -380,7 +380,7 @@ public class TestCases {
         Virologist v1 = new Virologist();
         AminoAcidMaterial a1 = new AminoAcidMaterial();
         NucleotideMaterial n1 = new NucleotideMaterial();
-        ArrayList<Material> l1 = new ArrayList<Material>();
+        ArrayList<Material> l1 = new ArrayList<>();
         l1.add(a1);
         l1.add(n1);
         StorageTile t1 = new StorageTile();
@@ -399,13 +399,13 @@ public class TestCases {
     public static void pickupMaterialWhileFull() {
         //Test case init
         Virologist v1 = new Virologist();
-        ArrayList<Material> l1 = new ArrayList<Material>();
+        ArrayList<Material> l1 = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             AminoAcidMaterial a1 = new AminoAcidMaterial();
             l1.add(a1);
         }
         StorageTile t1 = new StorageTile();
-        ArrayList<Material> l2 = new ArrayList<Material>();
+        ArrayList<Material> l2 = new ArrayList<>();
         NucleotideMaterial n1 = new NucleotideMaterial();
         l2.add(n1);
 
@@ -424,18 +424,18 @@ public class TestCases {
     public static void pickupMaterialWhileFullAndBackpackNotFull() {
         //Test case
         Virologist v1 = new Virologist();
-        ArrayList<Material> l1 = new ArrayList<Material>();
+        ArrayList<Material> l1 = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             AminoAcidMaterial a1 = new AminoAcidMaterial();
             l1.add(a1);
         }
         StorageTile t1 = new StorageTile();
-        ArrayList<Material> l2 = new ArrayList<Material>();
+        ArrayList<Material> l2 = new ArrayList<>();
         NucleotideMaterial n1 = new NucleotideMaterial();
         l2.add(n1);
 
         ShelterTile t2 = new ShelterTile();
-        ArrayList<Tile> neighbour = new ArrayList<Tile>();
+        ArrayList<Tile> neighbour = new ArrayList<>();
         neighbour.add(t1);
         t2.addNeighbours(neighbour);
         BackpackEquipment b1 = new BackpackEquipment();
@@ -461,19 +461,19 @@ public class TestCases {
     public static void pickupMaterialWhileFullAndBackpackIsFull() {
         //Test case
         Virologist v1 = new Virologist();
-        ArrayList<Material> l1 = new ArrayList<Material>();
+        ArrayList<Material> l1 = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             AminoAcidMaterial a1 = new AminoAcidMaterial();
             l1.add(a1);
         }
         StorageTile t1 = new StorageTile();
-        ArrayList<Material> l2 = new ArrayList<Material>();
+        ArrayList<Material> l2 = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             NucleotideMaterial n1 = new NucleotideMaterial();
             l2.add(n1);
         }
 
-        ArrayList<Material> l3 = new ArrayList<Material>();
+        ArrayList<Material> l3 = new ArrayList<>();
         NucleotideMaterial n1 = new NucleotideMaterial();
         l3.add(n1);
 

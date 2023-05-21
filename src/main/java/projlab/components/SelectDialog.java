@@ -47,7 +47,7 @@ public class SelectDialog<T> extends JDialog {
                 texts[i] = "LabTile";
             }
         }
-        list = new JList(texts);
+        list = new JList<>(texts);
         add(list, BorderLayout.CENTER);
 
         JButton okButton = new JButton("OK");
