@@ -23,7 +23,7 @@ public class ViewPanel extends JPanel {
     /**
      * A háttér aminek meg kell jelennie.
      */
-    Image background;
+    Image gameBackground;
     /**
      * A szöveg, aminek meg kell jelennie lent.
      */
@@ -169,7 +169,7 @@ public class ViewPanel extends JPanel {
 
         String tileName = Game.instance().getCurrentVirologist().getTile().getClass().getSimpleName();
         if (!currentTileName.equals(tileName)) {
-            background = tileBackgrounds.get(tileName);
+            gameBackground = tileBackgrounds.get(tileName);
             repaint();
         }
     }
@@ -196,7 +196,7 @@ public class ViewPanel extends JPanel {
         }
         String tileName = Game.instance().getCurrentVirologist().getTile().getClass().getSimpleName();
         if (!currentTileName.equals(tileName)) {
-            background = tileBackgrounds.get(tileName);
+            gameBackground = tileBackgrounds.get(tileName);
             repaint();
         }
     }
@@ -210,10 +210,10 @@ public class ViewPanel extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        if (background != null) {
-            int x = 1280 / 2 - background.getWidth(null) / 2;
+        if (gameBackground != null) {
+            int x = 1280 / 2 - gameBackground.getWidth(null) / 2;
             int y = 0;
-            g.drawImage(background, x, y, null);
+            g.drawImage(gameBackground, x, y, null);
         }
 
         g.setColor(Color.GRAY);
