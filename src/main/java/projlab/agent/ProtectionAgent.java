@@ -29,7 +29,7 @@ public class ProtectionAgent extends Agent implements Serializable {
         Skeleton.printWithTabs("ProtectionAgent.isProtected(): boolean");
         Skeleton.increaseTabs();
 
-        Skeleton.printWithTabs("return true");
+        Skeleton.printWithTabs(Constants.RETURN_TRUE);
         Skeleton.decreaseTabs();
         return true;
     }

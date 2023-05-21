@@ -62,7 +62,7 @@ public class CoatEquipment extends Equipment implements Serializable {
             }
             Skeleton.decreaseTabs();
 
-            Skeleton.printWithTabs("return true");
+            Skeleton.printWithTabs(Constants.RETURN_TRUE);
             Skeleton.decreaseTabs();
             return true;
         }

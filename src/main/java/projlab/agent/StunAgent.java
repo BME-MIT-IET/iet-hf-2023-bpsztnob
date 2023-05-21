@@ -7,7 +7,8 @@ import projlab.Virologist;
 import java.io.Serializable;
 
 /**
- * A bénulás ágens hatására nem tud semmit se csinálni a virológus és lehet tőle lopni.
+ * A bénulás ágens hatására nem tud semmit se csinálni a virológus és lehet tőle
+ * lopni.
  */
 public class StunAgent extends Agent implements Serializable {
     /**
@@ -28,7 +29,7 @@ public class StunAgent extends Agent implements Serializable {
         Skeleton.printWithTabs("StunAgent.isStunned(): boolean");
         Skeleton.increaseTabs();
 
-        Skeleton.printWithTabs("return true");
+        Skeleton.printWithTabs(Constants.RETURN_TRUE);
         Skeleton.decreaseTabs();
         return true;
     }

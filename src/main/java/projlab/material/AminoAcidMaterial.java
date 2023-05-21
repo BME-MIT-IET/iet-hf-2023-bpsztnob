@@ -42,7 +42,7 @@ public class AminoAcidMaterial extends Material implements Serializable {
         Skeleton.printWithTabs("AminoAcidMaterial.accept(amino): boolean");
         Skeleton.increaseTabs();
 
-        Skeleton.printWithTabs("return true");
+        Skeleton.printWithTabs(Constants.RETURN_TRUE);
         Skeleton.decreaseTabs();
         return true;
     }

@@ -188,7 +188,7 @@ public class Virologist implements Serializable {
             return false;
         }
 
-        Skeleton.printWithTabs("return true");
+        Skeleton.printWithTabs(Constants.RETURN_TRUE);
         Skeleton.decreaseTabs();
         return true;
     }
@@ -295,7 +295,7 @@ public class Virologist implements Serializable {
         Skeleton.increaseTabs();
 
         if (tile.dumpMaterials(materials, this)) {
-            Skeleton.printWithTabs("return true");
+            Skeleton.printWithTabs(Constants.RETURN_TRUE);
             Skeleton.decreaseTabs();
             return true;
         } else {
@@ -334,7 +334,7 @@ public class Virologist implements Serializable {
         InactiveAgent inactiveAgent = code.makeInactiveAgent(this, allMaterials);
         if (inactiveAgent != null) {
             inactiveAgents.add(inactiveAgent);
-            Skeleton.printWithTabs("return true");
+            Skeleton.printWithTabs(Constants.RETURN_TRUE);
             Skeleton.decreaseTabs();
             return true;
         }
@@ -387,7 +387,7 @@ public class Virologist implements Serializable {
         inactiveAgent.infect(target, this);
         removeInactiveAgent(inactiveAgent);
 
-        Skeleton.printWithTabs("return true");
+        Skeleton.printWithTabs(Constants.RETURN_TRUE);
         Skeleton.decreaseTabs();
         return true;
     }
@@ -624,7 +624,7 @@ public class Virologist implements Serializable {
             }
             pickupMaterials(equipment);
 
-            Skeleton.printWithTabs("return true");
+            Skeleton.printWithTabs(Constants.RETURN_TRUE);
             Skeleton.decreaseTabs();
             Skeleton.decreaseTabs();
             return true;
@@ -693,7 +693,7 @@ public class Virologist implements Serializable {
             return false;
         }
 
-        Skeleton.printWithTabs("return true");
+        Skeleton.printWithTabs(Constants.RETURN_TRUE);
         Skeleton.decreaseTabs();
         return true;
     }
@@ -834,7 +834,7 @@ public class Virologist implements Serializable {
             }
         }
 
-        Skeleton.printWithTabs("return true");
+        Skeleton.printWithTabs(Constants.RETURN_TRUE);
         Skeleton.decreaseTabs();
         return true;
     }
