@@ -159,7 +159,7 @@ public class Virologist implements Serializable {
 
             ArrayList<Material> remainingMaterials = (ArrayList<Material>) materials.clone();
 
-            while (this.materials.size() < MAX_MATERIAL_COUNT && remainingMaterials.size() > 0) {
+            while (this.materials.size() < MAX_MATERIAL_COUNT && !remainingMaterials.isEmpty()) {
                 this.materials.add(remainingMaterials.get(0));
                 remainingMaterials.remove(0);
             }
@@ -167,7 +167,7 @@ public class Virologist implements Serializable {
                 remainingMaterials = eq.acceptMaterial(remainingMaterials);
             }
 
-            if (remainingMaterials.size() > 0) {
+            if (!remainingMaterials.isEmpty()) {
                 Skeleton.printWithTabs("if (tremainingMaterials.size() > 0) : true");
                 Skeleton.increaseTabs();
 
@@ -216,7 +216,7 @@ public class Virologist implements Serializable {
 
         ArrayList<Material> equipmentMaterials = equipment.getMaterials();
 
-        while (this.materials.size() < MAX_MATERIAL_COUNT && equipmentMaterials.size() > 0) {
+        while (this.materials.size() < MAX_MATERIAL_COUNT && !equipmentMaterials.isEmpty()) {
             this.materials.add(equipmentMaterials.get(0));
             equipmentMaterials.remove(0);
         }
@@ -678,7 +678,7 @@ public class Virologist implements Serializable {
 
         stolenMaterials = target.giveMaterials(stolenMaterials);
         if (!stolenMaterials.isEmpty()) {
-            while (this.materials.size() < MAX_MATERIAL_COUNT && stolenMaterials.size() > 0) {
+            while (this.materials.size() < MAX_MATERIAL_COUNT && !stolenMaterials.isEmpty()) {
                 this.materials.add(stolenMaterials.get(0));
                 stolenMaterials.remove(0);
             }
@@ -961,7 +961,7 @@ public class Virologist implements Serializable {
     public void addMaterials(ArrayList<Material> _materials) {
         ArrayList<Material> remainingMaterials = (ArrayList<Material>) _materials.clone();
 
-        while (this.materials.size() < MAX_MATERIAL_COUNT && remainingMaterials.size() > 0) {
+        while (this.materials.size() < MAX_MATERIAL_COUNT && !remainingMaterials.isEmpty()) {
             this.materials.add(remainingMaterials.get(0));
             remainingMaterials.remove(0);
         }

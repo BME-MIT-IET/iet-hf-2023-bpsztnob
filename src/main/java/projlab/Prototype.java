@@ -27,11 +27,11 @@ public class Prototype {
 
             String[] temp = line.split(" ");
             if (commands.keySet().contains(temp[0])) {
-                String[] _args = null;
+                String[] argumentums = null;
                 if (temp.length > 1) {
-                    _args = Arrays.copyOfRange(temp, 1, temp.length, String[].class);
+                    argumentums = Arrays.copyOfRange(temp, 1, temp.length, String[].class);
                 }
-                commands.get(temp[0]).run(_args);
+                commands.get(temp[0]).run(argumentums);
             }
         }
     }
