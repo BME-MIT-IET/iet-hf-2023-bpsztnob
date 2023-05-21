@@ -19,7 +19,7 @@ public class ViewPanel extends JPanel {
     /**
      * A gombot tároló lista.
      */
-    ArrayList<ViewButton> buttons = new ArrayList<>();
+    transient ArrayList<ViewButton> buttons = new ArrayList<>();
     /**
      * A háttér aminek meg kell jelennie.
      */
