@@ -18,7 +18,8 @@ import java.util.LinkedHashMap;
 public class LoadCommand implements ICommand {
     @Override
     public void run(String[] args) {
-        try (FileInputStream fileIn = new FileInputStream(args[0]), ObjectInputStream in = new ObjectInputStream(fileIn)) {
+        try (FileInputStream fileIn = new FileInputStream(args[0]);
+                ObjectInputStream in = new ObjectInputStream(fileIn)) {
             Prototype.setObjects((LinkedHashMap<String, Object>) in.readObject());
             Timer.instance().setSteppables((ArrayList<Steppable>) in.readObject());
         } catch (IOException | ClassNotFoundException e) {
