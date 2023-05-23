@@ -39,3 +39,7 @@
 - InactiveAgent konstruktora protected (fölöslegesen public)
 - ShelterTile getEquipment() egyik lokális változóját átneveztem, hogy ne rejtse el az osztály attribútumát
 - Pár helyen az volt a hiba, hogy bool változók if ágakon belüli értékadását nem vette figyelembe, ezek nem hibák, tehát nem javítottam
+
+A projektben összesen 300-400 további minor code smell volt, a nagy részét kijavítottuk, és így 59-re csökkent a száma.
+
+![SonarCloud result](./sonar.png)
