@@ -339,6 +339,19 @@ public class StepDefinitions {
         }
     }
 
+    @Given("Virologist {string} uses on another Virologist{string} an equipment {string}")
+    public void use_equipment(String virologist1String, String virologist2String, String equipmentString){
+        String objectName = virologist1String;
+        Virologist v = (Virologist) Prototype.getObjects().get(objectName);
+        String targetName = virologist2String;
+        Virologist target = (Virologist) Prototype.getObjects().get(targetName);
+        String equipmentName = equipmentString;
+        Equipment equipment = (Equipment) Prototype.getObjects().get(equipmentName);
+
+        v.useEquipment(target, equipment);
+        actualAnswer="Felszerelés használva.";
+    }
+
     
 
     @Then("I should be told {string}")
