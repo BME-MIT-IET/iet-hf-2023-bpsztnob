@@ -316,6 +316,29 @@ public class StepDefinitions {
         }
     }
 
+    @Given("Virologist {string} steals from another Virologist {string} some materials {string}")
+    public void steal_materials(String virologist1String, String virologist2String, String materialsString){
+        String objectName = virologist1String;
+        Virologist v = (Virologist) Prototype.getObjects().get(objectName);
+
+        Virologist target = (Virologist) Prototype.getObjects().get(virologist2String);
+
+        ArrayList<Material> materials = new ArrayList<>();
+        List<String> materialNames = Arrays.asList(materialsString.split(" "));
+        for (String names : materialNames) {
+            Material material = (Material) Prototype.getObjects().get(names);
+            if (!Objects.isNull(material)) {
+                materials.add(material);
+            }
+        }
+
+        if (v.stealMaterials(target, materials)) {
+            actualAnswer="Anyagok ellopása sikeres.";
+        } else {
+            actualAnswer="Anyagok ellopása sikertelen.";
+        }
+    }
+
     
 
     @Then("I should be told {string}")
