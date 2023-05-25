@@ -32,6 +32,8 @@ import projlab.tile.ShelterTile;
 import projlab.tile.StorageTile;
 import projlab.tile.Tile;
 import projlab.util.LearnGeneticCodeEnum;
+import projlab.util.MoveEnum;
+import projlab.util.Constants;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -210,6 +212,28 @@ public class StepDefinitions {
             actualAnswer="Inaktív ágens készítése sikeres.";
         } else {
             actualAnswer="Inaktív ágens készítése sikertelen.";
+        }
+    }
+
+    @Given("Virologist {string} moves to Tile {string}")
+    public void move(String virologist, String t){
+        String objectName = virologist;
+        Virologist v = (Virologist) Prototype.getObjects().get(objectName);
+
+        String tileName = t;
+        Tile tile = (Tile) Prototype.getObjects().get(tileName);
+
+        MoveEnum status = v.move(tile);
+        switch (status) {
+            case SUCCESFUL:
+                actualAnswer= Constants.MOVING + tileName + Constants.TO_TILE_SUCCESS;
+                break;
+            case FAILED:
+                actualAnswer= Constants.MOVING + tileName + Constants.TO_TILE_FAILED;
+                break;
+            case RANDOM_TILE:
+                actualAnswer= Constants.MOVING + tileName + Constants.TO_TILE_FAILED_RANDOM;
+                break;
         }
     }
 
