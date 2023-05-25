@@ -13,7 +13,7 @@ public class BuiTests {
     static String newLine = "\r\n";
 
     @BeforeAll
-    public static void checkOS() {
+    static void checkOS() {
         String os = System.getProperty("os.name");
         if (os.contains("Windows")) {
             newLine = "\r\n";
@@ -26,7 +26,7 @@ public class BuiTests {
      * Ágens magamra kenése mikor kesztyű, köpeny és védő ágens van rajtam.
      */
     @Test
-    public void InfectSelftWithGlovesCoatProtectionAgent() {
+    void InfectSelftWithGlovesCoatProtectionAgent() {
         String input = "Create Virologist" + newLine +
                 "Create GlovesEquipment" + newLine +
                 "Create CoatEquipment" + newLine +
@@ -63,7 +63,7 @@ public class BuiTests {
      * Ágens kenése bénultan.
      */
     @Test
-    public void InfectWhileStunned() {
+    void InfectWhileStunned() {
         String input = "Create Virologist" + newLine +
                 "Create Virologist" + newLine +
                 "Create StunAgent" + newLine +
@@ -90,7 +90,7 @@ public class BuiTests {
      * Lopás nem bénult virológustól.
      */
     @Test
-    public void StealFromNonStunnedVirologist() {
+    void StealFromNonStunnedVirologist() {
         String input = "Create Virologist" + newLine +
                 "Create Virologist" + newLine +
                 "Create CoatEquipment" + newLine +
@@ -114,7 +114,7 @@ public class BuiTests {
      * Lopás bénultan.
      */
     @Test
-    public void StealWhileStunned() {
+    void StealWhileStunned() {
         String input = "Create Virologist" + newLine +
                 "Create Virologist" + newLine +
                 "Create CoatEquipment" + newLine +
@@ -146,7 +146,7 @@ public class BuiTests {
      * Lopás bénult virológustól, akinek vannak anyagai.
      */
     @Test
-    public void StealFromStunnedVirologistMaterials() {
+    void StealFromStunnedVirologistMaterials() {
         String input = "Create Virologist" + newLine +
                 "Create Virologist" + newLine +
                 "Create AminoAcidMaterial" + newLine +
@@ -174,7 +174,7 @@ public class BuiTests {
      * Lopás bénult virológustól, akinek vannak anyagai és tele vagyok.
      */
     @Test
-    public void StealFromStunnedVirologistMaterialsWhileFull() {
+    void StealFromStunnedVirologistMaterialsWhileFull() {
         String input = "Create Virologist" + newLine +
                 "Create Virologist" + newLine +
                 "Create AminoAcidMaterial" + newLine +
@@ -237,7 +237,7 @@ public class BuiTests {
      * Lopás bénult virológustól, akinek van köpenye.
      */
     @Test
-    public void StealFromStunnedVirologistCoat() {
+    void StealFromStunnedVirologistCoat() {
         String input = "Create Virologist" + newLine +
                 "Create Virologist" + newLine +
                 "Create CoatEquipment" + newLine +
@@ -265,7 +265,7 @@ public class BuiTests {
      * Lopás bénult virológustól, akinek van zsákja, ami nem üres.
      */
     @Test
-    public void StealFromStunnedVirologistBackpackWithMaterials() {
+    void StealFromStunnedVirologistBackpackWithMaterials() {
         String input = "Create Virologist" + newLine +
                 "Create Virologist" + newLine +
                 "Create AminoAcidMaterial" + newLine +
@@ -321,7 +321,7 @@ public class BuiTests {
      * felszerelésileg, de nem vagyok tele nyersanyagilag.
      */
     @Test
-    public void StealFromStunnedVirologistBackpackWithMaterialsFullEquipment() {
+    void StealFromStunnedVirologistBackpackWithMaterialsFullEquipment() {
         String input = "Create Virologist" + newLine +
                 "Create Virologist" + newLine +
                 "Create AminoAcidMaterial" + newLine +
@@ -392,7 +392,7 @@ public class BuiTests {
      * Laborban megfertőződés medvevírussal.
      */
     @Test
-    public void GetInfectedInInfectiousLabTile() {
+    void GetInfectedInInfectiousLabTile() {
         String input = "Create Virologist" + newLine +
                 "Create InfectiousLabTile" + newLine +
                 "Command Virologist1 Move InfectiousLabTile1" + newLine +
@@ -414,7 +414,7 @@ public class BuiTests {
      * Laborban megfertőződés medvevírussal miközben védő ágens van rajtunk.
      */
     @Test
-    public void GetInfectedInInfectiousLabTileWithProtectionAgent() {
+    void GetInfectedInInfectiousLabTileWithProtectionAgent() {
         String input = "Create Virologist" + newLine +
                 "Create InfectiousLabTile" + newLine +
                 "Create ProtectionAgent" + newLine +
@@ -439,7 +439,7 @@ public class BuiTests {
      * Laborban megfertőződés medvevírussal.
      */
     @Test
-    public void GetInfectedInInfectiousLabTileWithCoatEquipment() {
+    void GetInfectedInInfectiousLabTileWithCoatEquipment() {
         String input = "Create Virologist" + newLine +
                 "Create InfectiousLabTile" + newLine +
                 "Create CoatEquipment" + newLine +
@@ -466,7 +466,7 @@ public class BuiTests {
      * Medve a raktárban lévő anyagokat elpusztítja.
      */
     @Test
-    public void BearDestroyMaterials() {
+    void BearDestroyMaterials() {
         String input = "Create Virologist" + newLine +
                 "Create BearDeezNutsInYourMouthAgent" + newLine +
                 "Create StorageTile" + newLine +
@@ -500,7 +500,7 @@ public class BuiTests {
      * Medve megfertőz egy medvevírussal egy virológust.
      */
     @Test
-    public void GetInfectedByBearAgentByBear() {
+    void GetInfectedByBearAgentByBear() {
         String input = "Create Virologist" + newLine +
                 "Create Virologist" + newLine +
                 "Create BearDeezNutsInYourMouthAgent" + newLine +
@@ -530,7 +530,7 @@ public class BuiTests {
      * Medve megfertőz egy medvevírussal egy virológust, akin védő ágens van.
      */
     @Test
-    public void GetInfectedByBearAgentByBearWithProtectionAgent() {
+    void GetInfectedByBearAgentByBearWithProtectionAgent() {
         String input = "Create Virologist" + newLine +
                 "Create Virologist" + newLine +
                 "Create BearDeezNutsInYourMouthAgent" + newLine +

@@ -13,7 +13,7 @@ public class BakureczTests {
     static String newLine = "\r\n";
 
     @BeforeAll
-    public static void checkOS() {
+    static void checkOS() {
         String os = System.getProperty("os.name");
         if (os.contains("Windows")) {
             newLine = "\r\n";
@@ -27,7 +27,7 @@ public class BakureczTests {
      * is.
      */
     @Test
-    public void MakingStunAgent() {
+    void MakingStunAgent() {
         String input = "Create Virologist" + newLine +
                 "Create StunGeneticCode" + newLine +
                 "Command Virologist1 AddGeneticCode StunGeneticCode1" + newLine +
@@ -65,7 +65,7 @@ public class BakureczTests {
      * anyagok is.
      */
     @Test
-    public void MakingDancingAgent() {
+    void MakingDancingAgent() {
         String input = "Create Virologist" + newLine +
                 "Create DancingGeneticCode" + newLine +
                 "Command Virologist1 AddGeneticCode DancingGeneticCode1" + newLine +
@@ -98,7 +98,7 @@ public class BakureczTests {
      * Védő ágens készítése amikor megvan a genetikai kód és a szükséges anyagok is.
      */
     @Test
-    public void MakingProtectionAgent() {
+    void MakingProtectionAgent() {
         String input = "Create Virologist" + newLine +
                 "Create ProtectionGeneticCode" + newLine +
                 "Command Virologist1 AddGeneticCode ProtectionGeneticCode1" + newLine +
@@ -138,7 +138,7 @@ public class BakureczTests {
      * is.
      */
     @Test
-    public void MakingAmnesiaAgent() {
+    void MakingAmnesiaAgent() {
         String input = "Create Virologist" + newLine +
                 "Create AmnesiaGeneticCode" + newLine +
                 "Command Virologist1 AddGeneticCode AmnesiaGeneticCode1" + newLine +
@@ -183,7 +183,7 @@ public class BakureczTests {
      * A virológus egy mezőről egy azzal szomszédosra lép.
      */
     @Test
-    public void MovingToNeighbourTile() {
+    void MovingToNeighbourTile() {
         String input = "Create Virologist" + newLine +
                 "Create LabTile" + newLine +
                 "Create DumpsterTile" + newLine +
@@ -209,7 +209,7 @@ public class BakureczTests {
      * A bénított virológus egy mezőről egy azzal szomszédosra próbál lépni.
      */
     @Test
-    public void MovingWhileStunned() {
+    void MovingWhileStunned() {
         String input = "Create Virologist" + newLine +
                 "Create LabTile" + newLine +
                 "Create DumpsterTile" + newLine +
@@ -239,7 +239,7 @@ public class BakureczTests {
      * A vitustáncoló virológus egy mezőről egy azzal szomszédosra próbál lépni.
      */
     @Test
-    public void MovingWhileDancing() {
+    void MovingWhileDancing() {
         String input = "Create Virologist" + newLine +
                 "Create LabTile" + newLine +
                 "Create DumpsterTile" + newLine +
@@ -270,7 +270,7 @@ public class BakureczTests {
      * A virológus egy mezőről egy azzal nem szomszédosra próbál lépni.
      */
     @Test
-    public void MovingToNotNeighbourTile() {
+    void MovingToNotNeighbourTile() {
         String input = "Create Virologist" + newLine +
                 "Create LabTile" + newLine +
                 "Create DumpsterTile" + newLine +
@@ -294,7 +294,7 @@ public class BakureczTests {
      * A virológus megtanul egy új genetikai kódot miközben le van bénítva.
      */
     @Test
-    public void LearningGeneticCodeWhileStunned() {
+    void LearningGeneticCodeWhileStunned() {
         String input = "Create Virologist" + newLine +
                 "Create LabTile" + newLine +
                 "Create ProtectionGeneticCode" + newLine +
@@ -324,7 +324,7 @@ public class BakureczTests {
      * A virológus megtanul egy új genetikai kódot.
      */
     @Test
-    public void LearningNewGeneticCode() {
+    void LearningNewGeneticCode() {
         String input = "Create Virologist" + newLine +
                 "Create LabTile" + newLine +
                 "Create ProtectionGeneticCode" + newLine +
@@ -350,7 +350,7 @@ public class BakureczTests {
      * A virológus megpróbál megtanulni egy régi genetikai kódot.
      */
     @Test
-    public void LearningOldGeneticCode() {
+    void LearningOldGeneticCode() {
         String input = "Create Virologist" + newLine +
                 "Create LabTile" + newLine +
                 "Create ProtectionGeneticCode" + newLine +

@@ -12,7 +12,7 @@ public class VendelTests {
     static String newLine = "\r\n";
 
     @BeforeAll
-    public static void checkOS() {
+    static void checkOS() {
         String os = System.getProperty("os.name");
         if (os.contains("Windows")) {
             newLine = "\r\n";
@@ -25,7 +25,7 @@ public class VendelTests {
      * Virológusra kent ágens öregítése.
      */
     @Test
-    public void ProtectionAgentStep() {
+    void ProtectionAgentStep() {
         String input = "Create ProtectionAgent" + newLine +
                 "AddSteppable ProtectionAgent1" + newLine +
                 "Tick";
@@ -45,7 +45,7 @@ public class VendelTests {
      * Nukleotid és Aminosav eldobása.
      */
     @Test
-    public void VirologistDropMaterial() {
+    void VirologistDropMaterial() {
         String input = "Create Virologist" + newLine +
                 "Create DumpsterTile" + newLine +
                 "Create AminoAcidMaterial" + newLine +
@@ -73,7 +73,7 @@ public class VendelTests {
      * Objektum létrehozás.
      */
     @Test
-    public void Create() {
+    void Create() {
         String input = "Create AmnesiaAgent\n" +
                 "Create BearDeezNutsInYourMouthAgent\n" +
                 "Create DancingAgent\n" +

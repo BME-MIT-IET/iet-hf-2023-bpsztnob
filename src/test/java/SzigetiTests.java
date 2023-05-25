@@ -13,7 +13,7 @@ public class SzigetiTests {
     static String newLine = "\r\n";
 
     @BeforeAll
-    public static void checkOS() {
+    static void checkOS() {
         String os = System.getProperty("os.name");
         if (os.contains("Windows")) {
             newLine = "\r\n";
@@ -27,7 +27,7 @@ public class SzigetiTests {
      * bénulva.
      */
     @Test
-    public void StunnedVirologistUsingAgent() {
+    void StunnedVirologistUsingAgent() {
         String input = "Create Virologist\n" +
                 "Create Virologist\n" +
                 "Create StunAgent\n" +
@@ -56,7 +56,7 @@ public class SzigetiTests {
      * A virológus megpróbál megfertőzni egy védtelen virológust.
      */
     @Test
-    public void UsingAgentOnNotProtectedVirologist() {
+    void UsingAgentOnNotProtectedVirologist() {
         String input = "Create Virologist\n" +
                 "Create Virologist\n" +
                 "Create StunInactiveAgent\n" +
@@ -82,7 +82,7 @@ public class SzigetiTests {
      * A virológus megpróbál megfertőzni egy virológust, akin köpeny van és az véd.
      */
     @Test
-    public void UsingAgentOnVirologistWithCoat() {
+    void UsingAgentOnVirologistWithCoat() {
         String input = "Create Virologist\n" +
                 "Create Virologist\n" +
                 "Create CoatEquipment\n" +
@@ -113,7 +113,7 @@ public class SzigetiTests {
      * A virológus megpróbál megfertőzni egy virológust, akin védő ágens van.
      */
     @Test
-    public void UsingAgentOnVirologistWithProtectionAgent() {
+    void UsingAgentOnVirologistWithProtectionAgent() {
         String input = "Create Virologist\n" +
                 "Create Virologist\n" +
                 "Create ProtectionAgent\n" +
@@ -143,7 +143,7 @@ public class SzigetiTests {
      * A virológus megpróbál megfertőzni egy virológust, akin kesztyű van.
      */
     @Test
-    public void UsingAgentOnVirologistWithGloves() {
+    void UsingAgentOnVirologistWithGloves() {
         String input = "Create Virologist\n" +
                 "Create Virologist\n" +
                 "Create GlovesEquipment\n" +
@@ -174,7 +174,7 @@ public class SzigetiTests {
      * A virológus megpróbál megfertőzni egy virológust, akin kesztyű és köpeny van.
      */
     @Test
-    public void UsingAgentOnVirologistWithGlovesAndCoat() {
+    void UsingAgentOnVirologistWithGlovesAndCoat() {
         String input = "Create Virologist\n" +
                 "Create Virologist\n" +
                 "Create GlovesEquipment\n" +
@@ -210,7 +210,7 @@ public class SzigetiTests {
      * van.
      */
     @Test
-    public void UsingAgentWithGlovesOnVirologistWithGloves() {
+    void UsingAgentWithGlovesOnVirologistWithGloves() {
         String input = "Create Virologist\n" +
                 "Create Virologist\n" +
                 "Create GlovesEquipment\n" +
@@ -245,7 +245,7 @@ public class SzigetiTests {
      * akin kesztyű van.
      */
     @Test
-    public void UsingAgentWithCoatOnVirologistWithGloves() {
+    void UsingAgentWithCoatOnVirologistWithGloves() {
         String input = "Create Virologist\n" +
                 "Create Virologist\n" +
                 "Create GlovesEquipment\n" +
@@ -282,7 +282,7 @@ public class SzigetiTests {
      * kesztyű van.
      */
     @Test
-    public void UsingAgentWithProtectionAgentOnMyselfOnVirologistWithGloves() {
+    void UsingAgentWithProtectionAgentOnMyselfOnVirologistWithGloves() {
         String input = "Create Virologist\n" +
                 "Create Virologist\n" +
                 "Create GlovesEquipment\n" +
