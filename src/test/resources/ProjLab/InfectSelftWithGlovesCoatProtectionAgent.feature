@@ -1,6 +1,7 @@
 Feature: InfectSelftWithGlovesCoatProtectionAgent
 
   Scenario: InfectSelftWithGlovesCoatProtectionAgent
+    Given that everything is reset
     Given object "Virologist"
     Then I should be told "Virologist objektum sikeresen létrehozva."
     Given object "GlovesEquipment"
