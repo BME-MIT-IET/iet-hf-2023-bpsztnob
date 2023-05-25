@@ -12,16 +12,20 @@ import projlab.agent.StunAgent;
 import projlab.equipment.AxeEquipment;
 import projlab.equipment.BackpackEquipment;
 import projlab.equipment.CoatEquipment;
+import projlab.equipment.Equipment;
 import projlab.equipment.GlovesEquipment;
 import projlab.geneticcode.AmnesiaGeneticCode;
 import projlab.geneticcode.DancingGeneticCode;
+import projlab.geneticcode.GeneticCode;
 import projlab.geneticcode.ProtectionGeneticCode;
 import projlab.geneticcode.StunGeneticCode;
 import projlab.inactiveagent.AmnesiaInactiveAgent;
 import projlab.inactiveagent.DancingInactiveAgent;
+import projlab.inactiveagent.InactiveAgent;
 import projlab.inactiveagent.ProtectionInactiveAgent;
 import projlab.inactiveagent.StunInactiveAgent;
 import projlab.material.AminoAcidMaterial;
+import projlab.material.Material;
 import projlab.material.NucleotideMaterial;
 import projlab.tile.DumpsterTile;
 import projlab.tile.InfectiousLabTile;
@@ -31,7 +35,9 @@ import projlab.tile.StorageTile;
 import projlab.tile.Tile;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static projlab.util.Util.getKeyByValue;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import org.junit.jupiter.api.Assertions.*;
@@ -144,6 +150,52 @@ public class StepDefinitions {
         Virologist v1 = (Virologist) Prototype.getObjects().get(virologistName);
         v1.getInfected(agent, null);
         actualAnswer = "Virológus sikeresen megfertőzve.";
+    }
+
+    @Given("I list what {string} objects are on {string}")
+    public void list_virologists(String objectType, String virologist) {
+        String objectName = virologist;
+        Virologist v = (Virologist) Prototype.getObjects().get(objectName);
+
+        switch (objectType) {
+            case "agents":
+                ArrayList<Agent> agents = v.getActiveAgents();
+                for (Agent agent : agents) {
+                    String key = getKeyByValue(Prototype.getObjects(), agent);
+                    actualAnswer += key + "\n";
+                }
+                break;
+            case "equipment":
+                ArrayList<Equipment> equipment = v.getEquipment();
+                for (Equipment e : equipment) {
+                    String key = getKeyByValue(Prototype.getObjects(), e);
+                    actualAnswer += key + "\n";
+                }
+                break;
+            case "geneticCode":
+                ArrayList<GeneticCode> geneticCodes = v.getGeneticCodes();
+                for (GeneticCode geneticCode : geneticCodes) {
+                    String key = getKeyByValue(Prototype.getObjects(), geneticCode);
+                    actualAnswer += key + "\n";
+                }
+                break;
+            case "materials":
+                ArrayList<Material> materials = v.getMaterials();
+                for (Material material : materials) {
+                    String key = getKeyByValue(Prototype.getObjects(), material);
+                    actualAnswer += key + "\n";
+                }
+                break;
+            case "inactiveagents":
+                ArrayList<InactiveAgent> inactiveAgents = v.getInactiveAgents();
+                for (InactiveAgent inactiveAgent : inactiveAgents) {
+                    String key = getKeyByValue(Prototype.getObjects(), inactiveAgent);
+                    actualAnswer += key + "\n";
+                }
+                break;
+            default:
+                return;
+        }
     }
 
     @Then("I should be told {string}")
