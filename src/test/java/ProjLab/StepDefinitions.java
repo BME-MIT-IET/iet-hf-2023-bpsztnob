@@ -240,6 +240,17 @@ public class StepDefinitions {
         actualAnswer = "Szomszéd sikeresen eltávolítva.";
     }
 
+    @Given("I added {string} virologist {string} equipment")
+    public void add_equipment_virologist(String objectName, String[]args) {
+        Virologist v = (Virologist) Prototype.getObjects().get(objectName);
+
+        String equipmentName = args[2];
+        Equipment equipment = (Equipment) Prototype.getObjects().get(equipmentName);
+
+        v.addEquipment(equipment);
+        actualAnswer = "Felszerelés sikeresen hozzáadva.";
+    }
+
     @Then("I should be told {string}")
     public void i_should_be_told(String expectedAnswer) {
         assertEquals(expectedAnswer, actualAnswer);
