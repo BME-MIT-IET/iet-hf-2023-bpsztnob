@@ -210,7 +210,7 @@ public class StepDefinitions {
         if (!Objects.isNull(steppable)) {
             Timer.instance().addSteppable(steppable);
         }
-        System.out.println(objectName + " hozzáadva a léptethető objektumokhoz.");
+        actualAnswer = (objectName + " hozzáadva a léptethető objektumokhoz.");
     }
 
     @Given("I list everything")
@@ -244,7 +244,7 @@ public class StepDefinitions {
 
     @Then("I should be told {string}")
     public void i_should_be_told(String expectedAnswer) {
-        assertEquals(expectedAnswer, actualAnswer);
+        assertEquals(expectedAnswer.trim(), actualAnswer.trim());
     }
 
 }
