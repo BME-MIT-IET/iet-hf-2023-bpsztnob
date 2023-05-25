@@ -15,6 +15,7 @@ import projlab.equipment.CoatEquipment;
 import projlab.equipment.GlovesEquipment;
 import projlab.geneticcode.AmnesiaGeneticCode;
 import projlab.geneticcode.DancingGeneticCode;
+import projlab.geneticcode.GeneticCode;
 import projlab.geneticcode.ProtectionGeneticCode;
 import projlab.geneticcode.StunGeneticCode;
 import projlab.inactiveagent.AmnesiaInactiveAgent;
@@ -194,6 +195,21 @@ public class StepDefinitions {
             case ALREADY_LEARNT:
                 actualAnswer="Genetikai kód már meg volt tanulva.";
                 break;
+        }
+    }
+
+    @Given("Virologist {string} makes inactive agent {string}")
+    public void make_inactive_agent(String virologistName, String codeName){
+        String objectName = virologistName;
+        Virologist v = (Virologist) Prototype.getObjects().get(objectName);
+
+        String geneticCodeName = codeName;
+        GeneticCode geneticCode = (GeneticCode) Prototype.getObjects().get(geneticCodeName);
+
+        if (v.makeInactiveAgent(geneticCode)) {
+            actualAnswer="Inaktív ágens készítése sikeres.";
+        } else {
+            actualAnswer="Inaktív ágens készítése sikertelen.";
         }
     }
 
