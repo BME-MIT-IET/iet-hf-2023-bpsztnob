@@ -284,6 +284,26 @@ public class StepDefinitions {
         actualAnswer = "Anyagok sikeresen hozzáadva.";
     }
 
+    @Given("I removed {string} materials from {string}")
+    public void dump_materials_virologist(String materialss, String objectName) {
+        Virologist v = (Virologist) Prototype.getObjects().get(objectName);
+
+        ArrayList<Material> materials = new ArrayList<>();
+        List<String> materialNames = Arrays.asList(materialss.split(" "));
+        for (String names : materialNames) {
+            Material material = (Material) Prototype.getObjects().get(names);
+            if (!Objects.isNull(material)) {
+                materials.add(material);
+            }
+        }
+
+        if (v.dumpMaterials(materials)) {
+            actualAnswer = "Anyagok leadása sikeres.";
+        } else {
+            actualAnswer = "Anyagok leadása sikertelen.";
+        }
+    }
+
     @Then("I should be told {string}")
     public void i_should_be_told(String expectedAnswer) {
         assertEquals(expectedAnswer, actualAnswer);
