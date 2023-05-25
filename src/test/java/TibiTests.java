@@ -1,20 +1,32 @@
-import org.junit.Assert;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
 import projlab.Prototype;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-public class TibiTests {
-    String newLine = "\r\n";
-//    String newLine = "\n";    // Ha nem Windows-on fut
+class TibiTests {
+    static String newLine = "\r\n";
+
+    @BeforeAll
+    static void checkOS() {
+        String os = System.getProperty("os.name");
+        if (os.contains("Windows")) {
+            newLine = "\r\n";
+        } else {
+            newLine = "\n";
+        }
+    }
 
     /**
      * Raktárból anyagfelvétel bénultan.
      */
     @Test
-    public void PickupMaterialWhileStunned() {
+    void PickupMaterialWhileStunned() {
         String input = "Create Virologist" + newLine +
                 "Create StorageTile" + newLine +
                 "Create StunAgent" + newLine +
@@ -29,9 +41,9 @@ public class TibiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "StorageTile objektum sikeresen létrehozva." + newLine +
                 "StunAgent objektum sikeresen létrehozva." + newLine +
                 "NucleotideMaterial objektum sikeresen létrehozva." + newLine +
@@ -46,7 +58,7 @@ public class TibiTests {
      * Szabadmezőről anyagfelvétel.
      */
     @Test
-    public void PickupMaterialFromNonStorageTile() {
+    void PickupMaterialFromNonStorageTile() {
         String input = "Create Virologist" + newLine +
                 "Create Tile" + newLine +
                 "Create NucleotideMaterial" + newLine +
@@ -57,9 +69,9 @@ public class TibiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Tile objektum sikeresen létrehozva." + newLine +
                 "NucleotideMaterial objektum sikeresen létrehozva." + newLine +
                 "Mozgás Tile1 mezőre sikeres." + newLine +
@@ -70,7 +82,7 @@ public class TibiTests {
      * Raktárból anyagfelvétel nukleotiddal és aminosavval a raktárban.
      */
     @Test
-    public void PickupMaterialFromLoadedStorage() {
+    void PickupMaterialFromLoadedStorage() {
         String input = "Create Virologist" + newLine +
                 "Create StorageTile" + newLine +
                 "Create NucleotideMaterial" + newLine +
@@ -83,9 +95,9 @@ public class TibiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "StorageTile objektum sikeresen létrehozva." + newLine +
                 "NucleotideMaterial objektum sikeresen létrehozva." + newLine +
                 "AminoAcidMaterial objektum sikeresen létrehozva." + newLine +
@@ -98,7 +110,7 @@ public class TibiTests {
      * Raktárból anyagfelvétel anyaggal a raktárban, de a játékos tele van.
      */
     @Test
-    public void PickupMaterialWhileFull() {
+    void PickupMaterialWhileFull() {
         String input = "Create Virologist\n" +
                 "Create StorageTile\n" +
                 "Create NucleotideMaterial\n" +
@@ -113,10 +125,14 @@ public class TibiTests {
                 "Create NucleotideMaterial\n" +
                 "Create NucleotideMaterial\n" +
                 "Command Virologist1 Move StorageTile1\n" +
-                "Command StorageTile1 AddMaterials NucleotideMaterial1 NucleotideMaterial2 NucleotideMaterial3 NucleotideMaterial4 NucleotideMaterial5\n" +
-                "Command Virologist1 PickupMaterials NucleotideMaterial1 NucleotideMaterial2 NucleotideMaterial3 NucleotideMaterial4 NucleotideMaterial5\n" +
-                "Command StorageTile1 AddMaterials NucleotideMaterial6 NucleotideMaterial7 NucleotideMaterial8 NucleotideMaterial9 NucleotideMaterial10\n" +
-                "Command Virologist1 PickupMaterials NucleotideMaterial6 NucleotideMaterial7 NucleotideMaterial8 NucleotideMaterial9 NucleotideMaterial10\n" +
+                "Command StorageTile1 AddMaterials NucleotideMaterial1 NucleotideMaterial2 NucleotideMaterial3 NucleotideMaterial4 NucleotideMaterial5\n"
+                +
+                "Command Virologist1 PickupMaterials NucleotideMaterial1 NucleotideMaterial2 NucleotideMaterial3 NucleotideMaterial4 NucleotideMaterial5\n"
+                +
+                "Command StorageTile1 AddMaterials NucleotideMaterial6 NucleotideMaterial7 NucleotideMaterial8 NucleotideMaterial9 NucleotideMaterial10\n"
+                +
+                "Command Virologist1 PickupMaterials NucleotideMaterial6 NucleotideMaterial7 NucleotideMaterial8 NucleotideMaterial9 NucleotideMaterial10\n"
+                +
                 "Command StorageTile1 AddMaterials NucleotideMaterial11\n" +
                 "Command Virologist1 PickupMaterials NucleotideMaterial11\n";
         System.setIn(new ByteArrayInputStream(input.getBytes()));
@@ -124,9 +140,9 @@ public class TibiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "StorageTile objektum sikeresen létrehozva." + newLine +
                 "NucleotideMaterial objektum sikeresen létrehozva." + newLine +
                 "NucleotideMaterial objektum sikeresen létrehozva." + newLine +
@@ -149,10 +165,11 @@ public class TibiTests {
     }
 
     /**
-     * Raktárból anyagfelvétel anyaggal a raktárban, de a játékos tele van, de van zsákja, ami nincs tele.
+     * Raktárból anyagfelvétel anyaggal a raktárban, de a játékos tele van, de van
+     * zsákja, ami nincs tele.
      */
     @Test
-    public void PickupMaterialWhileFullAndBackpackNotFull() {
+    void PickupMaterialWhileFullAndBackpackNotFull() {
         String input = "Create Virologist" + newLine +
                 "Create StorageTile" + newLine +
                 "Create NucleotideMaterial" + newLine +
@@ -173,10 +190,14 @@ public class TibiTests {
                 "Command Virologist1 PickupEquipment BackpackEquipment1" + newLine +
                 "Command ShelterTile1 AddNeighbours StorageTile1" + newLine +
                 "Command Virologist1 Move StorageTile1" + newLine +
-                "Command StorageTile1 AddMaterials NucleotideMaterial1 NucleotideMaterial2 NucleotideMaterial3 NucleotideMaterial4 NucleotideMaterial5" + newLine +
-                "Command Virologist1 PickupMaterials NucleotideMaterial1 NucleotideMaterial2 NucleotideMaterial3 NucleotideMaterial4 NucleotideMaterial5" + newLine +
-                "Command StorageTile1 AddMaterials NucleotideMaterial6 NucleotideMaterial7 NucleotideMaterial8 NucleotideMaterial9 NucleotideMaterial10" + newLine +
-                "Command Virologist1 PickupMaterials NucleotideMaterial6 NucleotideMaterial7 NucleotideMaterial8 NucleotideMaterial9 NucleotideMaterial10" + newLine +
+                "Command StorageTile1 AddMaterials NucleotideMaterial1 NucleotideMaterial2 NucleotideMaterial3 NucleotideMaterial4 NucleotideMaterial5"
+                + newLine +
+                "Command Virologist1 PickupMaterials NucleotideMaterial1 NucleotideMaterial2 NucleotideMaterial3 NucleotideMaterial4 NucleotideMaterial5"
+                + newLine +
+                "Command StorageTile1 AddMaterials NucleotideMaterial6 NucleotideMaterial7 NucleotideMaterial8 NucleotideMaterial9 NucleotideMaterial10"
+                + newLine +
+                "Command Virologist1 PickupMaterials NucleotideMaterial6 NucleotideMaterial7 NucleotideMaterial8 NucleotideMaterial9 NucleotideMaterial10"
+                + newLine +
                 "Command StorageTile1 AddMaterials NucleotideMaterial11" + newLine +
                 "Command Virologist1 PickupMaterials NucleotideMaterial11" + newLine;
         System.setIn(new ByteArrayInputStream(input.getBytes()));
@@ -184,9 +205,9 @@ public class TibiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "StorageTile objektum sikeresen létrehozva." + newLine +
                 "NucleotideMaterial objektum sikeresen létrehozva." + newLine +
                 "NucleotideMaterial objektum sikeresen létrehozva." + newLine +
@@ -215,10 +236,11 @@ public class TibiTests {
     }
 
     /**
-     * Raktárból anyagfelvétel anyaggal a raktárban, de a játékos tele van, de van zsákja, ami szintén tele van.
+     * Raktárból anyagfelvétel anyaggal a raktárban, de a játékos tele van, de van
+     * zsákja, ami szintén tele van.
      */
     @Test
-    public void PickupMaterialWhileFullAndBackpackIsFull() {
+    void PickupMaterialWhileFullAndBackpackIsFull() {
         String input = "Create Virologist\n" +
                 "Create StorageTile\n" +
                 "Create NucleotideMaterial\n" +
@@ -244,12 +266,18 @@ public class TibiTests {
                 "Command Virologist1 PickupEquipment BackpackEquipment1\n" +
                 "Command ShelterTile1 AddNeighbours StorageTile1\n" +
                 "Command Virologist1 Move StorageTile1\n" +
-                "Command StorageTile1 AddMaterials NucleotideMaterial1 NucleotideMaterial2 NucleotideMaterial3 NucleotideMaterial4 NucleotideMaterial5\n" +
-                "Command Virologist1 PickupMaterials NucleotideMaterial1 NucleotideMaterial2 NucleotideMaterial3 NucleotideMaterial4 NucleotideMaterial5\n" +
-                "Command StorageTile1 AddMaterials NucleotideMaterial6 NucleotideMaterial7 NucleotideMaterial8 NucleotideMaterial9 NucleotideMaterial10\n" +
-                "Command Virologist1 PickupMaterials NucleotideMaterial6 NucleotideMaterial7 NucleotideMaterial8 NucleotideMaterial9 NucleotideMaterial10\n" +
-                "Command StorageTile1 AddMaterials NucleotideMaterial11 NucleotideMaterial12 NucleotideMaterial13 NucleotideMaterial14 NucleotideMaterial15\n" +
-                "Command Virologist1 PickupMaterials NucleotideMaterial11 NucleotideMaterial12 NucleotideMaterial13 NucleotideMaterial14 NucleotideMaterial15\n" +
+                "Command StorageTile1 AddMaterials NucleotideMaterial1 NucleotideMaterial2 NucleotideMaterial3 NucleotideMaterial4 NucleotideMaterial5\n"
+                +
+                "Command Virologist1 PickupMaterials NucleotideMaterial1 NucleotideMaterial2 NucleotideMaterial3 NucleotideMaterial4 NucleotideMaterial5\n"
+                +
+                "Command StorageTile1 AddMaterials NucleotideMaterial6 NucleotideMaterial7 NucleotideMaterial8 NucleotideMaterial9 NucleotideMaterial10\n"
+                +
+                "Command Virologist1 PickupMaterials NucleotideMaterial6 NucleotideMaterial7 NucleotideMaterial8 NucleotideMaterial9 NucleotideMaterial10\n"
+                +
+                "Command StorageTile1 AddMaterials NucleotideMaterial11 NucleotideMaterial12 NucleotideMaterial13 NucleotideMaterial14 NucleotideMaterial15\n"
+                +
+                "Command Virologist1 PickupMaterials NucleotideMaterial11 NucleotideMaterial12 NucleotideMaterial13 NucleotideMaterial14 NucleotideMaterial15\n"
+                +
                 "Command StorageTile1 AddMaterials NucleotideMaterial16\n" +
                 "Command Virologist1 PickupMaterials NucleotideMaterial16\n";
         System.setIn(new ByteArrayInputStream(input.getBytes()));
@@ -257,9 +285,9 @@ public class TibiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "StorageTile objektum sikeresen létrehozva." + newLine +
                 "NucleotideMaterial objektum sikeresen létrehozva." + newLine +
                 "NucleotideMaterial objektum sikeresen létrehozva." + newLine +
@@ -298,7 +326,7 @@ public class TibiTests {
      * Óvóhelyről felszerelésfelvétel bénultan.
      */
     @Test
-    public void PickupEquipmentWhileStunned() {
+    void PickupEquipmentWhileStunned() {
         String input = "Create Virologist\n" +
                 "Create ShelterTile\n" +
                 "Create BackpackEquipment\n" +
@@ -312,9 +340,9 @@ public class TibiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "ShelterTile objektum sikeresen létrehozva." + newLine +
                 "BackpackEquipment objektum sikeresen létrehozva." + newLine +
                 "StunAgent objektum sikeresen létrehozva." + newLine +
@@ -328,7 +356,7 @@ public class TibiTests {
      * Szabadmezőről felszerelésfelvétel.
      */
     @Test
-    public void PickupEquipmentFromNoneShelterTile() {
+    void PickupEquipmentFromNoneShelterTile() {
         String input = "Create Virologist\n" +
                 "Create Tile\n" +
                 "Create BackpackEquipment\n" +
@@ -339,9 +367,9 @@ public class TibiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Tile objektum sikeresen létrehozva." + newLine +
                 "BackpackEquipment objektum sikeresen létrehozva." + newLine +
                 "Mozgás Tile1 mezőre sikeres." + newLine +
@@ -352,7 +380,7 @@ public class TibiTests {
      * Üres óvóhelyről felszerelésfelvétel.
      */
     @Test
-    public void PickupEquipmentFromEmptyShelter() {
+    void PickupEquipmentFromEmptyShelter() {
         String input = "Create Virologist\n" +
                 "Create ShelterTile\n" +
                 "Create BackpackEquipment\n" +
@@ -363,9 +391,9 @@ public class TibiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "ShelterTile objektum sikeresen létrehozva." + newLine +
                 "BackpackEquipment objektum sikeresen létrehozva." + newLine +
                 "Mozgás ShelterTile1 mezőre sikeres." + newLine +
@@ -376,7 +404,7 @@ public class TibiTests {
      * Óvóhelyről felszerelésfelvétel, ahol van felszerelés.
      */
     @Test
-    public void PickupEquipmentFromShelter() {
+    void PickupEquipmentFromShelter() {
         String input = "Create Virologist\n" +
                 "Create ShelterTile\n" +
                 "Create BackpackEquipment\n" +
@@ -388,9 +416,9 @@ public class TibiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "ShelterTile objektum sikeresen létrehozva." + newLine +
                 "BackpackEquipment objektum sikeresen létrehozva." + newLine +
                 "Mozgás ShelterTile1 mezőre sikeres." + newLine +
@@ -402,7 +430,7 @@ public class TibiTests {
      * Óvóhelyről felszerelésfelvétel, ahol van felszerelés, de a játékos tele van.
      */
     @Test
-    public void PickupEquipmentWhileFull() {
+    void PickupEquipmentWhileFull() {
         String input = "Create Virologist\n" +
                 "Create ShelterTile\n" +
                 "Create BackpackEquipment\n" +
@@ -420,9 +448,9 @@ public class TibiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "ShelterTile objektum sikeresen létrehozva." + newLine +
                 "BackpackEquipment objektum sikeresen létrehozva." + newLine +
                 "CoatEquipment objektum sikeresen létrehozva." + newLine +
@@ -440,7 +468,7 @@ public class TibiTests {
      * Óvóhelyről balta felvétele.
      */
     @Test
-    public void PickupAxe() {
+    void PickupAxe() {
         String input = "Create Virologist\n" +
                 "Create ShelterTile\n" +
                 "Create AxeEquipment\n" +
@@ -452,9 +480,9 @@ public class TibiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "ShelterTile objektum sikeresen létrehozva." + newLine +
                 "AxeEquipment objektum sikeresen létrehozva." + newLine +
                 "Mozgás ShelterTile1 mezőre sikeres." + newLine +
@@ -466,7 +494,7 @@ public class TibiTests {
      * A játékos eldob egy nála lévő felszerelést.
      */
     @Test
-    public void DropEquipment() {
+    void DropEquipment() {
         String input = "Create Virologist\n" +
                 "Create ShelterTile\n" +
                 "Create AxeEquipment\n" +
@@ -479,9 +507,9 @@ public class TibiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "ShelterTile objektum sikeresen létrehozva." + newLine +
                 "AxeEquipment objektum sikeresen létrehozva." + newLine +
                 "Mozgás ShelterTile1 mezőre sikeres." + newLine +
@@ -489,6 +517,5 @@ public class TibiTests {
                 "Felszerelés felvétele sikeres." + newLine +
                 "Felszerelés eltávolítva.", byteArrayOutputStream.toString().trim());
     }
-
 
 }

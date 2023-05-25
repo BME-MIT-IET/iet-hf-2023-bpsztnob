@@ -1,21 +1,31 @@
-import org.junit.Assert;
-import org.junit.Test;
 import projlab.Prototype;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-public class VendelTests {
-    String newLine = "\r\n";
-//    String newLine = "\n";    // Ha nem Windows-on fut
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
+class VendelTests {
+    static String newLine = "\r\n";
+
+    @BeforeAll
+    static void checkOS() {
+        String os = System.getProperty("os.name");
+        if (os.contains("Windows")) {
+            newLine = "\r\n";
+        } else {
+            newLine = "\n";
+        }
+    }
 
     /**
      * Virológusra kent ágens öregítése.
-	 */	
+     */
     @Test
-    public void ProtectionAgentStep() {
+    void ProtectionAgentStep() {
         String input = "Create ProtectionAgent" + newLine +
                 "AddSteppable ProtectionAgent1" + newLine +
                 "Tick";
@@ -24,18 +34,18 @@ public class VendelTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
-        Assert.assertEquals("ProtectionAgent objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("ProtectionAgent objektum sikeresen létrehozva." + newLine +
                 "ProtectionAgent1 hozzáadva a léptethető objektumokhoz." + newLine +
                 "ProtectionAgent1 léptetve.", byteArrayOutputStream.toString().trim());
     }
 
-	/**
+    /**
      * Nukleotid és Aminosav eldobása.
-	 */	
+     */
     @Test
-    public void VirologistDropMaterial() {
+    void VirologistDropMaterial() {
         String input = "Create Virologist" + newLine +
                 "Create DumpsterTile" + newLine +
                 "Create AminoAcidMaterial" + newLine +
@@ -48,9 +58,9 @@ public class VendelTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "DumpsterTile objektum sikeresen létrehozva." + newLine +
                 "AminoAcidMaterial objektum sikeresen létrehozva." + newLine +
                 "NucleotideMaterial objektum sikeresen létrehozva." + newLine +
@@ -58,12 +68,12 @@ public class VendelTests {
                 "Anyagok sikeresen hozzáadva." + newLine +
                 "Anyagok leadása sikeres.", byteArrayOutputStream.toString().trim());
     }
-	
-	/**
+
+    /**
      * Objektum létrehozás.
-	 */	
+     */
     @Test
-    public void Create() {
+    void Create() {
         String input = "Create AmnesiaAgent\n" +
                 "Create BearDeezNutsInYourMouthAgent\n" +
                 "Create DancingAgent\n" +
@@ -95,9 +105,9 @@ public class VendelTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
-        Assert.assertEquals("AmnesiaAgent objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("AmnesiaAgent objektum sikeresen létrehozva." + newLine +
                 "BearDeezNutsInYourMouthAgent objektum sikeresen létrehozva." + newLine +
                 "DancingAgent objektum sikeresen létrehozva." + newLine +
                 "ProtectionAgent objektum sikeresen létrehozva." + newLine +

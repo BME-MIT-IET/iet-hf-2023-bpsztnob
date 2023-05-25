@@ -1,21 +1,33 @@
-import org.junit.Assert;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
 import projlab.Prototype;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-public class SzigetiTests {
+class SzigetiTests {
+    static String newLine = "\r\n";
 
-    String newLine = "\r\n";
-//    String newLine = "\n";    // Ha nem Windows-on fut
+    @BeforeAll
+    static void checkOS() {
+        String os = System.getProperty("os.name");
+        if (os.contains("Windows")) {
+            newLine = "\r\n";
+        } else {
+            newLine = "\n";
+        }
+    }
 
     /**
-     * A virológus megpróbál megfertőzni egy másik virológust, miközben le van bénulva.
+     * A virológus megpróbál megfertőzni egy másik virológust, miközben le van
+     * bénulva.
      */
     @Test
-    public void StunnedVirologistUsingAgent() {
+    void StunnedVirologistUsingAgent() {
         String input = "Create Virologist\n" +
                 "Create Virologist\n" +
                 "Create StunAgent\n" +
@@ -29,9 +41,9 @@ public class SzigetiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Virologist objektum sikeresen létrehozva." + newLine +
                 "StunAgent objektum sikeresen létrehozva." + newLine +
                 "StunInactiveAgent objektum sikeresen létrehozva." + newLine +
@@ -44,7 +56,7 @@ public class SzigetiTests {
      * A virológus megpróbál megfertőzni egy védtelen virológust.
      */
     @Test
-    public void UsingAgentOnNotProtectedVirologist() {
+    void UsingAgentOnNotProtectedVirologist() {
         String input = "Create Virologist\n" +
                 "Create Virologist\n" +
                 "Create StunInactiveAgent\n" +
@@ -56,9 +68,9 @@ public class SzigetiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Virologist objektum sikeresen létrehozva." + newLine +
                 "StunInactiveAgent objektum sikeresen létrehozva." + newLine +
                 "Inaktív ágens sikeresen hozzáadva." + newLine +
@@ -70,7 +82,7 @@ public class SzigetiTests {
      * A virológus megpróbál megfertőzni egy virológust, akin köpeny van és az véd.
      */
     @Test
-    public void UsingAgentOnVirologistWithCoat() {
+    void UsingAgentOnVirologistWithCoat() {
         String input = "Create Virologist\n" +
                 "Create Virologist\n" +
                 "Create CoatEquipment\n" +
@@ -85,9 +97,9 @@ public class SzigetiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Virologist objektum sikeresen létrehozva." + newLine +
                 "CoatEquipment objektum sikeresen létrehozva." + newLine +
                 "StunInactiveAgent objektum sikeresen létrehozva." + newLine +
@@ -101,7 +113,7 @@ public class SzigetiTests {
      * A virológus megpróbál megfertőzni egy virológust, akin védő ágens van.
      */
     @Test
-    public void UsingAgentOnVirologistWithProtectionAgent() {
+    void UsingAgentOnVirologistWithProtectionAgent() {
         String input = "Create Virologist\n" +
                 "Create Virologist\n" +
                 "Create ProtectionAgent\n" +
@@ -115,9 +127,9 @@ public class SzigetiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Virologist objektum sikeresen létrehozva." + newLine +
                 "ProtectionAgent objektum sikeresen létrehozva." + newLine +
                 "StunInactiveAgent objektum sikeresen létrehozva." + newLine +
@@ -131,7 +143,7 @@ public class SzigetiTests {
      * A virológus megpróbál megfertőzni egy virológust, akin kesztyű van.
      */
     @Test
-    public void UsingAgentOnVirologistWithGloves() {
+    void UsingAgentOnVirologistWithGloves() {
         String input = "Create Virologist\n" +
                 "Create Virologist\n" +
                 "Create GlovesEquipment\n" +
@@ -146,9 +158,9 @@ public class SzigetiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Virologist objektum sikeresen létrehozva." + newLine +
                 "GlovesEquipment objektum sikeresen létrehozva." + newLine +
                 "StunInactiveAgent objektum sikeresen létrehozva." + newLine +
@@ -162,7 +174,7 @@ public class SzigetiTests {
      * A virológus megpróbál megfertőzni egy virológust, akin kesztyű és köpeny van.
      */
     @Test
-    public void UsingAgentOnVirologistWithGlovesAndCoat() {
+    void UsingAgentOnVirologistWithGlovesAndCoat() {
         String input = "Create Virologist\n" +
                 "Create Virologist\n" +
                 "Create GlovesEquipment\n" +
@@ -179,9 +191,9 @@ public class SzigetiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Virologist objektum sikeresen létrehozva." + newLine +
                 "GlovesEquipment objektum sikeresen létrehozva." + newLine +
                 "CoatEquipment objektum sikeresen létrehozva." + newLine +
@@ -194,10 +206,11 @@ public class SzigetiTests {
     }
 
     /**
-     * A virológus kesztyűvel megpróbál megfertőzni egy virológust, akin kesztyű van.
+     * A virológus kesztyűvel megpróbál megfertőzni egy virológust, akin kesztyű
+     * van.
      */
     @Test
-    public void UsingAgentWithGlovesOnVirologistWithGloves() {
+    void UsingAgentWithGlovesOnVirologistWithGloves() {
         String input = "Create Virologist\n" +
                 "Create Virologist\n" +
                 "Create GlovesEquipment\n" +
@@ -213,9 +226,9 @@ public class SzigetiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Virologist objektum sikeresen létrehozva." + newLine +
                 "GlovesEquipment objektum sikeresen létrehozva." + newLine +
                 "GlovesEquipment objektum sikeresen létrehozva." + newLine +
@@ -228,10 +241,11 @@ public class SzigetiTests {
     }
 
     /**
-     * A virológusnak köpenye van és megpróbál megfertőzni egy másik virológust, akin kesztyű van.
+     * A virológusnak köpenye van és megpróbál megfertőzni egy másik virológust,
+     * akin kesztyű van.
      */
     @Test
-    public void UsingAgentWithCoatOnVirologistWithGloves() {
+    void UsingAgentWithCoatOnVirologistWithGloves() {
         String input = "Create Virologist\n" +
                 "Create Virologist\n" +
                 "Create GlovesEquipment\n" +
@@ -249,9 +263,9 @@ public class SzigetiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Virologist objektum sikeresen létrehozva." + newLine +
                 "GlovesEquipment objektum sikeresen létrehozva." + newLine +
                 "CoatEquipment objektum sikeresen létrehozva." + newLine +
@@ -264,10 +278,11 @@ public class SzigetiTests {
     }
 
     /**
-     * A virológuson védő ágens van, miközben megfertőz egy másik virológust akinél kesztyű van.
+     * A virológuson védő ágens van, miközben megfertőz egy másik virológust akinél
+     * kesztyű van.
      */
     @Test
-    public void UsingAgentWithProtectionAgentOnMyselfOnVirologistWithGloves() {
+    void UsingAgentWithProtectionAgentOnMyselfOnVirologistWithGloves() {
         String input = "Create Virologist\n" +
                 "Create Virologist\n" +
                 "Create GlovesEquipment\n" +
@@ -284,9 +299,9 @@ public class SzigetiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Virologist objektum sikeresen létrehozva." + newLine +
                 "GlovesEquipment objektum sikeresen létrehozva." + newLine +
                 "ProtectionAgent objektum sikeresen létrehozva." + newLine +
