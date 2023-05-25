@@ -269,8 +269,8 @@ public class StepDefinitions {
         actualAnswer = "Felszerelés sikeresen hozzáadva.";
     }
 
-    @Given("I added {string} a {string} material from {string} materials")
-    public void add_materials_to_storage_tile(String tileName, String equipmentName, String materialss) {
+    @Given("I added to StorageTile {string} {string} materials")
+    public void add_materials_to_storage_tile(String tileName, String materialss) {
         StorageTile storageTile = (StorageTile) Prototype.getObjects().get(tileName);
         ArrayList<Material> materials = new ArrayList<>();
         List<String> materialNames = Arrays.asList(materialss.split(" "));
