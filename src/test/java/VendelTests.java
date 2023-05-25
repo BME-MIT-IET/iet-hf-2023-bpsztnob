@@ -5,16 +5,25 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 public class VendelTests {
-    String newLine = "\r\n";
-//    String newLine = "\n";    // Ha nem Windows-on fut
+    static String newLine = "\r\n";
 
+    @BeforeAll
+    public static void checkOS() {
+        String os = System.getProperty("os.name");
+        if (os.contains("Windows")) {
+            newLine = "\r\n";
+        } else {
+            newLine = "\n";
+        }
+    }
 
     /**
      * Virológusra kent ágens öregítése.
-	 */	
+     */
     @Test
     public void ProtectionAgentStep() {
         String input = "Create ProtectionAgent" + newLine +
@@ -25,16 +34,16 @@ public class VendelTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
         Assertions.assertEquals("ProtectionAgent objektum sikeresen létrehozva." + newLine +
                 "ProtectionAgent1 hozzáadva a léptethető objektumokhoz." + newLine +
                 "ProtectionAgent1 léptetve.", byteArrayOutputStream.toString().trim());
     }
 
-	/**
+    /**
      * Nukleotid és Aminosav eldobása.
-	 */	
+     */
     @Test
     public void VirologistDropMaterial() {
         String input = "Create Virologist" + newLine +
@@ -49,7 +58,7 @@ public class VendelTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
         Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "DumpsterTile objektum sikeresen létrehozva." + newLine +
@@ -59,10 +68,10 @@ public class VendelTests {
                 "Anyagok sikeresen hozzáadva." + newLine +
                 "Anyagok leadása sikeres.", byteArrayOutputStream.toString().trim());
     }
-	
-	/**
+
+    /**
      * Objektum létrehozás.
-	 */	
+     */
     @Test
     public void Create() {
         String input = "Create AmnesiaAgent\n" +
@@ -96,7 +105,7 @@ public class VendelTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
         Assertions.assertEquals("AmnesiaAgent objektum sikeresen létrehozva." + newLine +
                 "BearDeezNutsInYourMouthAgent objektum sikeresen létrehozva." + newLine +

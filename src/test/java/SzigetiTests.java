@@ -1,5 +1,6 @@
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import projlab.Prototype;
@@ -9,12 +10,21 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 public class SzigetiTests {
+    static String newLine = "\r\n";
 
-    String newLine = "\r\n";
-//    String newLine = "\n";    // Ha nem Windows-on fut
+    @BeforeAll
+    public static void checkOS() {
+        String os = System.getProperty("os.name");
+        if (os.contains("Windows")) {
+            newLine = "\r\n";
+        } else {
+            newLine = "\n";
+        }
+    }
 
     /**
-     * A virológus megpróbál megfertőzni egy másik virológust, miközben le van bénulva.
+     * A virológus megpróbál megfertőzni egy másik virológust, miközben le van
+     * bénulva.
      */
     @Test
     public void StunnedVirologistUsingAgent() {
@@ -31,7 +41,7 @@ public class SzigetiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
         Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Virologist objektum sikeresen létrehozva." + newLine +
@@ -58,7 +68,7 @@ public class SzigetiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
         Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Virologist objektum sikeresen létrehozva." + newLine +
@@ -87,7 +97,7 @@ public class SzigetiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
         Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Virologist objektum sikeresen létrehozva." + newLine +
@@ -117,7 +127,7 @@ public class SzigetiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
         Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Virologist objektum sikeresen létrehozva." + newLine +
@@ -148,7 +158,7 @@ public class SzigetiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
         Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Virologist objektum sikeresen létrehozva." + newLine +
@@ -181,7 +191,7 @@ public class SzigetiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
         Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Virologist objektum sikeresen létrehozva." + newLine +
@@ -196,7 +206,8 @@ public class SzigetiTests {
     }
 
     /**
-     * A virológus kesztyűvel megpróbál megfertőzni egy virológust, akin kesztyű van.
+     * A virológus kesztyűvel megpróbál megfertőzni egy virológust, akin kesztyű
+     * van.
      */
     @Test
     public void UsingAgentWithGlovesOnVirologistWithGloves() {
@@ -215,7 +226,7 @@ public class SzigetiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
         Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Virologist objektum sikeresen létrehozva." + newLine +
@@ -230,7 +241,8 @@ public class SzigetiTests {
     }
 
     /**
-     * A virológusnak köpenye van és megpróbál megfertőzni egy másik virológust, akin kesztyű van.
+     * A virológusnak köpenye van és megpróbál megfertőzni egy másik virológust,
+     * akin kesztyű van.
      */
     @Test
     public void UsingAgentWithCoatOnVirologistWithGloves() {
@@ -251,7 +263,7 @@ public class SzigetiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
         Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Virologist objektum sikeresen létrehozva." + newLine +
@@ -266,7 +278,8 @@ public class SzigetiTests {
     }
 
     /**
-     * A virológuson védő ágens van, miközben megfertőz egy másik virológust akinél kesztyű van.
+     * A virológuson védő ágens van, miközben megfertőz egy másik virológust akinél
+     * kesztyű van.
      */
     @Test
     public void UsingAgentWithProtectionAgentOnMyselfOnVirologistWithGloves() {
@@ -286,7 +299,7 @@ public class SzigetiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
         Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Virologist objektum sikeresen létrehozva." + newLine +

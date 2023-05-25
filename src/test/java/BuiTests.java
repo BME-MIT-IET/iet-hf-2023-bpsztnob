@@ -6,15 +6,25 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 public class BuiTests {
-    String newLine = "\r\n";
-//    String newLine = "\n";    // Ha nem Windows-on fut
+    static String newLine = "\r\n";
 
-	/**
+    @BeforeAll
+    public static void checkOS() {
+        String os = System.getProperty("os.name");
+        if (os.contains("Windows")) {
+            newLine = "\r\n";
+        } else {
+            newLine = "\n";
+        }
+    }
+
+    /**
      * Ágens magamra kenése mikor kesztyű, köpeny és védő ágens van rajtam.
-	 */	
+     */
     @Test
     public void InfectSelftWithGlovesCoatProtectionAgent() {
         String input = "Create Virologist" + newLine +
@@ -33,7 +43,7 @@ public class BuiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
         Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "GlovesEquipment objektum sikeresen létrehozva." + newLine +
@@ -49,9 +59,9 @@ public class BuiTests {
                 "StunAgent1", byteArrayOutputStream.toString().trim());
     }
 
-	/**
+    /**
      * Ágens kenése bénultan.
-	 */	
+     */
     @Test
     public void InfectWhileStunned() {
         String input = "Create Virologist" + newLine +
@@ -66,7 +76,7 @@ public class BuiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
         Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Virologist objektum sikeresen létrehozva." + newLine +
@@ -76,9 +86,9 @@ public class BuiTests {
                 "Inaktív ágens kenése sikertelen.", byteArrayOutputStream.toString().trim());
     }
 
-	/**
+    /**
      * Lopás nem bénult virológustól.
-	 */	
+     */
     @Test
     public void StealFromNonStunnedVirologist() {
         String input = "Create Virologist" + newLine +
@@ -91,7 +101,7 @@ public class BuiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
         Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Virologist objektum sikeresen létrehozva." + newLine +
@@ -100,9 +110,9 @@ public class BuiTests {
                 "Felszerelés ellopása sikertelen.", byteArrayOutputStream.toString().trim());
     }
 
-	/**
+    /**
      * Lopás bénultan.
-	 */	
+     */
     @Test
     public void StealWhileStunned() {
         String input = "Create Virologist" + newLine +
@@ -119,7 +129,7 @@ public class BuiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
         Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Virologist objektum sikeresen létrehozva." + newLine +
@@ -132,9 +142,9 @@ public class BuiTests {
                 "Felszerelés ellopása sikertelen.", byteArrayOutputStream.toString().trim());
     }
 
-	/**
+    /**
      * Lopás bénult virológustól, akinek vannak anyagai.
-	 */	
+     */
     @Test
     public void StealFromStunnedVirologistMaterials() {
         String input = "Create Virologist" + newLine +
@@ -149,7 +159,7 @@ public class BuiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
         Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Virologist objektum sikeresen létrehozva." + newLine +
@@ -160,9 +170,9 @@ public class BuiTests {
                 "Anyagok ellopása sikeres.", byteArrayOutputStream.toString().trim());
     }
 
-	/**
+    /**
      * Lopás bénult virológustól, akinek vannak anyagai és tele vagyok.
-	 */	
+     */
     @Test
     public void StealFromStunnedVirologistMaterialsWhileFull() {
         String input = "Create Virologist" + newLine +
@@ -179,7 +189,8 @@ public class BuiTests {
                 "Create AminoAcidMaterial" + newLine +
                 "Create AminoAcidMaterial" + newLine +
                 "Create StunAgent" + newLine +
-                "Command Virologist1 AddMaterials AminoAcidMaterial1 AminoAcidMaterial2 AminoAcidMaterial3 AminoAcidMaterial4 AminoAcidMaterial5 AminoAcidMaterial6 AminoAcidMaterial7 AminoAcidMaterial8 AminoAcidMaterial9 AminoAcidMaterial10" + newLine +
+                "Command Virologist1 AddMaterials AminoAcidMaterial1 AminoAcidMaterial2 AminoAcidMaterial3 AminoAcidMaterial4 AminoAcidMaterial5 AminoAcidMaterial6 AminoAcidMaterial7 AminoAcidMaterial8 AminoAcidMaterial9 AminoAcidMaterial10"
+                + newLine +
                 "Command Virologist2 AddMaterials AminoAcidMaterial11" + newLine +
                 "Command StunAgent1 Infect Virologist2" + newLine +
                 "Command Virologist1 StealMaterials Virologist2 AminoAcidMaterial11" + newLine +
@@ -190,7 +201,7 @@ public class BuiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
         Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Virologist objektum sikeresen létrehozva." + newLine +
@@ -222,9 +233,9 @@ public class BuiTests {
                 "AminoAcidMaterial10", byteArrayOutputStream.toString().trim());
     }
 
-	/**
+    /**
      * Lopás bénult virológustól, akinek van köpenye.
-	 */	
+     */
     @Test
     public void StealFromStunnedVirologistCoat() {
         String input = "Create Virologist" + newLine +
@@ -239,7 +250,7 @@ public class BuiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
         Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Virologist objektum sikeresen létrehozva." + newLine +
@@ -250,9 +261,9 @@ public class BuiTests {
                 "Felszerelés ellopása sikeres.", byteArrayOutputStream.toString().trim());
     }
 
-	/**
+    /**
      * Lopás bénult virológustól, akinek van zsákja, ami nem üres.
-	 */	
+     */
     @Test
     public void StealFromStunnedVirologistBackpackWithMaterials() {
         String input = "Create Virologist" + newLine +
@@ -271,7 +282,8 @@ public class BuiTests {
                 "Create BackpackEquipment" + newLine +
                 "Create StunAgent" + newLine +
                 "Command Virologist2 AddEquipment BackpackEquipment1" + newLine +
-                "Command Virologist2 AddMaterials AminoAcidMaterial1 AminoAcidMaterial2 AminoAcidMaterial3 AminoAcidMaterial4 AminoAcidMaterial5 AminoAcidMaterial6 AminoAcidMaterial7 AminoAcidMaterial8 AminoAcidMaterial9 AminoAcidMaterial10 AminoAcidMaterial11" + newLine +
+                "Command Virologist2 AddMaterials AminoAcidMaterial1 AminoAcidMaterial2 AminoAcidMaterial3 AminoAcidMaterial4 AminoAcidMaterial5 AminoAcidMaterial6 AminoAcidMaterial7 AminoAcidMaterial8 AminoAcidMaterial9 AminoAcidMaterial10 AminoAcidMaterial11"
+                + newLine +
                 "Command StunAgent1 Infect Virologist2" + newLine +
                 "Command Virologist1 StealEquipment Virologist2 BackpackEquipment1" + newLine +
                 "Command Virologist1 List materials" + newLine;
@@ -280,7 +292,7 @@ public class BuiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
         Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Virologist objektum sikeresen létrehozva." + newLine +
@@ -304,9 +316,10 @@ public class BuiTests {
                 "AminoAcidMaterial11", byteArrayOutputStream.toString().trim());
     }
 
-	/**
-     * Lopás bénult virológustól, akinek van zsákja, ami nem üres, de tele vagyok felszerelésileg, de nem vagyok tele nyersanyagilag.
-	 */	
+    /**
+     * Lopás bénult virológustól, akinek van zsákja, ami nem üres, de tele vagyok
+     * felszerelésileg, de nem vagyok tele nyersanyagilag.
+     */
     @Test
     public void StealFromStunnedVirologistBackpackWithMaterialsFullEquipment() {
         String input = "Create Virologist" + newLine +
@@ -328,7 +341,8 @@ public class BuiTests {
                 "Create CoatEquipment" + newLine +
                 "Create StunAgent" + newLine +
                 "Command Virologist2 AddEquipment BackpackEquipment1" + newLine +
-                "Command Virologist2 AddMaterials AminoAcidMaterial1 AminoAcidMaterial2 AminoAcidMaterial3 AminoAcidMaterial4 AminoAcidMaterial5 AminoAcidMaterial6 AminoAcidMaterial7 AminoAcidMaterial8 AminoAcidMaterial9 AminoAcidMaterial10 AminoAcidMaterial11" + newLine +
+                "Command Virologist2 AddMaterials AminoAcidMaterial1 AminoAcidMaterial2 AminoAcidMaterial3 AminoAcidMaterial4 AminoAcidMaterial5 AminoAcidMaterial6 AminoAcidMaterial7 AminoAcidMaterial8 AminoAcidMaterial9 AminoAcidMaterial10 AminoAcidMaterial11"
+                + newLine +
                 "Command StunAgent1 Infect Virologist2" + newLine +
                 "Command Virologist1 AddEquipment CoatEquipment1" + newLine +
                 "Command Virologist1 AddEquipment CoatEquipment2" + newLine +
@@ -341,7 +355,7 @@ public class BuiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
         Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Virologist objektum sikeresen létrehozva." + newLine +
@@ -374,9 +388,9 @@ public class BuiTests {
                 "CoatEquipment3", byteArrayOutputStream.toString().trim());
     }
 
-	/**
+    /**
      * Laborban megfertőződés medvevírussal.
-	 */	
+     */
     @Test
     public void GetInfectedInInfectiousLabTile() {
         String input = "Create Virologist" + newLine +
@@ -388,7 +402,7 @@ public class BuiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
         Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "InfectiousLabTile objektum sikeresen létrehozva." + newLine +
@@ -396,9 +410,9 @@ public class BuiTests {
                 "BearDeezNutsInYourMouthAgent1", byteArrayOutputStream.toString().trim());
     }
 
-	/**
+    /**
      * Laborban megfertőződés medvevírussal miközben védő ágens van rajtunk.
-	 */	
+     */
     @Test
     public void GetInfectedInInfectiousLabTileWithProtectionAgent() {
         String input = "Create Virologist" + newLine +
@@ -412,7 +426,7 @@ public class BuiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
         Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "InfectiousLabTile objektum sikeresen létrehozva." + newLine +
@@ -421,9 +435,9 @@ public class BuiTests {
                 "Mozgás InfectiousLabTile1 mezőre sikeres.", byteArrayOutputStream.toString().trim());
     }
 
-	/**
+    /**
      * Laborban megfertőződés medvevírussal.
-	 */	
+     */
     @Test
     public void GetInfectedInInfectiousLabTileWithCoatEquipment() {
         String input = "Create Virologist" + newLine +
@@ -438,7 +452,7 @@ public class BuiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
         Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "InfectiousLabTile objektum sikeresen létrehozva." + newLine +
@@ -448,9 +462,9 @@ public class BuiTests {
                 "Mozgás InfectiousLabTile1 mezőre sikeres.", byteArrayOutputStream.toString().trim());
     }
 
-	/**
+    /**
      * Medve a raktárban lévő anyagokat elpusztítja.
-	 */	
+     */
     @Test
     public void BearDestroyMaterials() {
         String input = "Create Virologist" + newLine +
@@ -460,7 +474,8 @@ public class BuiTests {
                 "Create NucleotideMaterial" + newLine +
                 "Create NucleotideMaterial" + newLine +
                 "Command BearDeezNutsInYourMouthAgent1 Infect Virologist1 " + newLine +
-                "Command StorageTile1 AddMaterials NucleotideMaterial1, NucleotideMaterial2, NucleotideMaterial3" + newLine +
+                "Command StorageTile1 AddMaterials NucleotideMaterial1, NucleotideMaterial2, NucleotideMaterial3"
+                + newLine +
                 "Command Virologist1 Move StorageTile1" + newLine +
                 "Command StorageTile1 List" + newLine;
         System.setIn(new ByteArrayInputStream(input.getBytes()));
@@ -468,7 +483,7 @@ public class BuiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
         Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "BearDeezNutsInYourMouthAgent objektum sikeresen létrehozva." + newLine +
@@ -481,9 +496,9 @@ public class BuiTests {
                 "Mozgás StorageTile1 mezőre sikeres.", byteArrayOutputStream.toString().trim());
     }
 
-	/**
+    /**
      * Medve megfertőz egy medvevírussal egy virológust.
-	 */	
+     */
     @Test
     public void GetInfectedByBearAgentByBear() {
         String input = "Create Virologist" + newLine +
@@ -499,7 +514,7 @@ public class BuiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
         Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Virologist objektum sikeresen létrehozva." + newLine +
@@ -511,9 +526,9 @@ public class BuiTests {
                 "BearDeezNutsInYourMouthAgent2", byteArrayOutputStream.toString().trim());
     }
 
-	/**
+    /**
      * Medve megfertőz egy medvevírussal egy virológust, akin védő ágens van.
-	 */	
+     */
     @Test
     public void GetInfectedByBearAgentByBearWithProtectionAgent() {
         String input = "Create Virologist" + newLine +
@@ -531,7 +546,7 @@ public class BuiTests {
         PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setOut(ps);
 
-        Prototype.main(new String[]{});
+        Prototype.main(new String[] {});
 
         Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Virologist objektum sikeresen létrehozva." + newLine +
