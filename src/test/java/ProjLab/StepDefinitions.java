@@ -35,6 +35,7 @@ import projlab.tile.LabTile;
 import projlab.tile.ShelterTile;
 import projlab.tile.StorageTile;
 import projlab.tile.Tile;
+import projlab.util.CustomRandom;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static projlab.util.Util.getKeyByValue;
@@ -209,6 +210,22 @@ public class StepDefinitions {
             Timer.instance().addSteppable(steppable);
         }
         System.out.println(objectName + " hozzáadva a léptethető objektumokhoz.");
+    }
+
+    @Given("I list everything")
+    public void list_everything() {
+        Prototype.getObjects().forEach((key, value) -> actualAnswer += key + "\n");
+    }
+
+    @Given("randomization is set to {string}")
+    public void list_everything(String boolValue) {
+        if (boolValue.equals("true")) {
+            CustomRandom.setRandomness(true);
+            System.out.println("Véletlenszerűség sikeresen átállítva true állapotba.");
+        } else if (boolValue.equals("false")) {
+            CustomRandom.setRandomness(false);
+            System.out.println("Véletlenszerűség sikeresen átállítva false állapotba.");
+        }
     }
 
     @Then("I should be told {string}")
