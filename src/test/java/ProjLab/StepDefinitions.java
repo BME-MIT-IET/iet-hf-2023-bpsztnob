@@ -165,6 +165,19 @@ public class StepDefinitions {
         }
     }
 
+    @Given("Virologist {string} is dead")
+    public void is_dead(String virologist){
+        String objectName = virologist;
+        Virologist v = (Virologist) Prototype.getObjects().get(objectName);
+        if (v.isDead()) {
+            actualAnswer="Halott.";
+        } else {
+            actualAnswer="Nem halott.";
+        }
+    }
+
+    
+
     @Then("I should be told {string}")
     public void i_should_be_told(String expectedAnswer) {
         assertEquals(expectedAnswer, actualAnswer);
