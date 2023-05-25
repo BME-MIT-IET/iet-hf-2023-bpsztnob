@@ -36,6 +36,7 @@ import projlab.tile.ShelterTile;
 import projlab.tile.StorageTile;
 import projlab.tile.Tile;
 import projlab.util.CustomRandom;
+import projlab.util.Util;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static projlab.util.Util.getKeyByValue;
@@ -218,13 +219,26 @@ public class StepDefinitions {
     }
 
     @Given("randomization is set to {string}")
-    public void list_everything(String boolValue) {
+    public void set_randomization(String boolValue) {
         if (boolValue.equals("true")) {
             CustomRandom.setRandomness(true);
-            System.out.println("Véletlenszerűség sikeresen átállítva true állapotba.");
+            actualAnswer = ("Véletlenszerűség sikeresen átállítva true állapotba.");
         } else if (boolValue.equals("false")) {
             CustomRandom.setRandomness(false);
-            System.out.println("Véletlenszerűség sikeresen átállítva false állapotba.");
+            actualAnswer = ("Véletlenszerűség sikeresen átállítva false állapotba.");
+        }
+    }
+
+    @Given("that timer ticks")
+    public void timer_tick() {
+        java.util.ArrayList<Steppable> steppables = Timer.instance().getSteppables();
+        java.util.HashMap<String, Object> objects = Prototype.getObjects();
+        for (Steppable s : steppables) {
+            String objectKey = Util.getKeyByValue(objects, s);
+            if (!Objects.isNull(objectKey)) {
+                actualAnswer += (objectKey + " léptetve.\n");
+                s.step();
+            }
         }
     }
 
