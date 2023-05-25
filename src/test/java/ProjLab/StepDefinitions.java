@@ -12,6 +12,7 @@ import projlab.agent.StunAgent;
 import projlab.equipment.AxeEquipment;
 import projlab.equipment.BackpackEquipment;
 import projlab.equipment.CoatEquipment;
+import projlab.equipment.Equipment;
 import projlab.equipment.GlovesEquipment;
 import projlab.geneticcode.AmnesiaGeneticCode;
 import projlab.geneticcode.DancingGeneticCode;
@@ -284,6 +285,17 @@ public class StepDefinitions {
         } else {
             actualAnswer="Anyagok felvétele sikertelen.";
         }
+    }
+
+    @Given("Virologist {string} removes their equipment {string}")
+    public void remove_equipment(String virologist, String equipmentString){
+        String objectName = virologist;
+        Virologist v = (Virologist) Prototype.getObjects().get(objectName);
+        String equipmentName = equipmentString;
+        Equipment equipment = (Equipment) Prototype.getObjects().get(equipmentName);
+        v.removeEquipment(equipment);
+
+        actualAnswer = "Felszerelés eltávolítva.";
     }
 
     
