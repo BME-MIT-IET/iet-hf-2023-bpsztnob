@@ -33,6 +33,7 @@ import projlab.tile.StorageTile;
 import projlab.tile.Tile;
 import projlab.util.LearnGeneticCodeEnum;
 import projlab.util.MoveEnum;
+import projlab.util.PickupEquipmentEnum;
 import projlab.util.Constants;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -233,6 +234,28 @@ public class StepDefinitions {
                 break;
             case RANDOM_TILE:
                 actualAnswer= Constants.MOVING + tileName + Constants.TO_TILE_FAILED_RANDOM;
+                break;
+        }
+    }
+
+    @Given("Virologist {string} picks up equipment")
+    public void pickup_equipment(String virologist){
+        String objectName = virologist;
+        Virologist v = (Virologist) Prototype.getObjects().get(objectName);
+
+        PickupEquipmentEnum status = v.pickupEquipment();
+        switch (status) {
+            case SUCCESFUL:
+                actualAnswer="Felszerelés felvétele sikeres.";
+                break;
+            case FAILED:
+                actualAnswer="Felszerelés felvétele sikertelen.";
+                break;
+            case EMPTY:
+                actualAnswer="Nincs a mezőn felszerelés.";
+                break;
+            case FULL:
+                actualAnswer="Túl sok felszerelése van a virológusnak.";
                 break;
         }
     }
