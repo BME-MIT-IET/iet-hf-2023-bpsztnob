@@ -9,7 +9,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-public class SzigetiTests {
+class SzigetiTests {
     static String newLine = "\r\n";
 
     @BeforeAll
