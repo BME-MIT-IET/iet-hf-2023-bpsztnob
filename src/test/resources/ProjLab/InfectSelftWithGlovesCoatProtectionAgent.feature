@@ -13,3 +13,13 @@ Feature: InfectSelftWithGlovesCoatProtectionAgent
     Then I should be told "StunInactiveAgent objektum sikeresen létrehozva."
     Given I infect virologist "Virologist1" with "ProtectionAgent1"
     Then I should be told "Virológus sikeresen megfertőzve."
+    Given I added "GlovesEquipment1" to "Virologist1"
+    Then I should be told "Felszerelés sikeresen hozzáadva."
+    Given I added "CoatEquipment1" to "Virologist1"
+    Then I should be told "Felszerelés sikeresen hozzáadva."
+    Given I added to "Virologist1" virologist "StunInactiveAgent1" inactive ganet
+    Then I should be told "Inaktív ágens sikeresen hozzáadva."
+    Given Virologist "Virologist1" infects virologist "Virologist1" with agent "StunInactiveAgent1"
+    Then I should be told "Inaktív ágens kenése sikeres."
+    Given I list what "agents" objects are on "Virologist1"
+    Then I should be told "ProtectionAgent1\nStunAgent1"

@@ -164,6 +164,7 @@ public class StepDefinitions {
 
     @Given("I list what {string} objects are on {string}")
     public void list_virologists(String objectType, String virologist) {
+        actualAnswer = "";
         String objectName = virologist;
         Virologist v = (Virologist) Prototype.getObjects().get(objectName);
 
@@ -591,7 +592,7 @@ public class StepDefinitions {
 
     @Then("I should be told {string}")
     public void i_should_be_told(String expectedAnswer) {
-        assertEquals(expectedAnswer.trim(), actualAnswer.trim());
+        assertEquals(expectedAnswer.trim().replace("\\n", "\n"), actualAnswer.trim());
     }
 
 }
