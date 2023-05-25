@@ -23,7 +23,8 @@ public class Prototype {
 
         while (s.hasNextLine()) {
             String line = s.nextLine();
-            if ("".equals(line.trim())) break;
+            if ("".equals(line.trim()))
+                break;
 
             String[] temp = line.split(" ");
             if (commands.keySet().contains(temp[0])) {
@@ -53,5 +54,9 @@ public class Prototype {
                 break;
             }
         }
+    }
+
+    public static void clearObjects() {
+        objects.clear();
     }
 }

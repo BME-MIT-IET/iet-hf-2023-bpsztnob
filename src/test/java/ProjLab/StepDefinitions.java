@@ -64,6 +64,11 @@ public class StepDefinitions {
             "DumpsterTile", "LabTile", "ShelterTile", "StorageTile", "InfectiousLabTile", "Tile",
             "Virologist" };
 
+    @Given("that everything is reset")
+    public void clear_objects() {
+        Prototype.clearObjects();
+    }
+
     @Given("object {string}")
     public void create_object(String objectName) {
         if (Arrays.asList(allowedClasses).contains(objectName)) {
