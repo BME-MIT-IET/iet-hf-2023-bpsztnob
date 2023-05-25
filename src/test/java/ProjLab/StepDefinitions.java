@@ -298,6 +298,24 @@ public class StepDefinitions {
         actualAnswer = "Felszerelés eltávolítva.";
     }
 
+    @Given("Virologist {string} steals from another Virologist {string} an equipment {string}")
+    public void steal_equipment(String virologist1String, String virologsist2String, String equipmentString){
+        String virologist1Name = virologist1String;
+        Virologist v1 = (Virologist) Prototype.getObjects().get(virologist1Name);
+        String virologist2Name = virologsist2String;
+        Virologist v2 = (Virologist) Prototype.getObjects().get(virologist2Name);
+        String equipmentName = equipmentString;
+        Equipment equipment = (Equipment) Prototype.getObjects().get(equipmentName);
+
+
+        boolean steal = v1.stealEquipment(v2, equipment);
+        if (steal) {
+            actualAnswer="Felszerelés ellopása sikeres.";
+        } else {
+            actualAnswer ="Felszerelés ellopása sikertelen.";
+        }
+    }
+
     
 
     @Then("I should be told {string}")
