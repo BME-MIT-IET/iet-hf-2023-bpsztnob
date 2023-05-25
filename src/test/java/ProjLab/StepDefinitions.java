@@ -30,6 +30,7 @@ import projlab.tile.LabTile;
 import projlab.tile.ShelterTile;
 import projlab.tile.StorageTile;
 import projlab.tile.Tile;
+import projlab.util.LearnGeneticCodeEnum;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -173,6 +174,26 @@ public class StepDefinitions {
             actualAnswer="Halott.";
         } else {
             actualAnswer="Nem halott.";
+        }
+    }
+
+    @Given("Virologist {string} learns genetic code")
+    public void learn_genetic_code(String virologistName){
+        String objectName = virologistName;
+        Virologist v = (Virologist) Prototype.getObjects().get(objectName);
+
+        LearnGeneticCodeEnum status = v.learnGeneticCode();
+
+        switch (status) {
+            case SUCCESSFUL:
+                actualAnswer="Genetikai kód sikeresen megtanulva.";
+                break;
+            case FAILED:
+                actualAnswer="Genetikai kód megtanulása sikertelen.";
+                break;
+            case ALREADY_LEARNT:
+                actualAnswer="Genetikai kód már meg volt tanulva.";
+                break;
         }
     }
 
