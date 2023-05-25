@@ -35,10 +35,14 @@ import projlab.util.LearnGeneticCodeEnum;
 import projlab.util.MoveEnum;
 import projlab.util.PickupEquipmentEnum;
 import projlab.util.Constants;
+import projlab.material.Material;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 
 import org.junit.jupiter.api.Assertions.*;
 
@@ -257,6 +261,28 @@ public class StepDefinitions {
             case FULL:
                 actualAnswer="Túl sok felszerelése van a virológusnak.";
                 break;
+        }
+    }
+
+
+    @Given("Virologist {string} picks up materials {string}")
+    public void pickup_materials(String virologist, String materialsString){
+        String objectName = virologist;
+        Virologist v = (Virologist) Prototype.getObjects().get(objectName);
+
+        ArrayList<Material> materials = new ArrayList<>();
+        List<String> materialNames = Arrays.asList(materialsString.split(" "));
+        for (String names : materialNames) {
+            Material material = (Material) Prototype.getObjects().get(names);
+            if (!Objects.isNull(material)) {
+                materials.add(material);
+            }
+        }
+
+        if (v.pickupMaterials(materials)) {
+            actualAnswer="Anyagok felvétele sikeres.";
+        } else {
+            actualAnswer="Anyagok felvétele sikertelen.";
         }
     }
 
