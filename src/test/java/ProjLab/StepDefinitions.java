@@ -196,6 +196,29 @@ public class StepDefinitions {
         actualAnswer += "\n";
     }
 
+    @Given("I add to {string} its neighbours {string}")
+    public void add_neighbours(String objectName, String[] args) {
+        Tile tile = (Tile) Prototype.getObjects().get(objectName);
+
+        ArrayList<Tile> neighbours = new ArrayList<>();
+        List<String> tileNames = Arrays.asList(args).subList(2, args.length);
+        for (String name : tileNames) {
+            Tile neighbour = (Tile) Prototype.getObjects().get(name);
+            if (!Objects.isNull(neighbour)) {
+                neighbours.add(neighbour);
+            }
+        }
+
+        tile.addNeighbours(neighbours);
+        ArrayList<Tile> temp = new ArrayList<>();
+        temp.add(tile);
+        for (Tile neighbour : neighbours) {
+            neighbour.addNeighbours(temp);
+        }
+
+        actualAnswer = "Szomszéd sikeresen hozzáadva.";
+    }
+
     @Then("I should be told {string}")
     public void i_should_be_told(String expectedAnswer) {
         assertEquals(expectedAnswer, actualAnswer);
