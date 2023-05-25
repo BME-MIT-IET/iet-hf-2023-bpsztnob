@@ -2,6 +2,8 @@ package ProjLab;
 
 import io.cucumber.java.en.*;
 import projlab.Prototype;
+import projlab.Steppable;
+import projlab.Timer;
 import projlab.Virologist;
 import projlab.agent.Agent;
 import projlab.agent.AmnesiaAgent;
@@ -39,6 +41,7 @@ import static projlab.util.Util.getKeyByValue;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 
 import org.junit.jupiter.api.Assertions.*;
 
@@ -196,6 +199,16 @@ public class StepDefinitions {
             default:
                 return;
         }
+    }
+
+    @Given("I add object {string} to steppables")
+    public void infect_virologist(String objectName) {
+        Steppable steppable = (Steppable) Prototype.getObjects().get(objectName);
+
+        if (!Objects.isNull(steppable)) {
+            Timer.instance().addSteppable(steppable);
+        }
+        System.out.println(objectName + " hozzáadva a léptethető objektumokhoz.");
     }
 
     @Then("I should be told {string}")
