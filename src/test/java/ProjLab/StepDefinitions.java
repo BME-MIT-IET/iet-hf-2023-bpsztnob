@@ -21,6 +21,7 @@ import projlab.geneticcode.ProtectionGeneticCode;
 import projlab.geneticcode.StunGeneticCode;
 import projlab.inactiveagent.AmnesiaInactiveAgent;
 import projlab.inactiveagent.DancingInactiveAgent;
+import projlab.inactiveagent.InactiveAgent;
 import projlab.inactiveagent.ProtectionInactiveAgent;
 import projlab.inactiveagent.StunInactiveAgent;
 import projlab.material.AminoAcidMaterial;
@@ -248,13 +249,22 @@ public class StepDefinitions {
         actualAnswer = "Felszerelés sikeresen hozzáadva.";
     }
 
-    @Given("I added {string} virologist {string} equipment")
+    @Given("I added to {string} virologist {string} genetic code")
     public void add_genetic_code_virologist(String objectName, String geneticCodeName) {
         Virologist v = (Virologist) Prototype.getObjects().get(objectName);
         GeneticCode geneticCode = (GeneticCode) Prototype.getObjects().get(geneticCodeName);
 
         v.addGeneticCode(geneticCode);
         actualAnswer = "Genetikai kód sikeresen hozzáadva.";
+    }
+
+    @Given("I added to {string} virologist {string} inactive ganet")
+    public void add_inactive_agent_virologist(String objectName, String inactiveAgentName) {
+        Virologist v = (Virologist) Prototype.getObjects().get(objectName);
+        InactiveAgent inactiveAgent = (InactiveAgent) Prototype.getObjects().get(inactiveAgentName);
+
+        v.addInactiveAgent(inactiveAgent);
+        actualAnswer = "Inaktív ágens sikeresen hozzáadva.";
     }
 
     @Then("I should be told {string}")
