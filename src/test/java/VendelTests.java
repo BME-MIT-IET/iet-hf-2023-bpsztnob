@@ -1,10 +1,11 @@
-import org.junit.Assert;
-import org.junit.Test;
 import projlab.Prototype;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class VendelTests {
     String newLine = "\r\n";
@@ -26,7 +27,7 @@ public class VendelTests {
 
         Prototype.main(new String[]{});
 
-        Assert.assertEquals("ProtectionAgent objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("ProtectionAgent objektum sikeresen létrehozva." + newLine +
                 "ProtectionAgent1 hozzáadva a léptethető objektumokhoz." + newLine +
                 "ProtectionAgent1 léptetve.", byteArrayOutputStream.toString().trim());
     }
@@ -50,7 +51,7 @@ public class VendelTests {
 
         Prototype.main(new String[]{});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "DumpsterTile objektum sikeresen létrehozva." + newLine +
                 "AminoAcidMaterial objektum sikeresen létrehozva." + newLine +
                 "NucleotideMaterial objektum sikeresen létrehozva." + newLine +
@@ -97,7 +98,7 @@ public class VendelTests {
 
         Prototype.main(new String[]{});
 
-        Assert.assertEquals("AmnesiaAgent objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("AmnesiaAgent objektum sikeresen létrehozva." + newLine +
                 "BearDeezNutsInYourMouthAgent objektum sikeresen létrehozva." + newLine +
                 "DancingAgent objektum sikeresen létrehozva." + newLine +
                 "ProtectionAgent objektum sikeresen létrehozva." + newLine +

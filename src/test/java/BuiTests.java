@@ -1,10 +1,12 @@
-import org.junit.Assert;
-import org.junit.Test;
+
 import projlab.Prototype;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class BuiTests {
     String newLine = "\r\n";
@@ -33,7 +35,7 @@ public class BuiTests {
 
         Prototype.main(new String[]{});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "GlovesEquipment objektum sikeresen létrehozva." + newLine +
                 "CoatEquipment objektum sikeresen létrehozva." + newLine +
                 "ProtectionAgent objektum sikeresen létrehozva." + newLine +
@@ -66,7 +68,7 @@ public class BuiTests {
 
         Prototype.main(new String[]{});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Virologist objektum sikeresen létrehozva." + newLine +
                 "StunAgent objektum sikeresen létrehozva." + newLine +
                 "StunInactiveAgent objektum sikeresen létrehozva." + newLine +
@@ -91,7 +93,7 @@ public class BuiTests {
 
         Prototype.main(new String[]{});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Virologist objektum sikeresen létrehozva." + newLine +
                 "CoatEquipment objektum sikeresen létrehozva." + newLine +
                 "Felszerelés sikeresen hozzáadva." + newLine +
@@ -119,7 +121,7 @@ public class BuiTests {
 
         Prototype.main(new String[]{});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Virologist objektum sikeresen létrehozva." + newLine +
                 "CoatEquipment objektum sikeresen létrehozva." + newLine +
                 "StunAgent objektum sikeresen létrehozva." + newLine +
@@ -149,7 +151,7 @@ public class BuiTests {
 
         Prototype.main(new String[]{});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Virologist objektum sikeresen létrehozva." + newLine +
                 "AminoAcidMaterial objektum sikeresen létrehozva." + newLine +
                 "StunAgent objektum sikeresen létrehozva." + newLine +
@@ -190,7 +192,7 @@ public class BuiTests {
 
         Prototype.main(new String[]{});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Virologist objektum sikeresen létrehozva." + newLine +
                 "AminoAcidMaterial objektum sikeresen létrehozva." + newLine +
                 "AminoAcidMaterial objektum sikeresen létrehozva." + newLine +
@@ -239,7 +241,7 @@ public class BuiTests {
 
         Prototype.main(new String[]{});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Virologist objektum sikeresen létrehozva." + newLine +
                 "CoatEquipment objektum sikeresen létrehozva." + newLine +
                 "StunAgent objektum sikeresen létrehozva." + newLine +
@@ -280,7 +282,7 @@ public class BuiTests {
 
         Prototype.main(new String[]{});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Virologist objektum sikeresen létrehozva." + newLine +
                 "AminoAcidMaterial objektum sikeresen létrehozva." + newLine +
                 "AminoAcidMaterial objektum sikeresen létrehozva." + newLine +
@@ -341,7 +343,7 @@ public class BuiTests {
 
         Prototype.main(new String[]{});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Virologist objektum sikeresen létrehozva." + newLine +
                 "AminoAcidMaterial objektum sikeresen létrehozva." + newLine +
                 "AminoAcidMaterial objektum sikeresen létrehozva." + newLine +
@@ -388,7 +390,7 @@ public class BuiTests {
 
         Prototype.main(new String[]{});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "InfectiousLabTile objektum sikeresen létrehozva." + newLine +
                 "Mozgás InfectiousLabTile1 mezőre sikeres." + newLine +
                 "BearDeezNutsInYourMouthAgent1", byteArrayOutputStream.toString().trim());
@@ -412,7 +414,7 @@ public class BuiTests {
 
         Prototype.main(new String[]{});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "InfectiousLabTile objektum sikeresen létrehozva." + newLine +
                 "ProtectionAgent objektum sikeresen létrehozva." + newLine +
                 "Virológus sikeresen megfertőzve." + newLine +
@@ -438,7 +440,7 @@ public class BuiTests {
 
         Prototype.main(new String[]{});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "InfectiousLabTile objektum sikeresen létrehozva." + newLine +
                 "CoatEquipment objektum sikeresen létrehozva." + newLine +
                 "Véletlenszerűség sikeresen átállítva false állapotba." + newLine +
@@ -468,7 +470,7 @@ public class BuiTests {
 
         Prototype.main(new String[]{});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "BearDeezNutsInYourMouthAgent objektum sikeresen létrehozva." + newLine +
                 "StorageTile objektum sikeresen létrehozva." + newLine +
                 "NucleotideMaterial objektum sikeresen létrehozva." + newLine +
@@ -499,7 +501,7 @@ public class BuiTests {
 
         Prototype.main(new String[]{});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Virologist objektum sikeresen létrehozva." + newLine +
                 "BearDeezNutsInYourMouthAgent objektum sikeresen létrehozva." + newLine +
                 "ShelterTile objektum sikeresen létrehozva." + newLine +
@@ -531,7 +533,7 @@ public class BuiTests {
 
         Prototype.main(new String[]{});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Virologist objektum sikeresen létrehozva." + newLine +
                 "BearDeezNutsInYourMouthAgent objektum sikeresen létrehozva." + newLine +
                 "ProtectionAgent objektum sikeresen létrehozva." + newLine +

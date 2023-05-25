@@ -1,5 +1,7 @@
-import org.junit.Assert;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
 import projlab.Prototype;
 
 import java.io.ByteArrayInputStream;
@@ -31,7 +33,7 @@ public class TibiTests {
 
         Prototype.main(new String[]{});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "StorageTile objektum sikeresen létrehozva." + newLine +
                 "StunAgent objektum sikeresen létrehozva." + newLine +
                 "NucleotideMaterial objektum sikeresen létrehozva." + newLine +
@@ -59,7 +61,7 @@ public class TibiTests {
 
         Prototype.main(new String[]{});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Tile objektum sikeresen létrehozva." + newLine +
                 "NucleotideMaterial objektum sikeresen létrehozva." + newLine +
                 "Mozgás Tile1 mezőre sikeres." + newLine +
@@ -85,7 +87,7 @@ public class TibiTests {
 
         Prototype.main(new String[]{});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "StorageTile objektum sikeresen létrehozva." + newLine +
                 "NucleotideMaterial objektum sikeresen létrehozva." + newLine +
                 "AminoAcidMaterial objektum sikeresen létrehozva." + newLine +
@@ -126,7 +128,7 @@ public class TibiTests {
 
         Prototype.main(new String[]{});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "StorageTile objektum sikeresen létrehozva." + newLine +
                 "NucleotideMaterial objektum sikeresen létrehozva." + newLine +
                 "NucleotideMaterial objektum sikeresen létrehozva." + newLine +
@@ -186,7 +188,7 @@ public class TibiTests {
 
         Prototype.main(new String[]{});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "StorageTile objektum sikeresen létrehozva." + newLine +
                 "NucleotideMaterial objektum sikeresen létrehozva." + newLine +
                 "NucleotideMaterial objektum sikeresen létrehozva." + newLine +
@@ -259,7 +261,7 @@ public class TibiTests {
 
         Prototype.main(new String[]{});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "StorageTile objektum sikeresen létrehozva." + newLine +
                 "NucleotideMaterial objektum sikeresen létrehozva." + newLine +
                 "NucleotideMaterial objektum sikeresen létrehozva." + newLine +
@@ -314,7 +316,7 @@ public class TibiTests {
 
         Prototype.main(new String[]{});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "ShelterTile objektum sikeresen létrehozva." + newLine +
                 "BackpackEquipment objektum sikeresen létrehozva." + newLine +
                 "StunAgent objektum sikeresen létrehozva." + newLine +
@@ -341,7 +343,7 @@ public class TibiTests {
 
         Prototype.main(new String[]{});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "Tile objektum sikeresen létrehozva." + newLine +
                 "BackpackEquipment objektum sikeresen létrehozva." + newLine +
                 "Mozgás Tile1 mezőre sikeres." + newLine +
@@ -365,7 +367,7 @@ public class TibiTests {
 
         Prototype.main(new String[]{});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "ShelterTile objektum sikeresen létrehozva." + newLine +
                 "BackpackEquipment objektum sikeresen létrehozva." + newLine +
                 "Mozgás ShelterTile1 mezőre sikeres." + newLine +
@@ -390,7 +392,7 @@ public class TibiTests {
 
         Prototype.main(new String[]{});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "ShelterTile objektum sikeresen létrehozva." + newLine +
                 "BackpackEquipment objektum sikeresen létrehozva." + newLine +
                 "Mozgás ShelterTile1 mezőre sikeres." + newLine +
@@ -422,7 +424,7 @@ public class TibiTests {
 
         Prototype.main(new String[]{});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "ShelterTile objektum sikeresen létrehozva." + newLine +
                 "BackpackEquipment objektum sikeresen létrehozva." + newLine +
                 "CoatEquipment objektum sikeresen létrehozva." + newLine +
@@ -454,7 +456,7 @@ public class TibiTests {
 
         Prototype.main(new String[]{});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "ShelterTile objektum sikeresen létrehozva." + newLine +
                 "AxeEquipment objektum sikeresen létrehozva." + newLine +
                 "Mozgás ShelterTile1 mezőre sikeres." + newLine +
@@ -481,7 +483,7 @@ public class TibiTests {
 
         Prototype.main(new String[]{});
 
-        Assert.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
+        Assertions.assertEquals("Virologist objektum sikeresen létrehozva." + newLine +
                 "ShelterTile objektum sikeresen létrehozva." + newLine +
                 "AxeEquipment objektum sikeresen létrehozva." + newLine +
                 "Mozgás ShelterTile1 mezőre sikeres." + newLine +
