@@ -32,6 +32,7 @@ import projlab.tile.LabTile;
 import projlab.tile.ShelterTile;
 import projlab.tile.StorageTile;
 import projlab.tile.Tile;
+import projlab.util.Util;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -182,6 +183,17 @@ public class StepDefinitions {
         }
         storageTile.addMaterial(materials);
         actualAnswer = "Anyagok sikeresen hozzáadva.";
+    }
+
+    @Given("I list {string} materials")
+    public void list_materials(String tileName) {
+        StorageTile storageTile = (StorageTile) Prototype.getObjects().get(tileName);
+        ArrayList<Material> materials = storageTile.getMaterials();
+        for (Material material : materials) {
+            String key = Util.getKeyByValue(Prototype.getObjects(), material);
+            actualAnswer += key;
+        }
+        actualAnswer += "\n";
     }
 
     @Then("I should be told {string}")
