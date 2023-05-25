@@ -19,6 +19,7 @@ import projlab.geneticcode.ProtectionGeneticCode;
 import projlab.geneticcode.StunGeneticCode;
 import projlab.inactiveagent.AmnesiaInactiveAgent;
 import projlab.inactiveagent.DancingInactiveAgent;
+import projlab.inactiveagent.InactiveAgent;
 import projlab.inactiveagent.ProtectionInactiveAgent;
 import projlab.inactiveagent.StunInactiveAgent;
 import projlab.material.AminoAcidMaterial;
@@ -144,6 +145,24 @@ public class StepDefinitions {
         Virologist v1 = (Virologist) Prototype.getObjects().get(virologistName);
         v1.getInfected(agent, null);
         actualAnswer = "Virológus sikeresen megfertőzve.";
+    }
+
+    @Given("Virologist {string} infects virologist {string} with agent {string}")
+    public void virologist_infects_virologist(String infecter, String infected, String agent){
+        String objectName = infecter;
+        Virologist v = (Virologist) Prototype.getObjects().get(objectName);
+
+        String targetName = infected;
+        Virologist target = (Virologist) Prototype.getObjects().get(targetName);
+
+        String inactiveAgentName = agent;
+        InactiveAgent inactiveAgent = (InactiveAgent) Prototype.getObjects().get(inactiveAgentName);
+
+        if (v.infectVirologistWith(inactiveAgent, target)) {
+            actualAnswer ="Inaktív ágens kenése sikeres.";
+        } else {
+            actualAnswer = "Inaktív ágens kenése sikertelen.";
+        }
     }
 
     @Then("I should be told {string}")
