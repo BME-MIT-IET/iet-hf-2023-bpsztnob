@@ -197,11 +197,11 @@ public class StepDefinitions {
     }
 
     @Given("I add to {string} its neighbours {string}")
-    public void add_neighbours(String objectName, String[] args) {
+    public void add_neighbours(String objectName, String neighbourss) {
         Tile tile = (Tile) Prototype.getObjects().get(objectName);
 
         ArrayList<Tile> neighbours = new ArrayList<>();
-        List<String> tileNames = Arrays.asList(args).subList(2, args.length);
+        List<String> tileNames = Arrays.asList(neighbourss.split(" "));
         for (String name : tileNames) {
             Tile neighbour = (Tile) Prototype.getObjects().get(name);
             if (!Objects.isNull(neighbour)) {
@@ -219,12 +219,12 @@ public class StepDefinitions {
         actualAnswer = "Szomszéd sikeresen hozzáadva.";
     }
 
-    @Given("I removed {string} from its neighbours {string}")
-    public void remove_neighbours(String objectName, String[]args) {
+    @Given("I removed neighbours {string} from tile {string}")
+    public void remove_neighbours(String neighbourss, String objectName) {
         Tile tile = (Tile) Prototype.getObjects().get(objectName);
 
         ArrayList<Tile> neighbours = new ArrayList<>();
-        List<String> tileNames = Arrays.asList(args).subList(2, args.length);
+        List<String> tileNames = Arrays.asList(neighbourss.split(" "));
         for (String tileName : tileNames) {
             Tile neighbour = (Tile) Prototype.getObjects().get(tileName);
             if (!Objects.isNull(neighbour)) {
@@ -240,15 +240,21 @@ public class StepDefinitions {
         actualAnswer = "Szomszéd sikeresen eltávolítva.";
     }
 
-    @Given("I added {string} virologist {string} equipment")
-    public void add_equipment_virologist(String objectName, String[]args) {
+    @Given("I added {string} to {string}")
+    public void add_equipment_virologist(String equipmentName, String objectName) {
         Virologist v = (Virologist) Prototype.getObjects().get(objectName);
-
-        String equipmentName = args[2];
         Equipment equipment = (Equipment) Prototype.getObjects().get(equipmentName);
-
         v.addEquipment(equipment);
         actualAnswer = "Felszerelés sikeresen hozzáadva.";
+    }
+
+    @Given("I added {string} virologist {string} equipment")
+    public void add_genetic_code_virologist(String objectName, String geneticCodeName) {
+        Virologist v = (Virologist) Prototype.getObjects().get(objectName);
+        GeneticCode geneticCode = (GeneticCode) Prototype.getObjects().get(geneticCodeName);
+
+        v.addGeneticCode(geneticCode);
+        actualAnswer = "Genetikai kód sikeresen hozzáadva.";
     }
 
     @Then("I should be told {string}")
