@@ -15,6 +15,7 @@ import projlab.equipment.CoatEquipment;
 import projlab.equipment.GlovesEquipment;
 import projlab.geneticcode.AmnesiaGeneticCode;
 import projlab.geneticcode.DancingGeneticCode;
+import projlab.geneticcode.GeneticCode;
 import projlab.geneticcode.ProtectionGeneticCode;
 import projlab.geneticcode.StunGeneticCode;
 import projlab.inactiveagent.AmnesiaInactiveAgent;
@@ -138,12 +139,21 @@ public class StepDefinitions {
         }
     }
 
+
     @Given("I infect virologist {string} with {string}")
     public void infect_virologist(String virologistName, String agentName) {
         Agent agent = (Agent) Prototype.getObjects().get(agentName);
         Virologist v1 = (Virologist) Prototype.getObjects().get(virologistName);
         v1.getInfected(agent, null);
         actualAnswer = "Virológus sikeresen megfertőzve.";
+    }
+
+    @Given("I added {string} genetic code to {string}")
+    public void addGeneticCode(String objectName, String codeName) {
+        LabTile tile = (LabTile) Prototype.getObjects().get(objectName);
+        GeneticCode code = (GeneticCode) Prototype.getObjects().get(codeName);
+        tile.addGeneticCode(code);
+        actualAnswer = "Genetikai kód sikeresen hozzáadva.";
     }
 
     @Then("I should be told {string}")
