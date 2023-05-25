@@ -12,6 +12,7 @@ import projlab.agent.StunAgent;
 import projlab.equipment.AxeEquipment;
 import projlab.equipment.BackpackEquipment;
 import projlab.equipment.CoatEquipment;
+import projlab.equipment.Equipment;
 import projlab.equipment.GlovesEquipment;
 import projlab.geneticcode.AmnesiaGeneticCode;
 import projlab.geneticcode.DancingGeneticCode;
@@ -149,11 +150,19 @@ public class StepDefinitions {
     }
 
     @Given("I added {string} genetic code to {string}")
-    public void addGeneticCode(String objectName, String codeName) {
+    public void add_genetic_code(String objectName, String codeName) {
         LabTile tile = (LabTile) Prototype.getObjects().get(objectName);
         GeneticCode code = (GeneticCode) Prototype.getObjects().get(codeName);
         tile.addGeneticCode(code);
         actualAnswer = "Genetikai kód sikeresen hozzáadva.";
+    }
+
+    @Given("I added to {string} a {string} equipment")
+    public void add_equipment_command(String tileName, String equipmentName) {
+        ShelterTile shelterTile = (ShelterTile) Prototype.getObjects().get(tileName);
+        Equipment equipment = (Equipment) Prototype.getObjects().get(equipmentName);
+        shelterTile.addEquipment(equipment);
+        actualAnswer = "Felszerelés sikeresen hozzáadva.";
     }
 
     @Then("I should be told {string}")
