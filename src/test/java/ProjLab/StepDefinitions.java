@@ -219,6 +219,27 @@ public class StepDefinitions {
         actualAnswer = "Szomszéd sikeresen hozzáadva.";
     }
 
+    @Given("I removed {string} from its neighbours {string}")
+    public void remove_neighbours(String objectName, String[]args) {
+        Tile tile = (Tile) Prototype.getObjects().get(objectName);
+
+        ArrayList<Tile> neighbours = new ArrayList<>();
+        List<String> tileNames = Arrays.asList(args).subList(2, args.length);
+        for (String tileName : tileNames) {
+            Tile neighbour = (Tile) Prototype.getObjects().get(tileName);
+            if (!Objects.isNull(neighbour)) {
+                neighbours.add(neighbour);
+            }
+        }
+        tile.removeNeighbours(neighbours);
+        ArrayList<Tile> temp = new ArrayList<>();
+        temp.add(tile);
+        for (Tile neighbour : neighbours) {
+            neighbour.removeNeighbours(temp);
+        }
+        actualAnswer = "Szomszéd sikeresen eltávolítva.";
+    }
+
     @Then("I should be told {string}")
     public void i_should_be_told(String expectedAnswer) {
         assertEquals(expectedAnswer, actualAnswer);
