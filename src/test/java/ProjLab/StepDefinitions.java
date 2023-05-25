@@ -159,7 +159,7 @@ public class StepDefinitions {
         Agent agent = (Agent) Prototype.getObjects().get(agentName);
         Virologist v1 = (Virologist) Prototype.getObjects().get(virologistName);
         v1.getInfected(agent, null);
-        actualAnswer += "Virológus sikeresen megfertőzve.\n";
+        actualAnswer = "Virológus sikeresen megfertőzve.";
     }
 
     @Given("I list what {string} objects are on {string}")
@@ -215,7 +215,7 @@ public class StepDefinitions {
         if (!Objects.isNull(steppable)) {
             Timer.instance().addSteppable(steppable);
         }
-        actualAnswer += (objectName + " hozzáadva a léptethető objektumokhoz.\n");
+        actualAnswer = (objectName + " hozzáadva a léptethető objektumokhoz.");
     }
 
     @Given("I list everything")
@@ -227,10 +227,10 @@ public class StepDefinitions {
     public void set_randomization(String boolValue) {
         if (boolValue.equals("true")) {
             CustomRandom.setRandomness(true);
-            actualAnswer += ("Véletlenszerűség sikeresen átállítva true állapotba.\n");
+            actualAnswer = ("Véletlenszerűség sikeresen átállítva true állapotba.");
         } else if (boolValue.equals("false")) {
             CustomRandom.setRandomness(false);
-            actualAnswer += ("Véletlenszerűség sikeresen átállítva false állapotba.\n");
+            actualAnswer = ("Véletlenszerűség sikeresen átállítva false állapotba.");
         }
     }
 
@@ -252,7 +252,7 @@ public class StepDefinitions {
         LabTile tile = (LabTile) Prototype.getObjects().get(objectName);
         GeneticCode code = (GeneticCode) Prototype.getObjects().get(codeName);
         tile.addGeneticCode(code);
-        actualAnswer += "Genetikai kód sikeresen hozzáadva.\n";
+        actualAnswer = "Genetikai kód sikeresen hozzáadva.";
     }
 
     @Given("I added to {string} a {string} equipment")
@@ -260,7 +260,7 @@ public class StepDefinitions {
         ShelterTile shelterTile = (ShelterTile) Prototype.getObjects().get(tileName);
         Equipment equipment = (Equipment) Prototype.getObjects().get(equipmentName);
         shelterTile.addEquipment(equipment);
-        actualAnswer += "Felszerelés sikeresen hozzáadva.\n";
+        actualAnswer = "Felszerelés sikeresen hozzáadva.";
     }
 
     @Given("I added {string} a {string} material from {string} materials")
@@ -275,7 +275,7 @@ public class StepDefinitions {
             }
         }
         storageTile.addMaterial(materials);
-        actualAnswer += "Anyagok sikeresen hozzáadva.\n";
+        actualAnswer = "Anyagok sikeresen hozzáadva.";
     }
 
     @Given("I list {string} materials")
@@ -285,8 +285,8 @@ public class StepDefinitions {
         for (Material material : materials) {
             String key = Util.getKeyByValue(Prototype.getObjects(), material);
             actualAnswer += key;
-            actualAnswer += "\n";
         }
+        actualAnswer += "\n";
     }
 
     @Given("I add to {string} its neighbours {string}")
@@ -309,7 +309,7 @@ public class StepDefinitions {
             neighbour.addNeighbours(temp);
         }
 
-        actualAnswer += "Szomszéd sikeresen hozzáadva.\n";
+        actualAnswer = "Szomszéd sikeresen hozzáadva.";
     }
 
     @Given("I removed neighbours {string} from tile {string}")
@@ -330,7 +330,7 @@ public class StepDefinitions {
         for (Tile neighbour : neighbours) {
             neighbour.removeNeighbours(temp);
         }
-        actualAnswer += "Szomszéd sikeresen eltávolítva.\n";
+        actualAnswer = "Szomszéd sikeresen eltávolítva.";
     }
 
     @Given("I added {string} to {string}")
@@ -338,7 +338,7 @@ public class StepDefinitions {
         Virologist v = (Virologist) Prototype.getObjects().get(objectName);
         Equipment equipment = (Equipment) Prototype.getObjects().get(equipmentName);
         v.addEquipment(equipment);
-        actualAnswer += "Felszerelés sikeresen hozzáadva.\n";
+        actualAnswer = "Felszerelés sikeresen hozzáadva.";
     }
 
     @Given("I added to {string} virologist {string} genetic code")
@@ -347,7 +347,7 @@ public class StepDefinitions {
         GeneticCode geneticCode = (GeneticCode) Prototype.getObjects().get(geneticCodeName);
 
         v.addGeneticCode(geneticCode);
-        actualAnswer += "Genetikai kód sikeresen hozzáadva.\n";
+        actualAnswer = "Genetikai kód sikeresen hozzáadva.";
     }
 
     @Given("I added to {string} virologist {string} inactive ganet")
@@ -356,7 +356,7 @@ public class StepDefinitions {
         InactiveAgent inactiveAgent = (InactiveAgent) Prototype.getObjects().get(inactiveAgentName);
 
         v.addInactiveAgent(inactiveAgent);
-        actualAnswer += "Inaktív ágens sikeresen hozzáadva.\n";
+        actualAnswer = "Inaktív ágens sikeresen hozzáadva.";
     }
 
     @Given("I added {string} materials to {string}")
@@ -373,7 +373,7 @@ public class StepDefinitions {
         }
 
         v.addMaterials(materials);
-        actualAnswer += "Anyagok sikeresen hozzáadva.\n";
+        actualAnswer = "Anyagok sikeresen hozzáadva.";
     }
 
     @Given("I removed {string} materials from {string}")
@@ -390,9 +390,9 @@ public class StepDefinitions {
         }
 
         if (v.dumpMaterials(materials)) {
-            actualAnswer += "Anyagok leadása sikeres.\n";
+            actualAnswer = "Anyagok leadása sikeres.";
         } else {
-            actualAnswer += "Anyagok leadása sikertelen.\n";
+            actualAnswer = "Anyagok leadása sikertelen.";
         }
     }
 
@@ -408,9 +408,9 @@ public class StepDefinitions {
         InactiveAgent inactiveAgent = (InactiveAgent) Prototype.getObjects().get(inactiveAgentName);
 
         if (v.infectVirologistWith(inactiveAgent, target)) {
-            actualAnswer += "Inaktív ágens kenése sikeres.\n";
+            actualAnswer = "Inaktív ágens kenése sikeres.";
         } else {
-            actualAnswer += "Inaktív ágens kenése sikertelen.\n";
+            actualAnswer = "Inaktív ágens kenése sikertelen.";
         }
     }
 
@@ -419,9 +419,9 @@ public class StepDefinitions {
         String objectName = virologist;
         Virologist v = (Virologist) Prototype.getObjects().get(objectName);
         if (v.isDead()) {
-            actualAnswer += "Halott.\n";
+            actualAnswer = "Halott.";
         } else {
-            actualAnswer += "Nem halott.\n";
+            actualAnswer = "Nem halott.";
         }
     }
 
@@ -434,13 +434,13 @@ public class StepDefinitions {
 
         switch (status) {
             case SUCCESSFUL:
-                actualAnswer += "Genetikai kód sikeresen megtanulva.\n";
+                actualAnswer = "Genetikai kód sikeresen megtanulva.";
                 break;
             case FAILED:
-                actualAnswer += "Genetikai kód megtanulása sikertelen.\n";
+                actualAnswer = "Genetikai kód megtanulása sikertelen.";
                 break;
             case ALREADY_LEARNT:
-                actualAnswer += "Genetikai kód már meg volt tanulva.\n";
+                actualAnswer = "Genetikai kód már meg volt tanulva.";
                 break;
         }
     }
@@ -454,9 +454,9 @@ public class StepDefinitions {
         GeneticCode geneticCode = (GeneticCode) Prototype.getObjects().get(geneticCodeName);
 
         if (v.makeInactiveAgent(geneticCode)) {
-            actualAnswer += "Inaktív ágens készítése sikeres.\n";
+            actualAnswer = "Inaktív ágens készítése sikeres.";
         } else {
-            actualAnswer += "Inaktív ágens készítése sikertelen.\n";
+            actualAnswer = "Inaktív ágens készítése sikertelen.";
         }
     }
 
@@ -471,13 +471,13 @@ public class StepDefinitions {
         MoveEnum status = v.move(tile);
         switch (status) {
             case SUCCESFUL:
-                actualAnswer += Constants.MOVING + tileName + Constants.TO_TILE_SUCCESS + "\n";
+                actualAnswer = Constants.MOVING + tileName + Constants.TO_TILE_SUCCESS;
                 break;
             case FAILED:
-                actualAnswer += Constants.MOVING + tileName + Constants.TO_TILE_FAILED + "\n";
+                actualAnswer = Constants.MOVING + tileName + Constants.TO_TILE_FAILED;
                 break;
             case RANDOM_TILE:
-                actualAnswer += Constants.MOVING + tileName + Constants.TO_TILE_FAILED_RANDOM + "\n";
+                actualAnswer = Constants.MOVING + tileName + Constants.TO_TILE_FAILED_RANDOM;
                 break;
         }
     }
@@ -490,16 +490,16 @@ public class StepDefinitions {
         PickupEquipmentEnum status = v.pickupEquipment();
         switch (status) {
             case SUCCESFUL:
-                actualAnswer += "Felszerelés felvétele sikeres.\n";
+                actualAnswer = "Felszerelés felvétele sikeres.";
                 break;
             case FAILED:
-                actualAnswer += "Felszerelés felvétele sikertelen.\n";
+                actualAnswer = "Felszerelés felvétele sikertelen.";
                 break;
             case EMPTY:
-                actualAnswer += "Nincs a mezőn felszerelés.\n";
+                actualAnswer = "Nincs a mezőn felszerelés.";
                 break;
             case FULL:
-                actualAnswer += "Túl sok felszerelése van a virológusnak.\n";
+                actualAnswer = "Túl sok felszerelése van a virológusnak.";
                 break;
         }
     }
@@ -519,9 +519,9 @@ public class StepDefinitions {
         }
 
         if (v.pickupMaterials(materials)) {
-            actualAnswer += "Anyagok felvétele sikeres.\n";
+            actualAnswer = "Anyagok felvétele sikeres.";
         } else {
-            actualAnswer += "Anyagok felvétele sikertelen.\n";
+            actualAnswer = "Anyagok felvétele sikertelen.";
         }
     }
 
@@ -533,7 +533,7 @@ public class StepDefinitions {
         Equipment equipment = (Equipment) Prototype.getObjects().get(equipmentName);
         v.removeEquipment(equipment);
 
-        actualAnswer += "Felszerelés eltávolítva.\n";
+        actualAnswer = "Felszerelés eltávolítva.";
     }
 
     @Given("Virologist {string} steals from another Virologist {string} an equipment {string}")
@@ -547,9 +547,9 @@ public class StepDefinitions {
 
         boolean steal = v1.stealEquipment(v2, equipment);
         if (steal) {
-            actualAnswer += "Felszerelés ellopása sikeres.\n";
+            actualAnswer = "Felszerelés ellopása sikeres.";
         } else {
-            actualAnswer += "Felszerelés ellopása sikertelen.\n";
+            actualAnswer = "Felszerelés ellopása sikertelen.";
         }
     }
 
@@ -570,9 +570,9 @@ public class StepDefinitions {
         }
 
         if (v.stealMaterials(target, materials)) {
-            actualAnswer += "Anyagok ellopása sikeres.\n";
+            actualAnswer = "Anyagok ellopása sikeres.";
         } else {
-            actualAnswer += "Anyagok ellopása sikertelen.\n";
+            actualAnswer = "Anyagok ellopása sikertelen.";
         }
     }
 
@@ -586,11 +586,12 @@ public class StepDefinitions {
         Equipment equipment = (Equipment) Prototype.getObjects().get(equipmentName);
 
         v.useEquipment(target, equipment);
-        actualAnswer += "Felszerelés használva.\n";
+        actualAnswer = "Felszerelés használva.";
     }
 
     @Then("I should be told {string}")
     public void i_should_be_told(String expectedAnswer) {
         assertEquals(expectedAnswer.trim(), actualAnswer.trim());
     }
+
 }
