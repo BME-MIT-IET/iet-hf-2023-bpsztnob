@@ -172,10 +172,10 @@ public class StepDefinitions {
     }
 
     @Given("I added {string} a {string} material from {string} materials")
-    public void add_materials_to_storage_tile(String tileName, String equipmentName, String[] materialArray) {
+    public void add_materials_to_storage_tile(String tileName, String equipmentName, String materialss) {
         StorageTile storageTile = (StorageTile) Prototype.getObjects().get(tileName);
         ArrayList<Material> materials = new ArrayList<>();
-        List<String> materialNames = Arrays.asList(materialArray).subList(2, materialArray.length);
+        List<String> materialNames = Arrays.asList(materialss.split(" "));
         for (int i = 0; i < materialNames.size(); i++) {
             Material temp = (Material) Prototype.getObjects().get(materialNames.get(i));
             if (!Objects.isNull(temp)) {
@@ -265,6 +265,23 @@ public class StepDefinitions {
 
         v.addInactiveAgent(inactiveAgent);
         actualAnswer = "Inaktív ágens sikeresen hozzáadva.";
+    }
+
+    @Given("I added {string} materials to {string}")
+    public void add_materials_virologist(String materialss, String objectName) {
+        Virologist v = (Virologist) Prototype.getObjects().get(objectName);
+
+        ArrayList<Material> materials = new ArrayList<>();
+        List<String> materialNames = Arrays.asList(materialss.split(" "));
+        for (String names : materialNames) {
+            Material material = (Material) Prototype.getObjects().get(names);
+            if (!Objects.isNull(material)) {
+                materials.add(material);
+            }
+        }
+
+        v.addMaterials(materials);
+        actualAnswer = "Anyagok sikeresen hozzáadva.";
     }
 
     @Then("I should be told {string}")
