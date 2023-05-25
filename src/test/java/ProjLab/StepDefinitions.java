@@ -24,6 +24,7 @@ import projlab.inactiveagent.DancingInactiveAgent;
 import projlab.inactiveagent.ProtectionInactiveAgent;
 import projlab.inactiveagent.StunInactiveAgent;
 import projlab.material.AminoAcidMaterial;
+import projlab.material.Material;
 import projlab.material.NucleotideMaterial;
 import projlab.tile.DumpsterTile;
 import projlab.tile.InfectiousLabTile;
@@ -34,7 +35,10 @@ import projlab.tile.Tile;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 
 import org.junit.jupiter.api.Assertions.*;
 
@@ -158,11 +162,26 @@ public class StepDefinitions {
     }
 
     @Given("I added to {string} a {string} equipment")
-    public void add_equipment_command(String tileName, String equipmentName) {
+    public void add_equipment(String tileName, String equipmentName) {
         ShelterTile shelterTile = (ShelterTile) Prototype.getObjects().get(tileName);
         Equipment equipment = (Equipment) Prototype.getObjects().get(equipmentName);
         shelterTile.addEquipment(equipment);
         actualAnswer = "Felszerelés sikeresen hozzáadva.";
+    }
+
+    @Given("I added to {string} a {string} equipment")
+    public void add_materials_to_storage_tile(String tileName, String equipmentName, String[] materialArray) {
+        StorageTile storageTile = (StorageTile) Prototype.getObjects().get(tileName);
+        ArrayList<Material> materials = new ArrayList<>();
+        List<String> materialNames = Arrays.asList(materialArray).subList(2, materialArray.length);
+        for (int i = 0; i < materialNames.size(); i++) {
+            Material temp = (Material) Prototype.getObjects().get(materialNames.get(i));
+            if (!Objects.isNull(temp)) {
+                materials.add(materials.size(), temp);
+            }
+        }
+        storageTile.addMaterial(materials);
+        actualAnswer = "Anyagok sikeresen hozzáadva.";
     }
 
     @Then("I should be told {string}")
