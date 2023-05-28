@@ -1,3 +1,6 @@
+# Manuális tesztek
+Use-casek alapján készített manuális tesztek:
+
 ### Steal Materials
 - Lépések:
   1. Első virológusnak egy raktár mezőre kell lépnie.
